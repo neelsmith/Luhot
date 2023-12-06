@@ -1,3 +1,3 @@
 # Luhot.jl
 
-Hebrew morphology
+Build morphological parsers for Biblical Hebrew from tabular data sources.
