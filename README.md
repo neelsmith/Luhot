@@ -1,2 +1,3 @@
-# Luhot
+# Luhot.jl
+
 Hebrew morphology
