@@ -1,5 +1,6 @@
 module Luhot
 
-greet() = print("Hello World!")
+# using Hebrew
+using Orthography
 
 end # module Luhot

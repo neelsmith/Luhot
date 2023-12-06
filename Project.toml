@@ -2,3 +2,13 @@ name = "Luhot"
 uuid = "a8276997-f44e-4a7e-86ac-bce91aea2c18"
 authors = ["Neel Smith  <dnsmith.neel@gmail.com>"]
 version = "0.1.0"
+
+[deps]
+CitableParserBuilder = "c834cb9d-35b9-419a-8ff8-ecaeea9e2a2a"
+Orthography = "0b4c9448-09b0-4e78-95ea-3eb3328be36d"
+TestSetExtensions = "98d24dd4-01ad-11ea-1b02-c9a08f80db04"
+
+[compat]
+CitableParserBuilder = "0.25"
+Orthography = "0.21"
+TestSetExtensions = "2"
