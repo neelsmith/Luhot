@@ -30,11 +30,13 @@ export label
 export HebrewMorphologicalProperty
 export HMPVerbPattern, hmpVerbPattern
 export HMPTense, hmpTense
+export HMPPerson, hmpPerson
 export code
 
 include("morphologicalproperties/properties.jl")
 include("morphologicalproperties/verbpattern.jl")
 include("morphologicalproperties/tense.jl")
+include("morphologicalproperties/person.jl")
 
 include("forms/forms.jl")
 include("forms/finiteverbs.jl")

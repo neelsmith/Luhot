@@ -9,4 +9,10 @@
     @test tns == hmpTense("perfect")
     @test code(tns) == 1
     @test label(tns) == "perfect"
+
+
+    p = HMPPerson(1)
+    @test p == hmpTense("first")
+    @test code(p) == 1
+    @test label(p) == "first"
 end

@@ -1,7 +1,7 @@
 struct HMPTense <: HebrewMorphologicalProperty
     code::Int64
     function HMPTense(code)
-        code in keys(codetopatterndict) ? new(code) : throwDomainError(string(code, " is out of range for a Hebrew tense."))
+        code in keys(codetotensedict) ? new(code) : throwDomainError(string(code, " is out of range for a Hebrew tense."))
     end
 end
 
