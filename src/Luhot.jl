@@ -30,6 +30,7 @@ export label
 
 export HebrewMorphologicalProperty
 export HMPVerbPattern, hmpVerbPattern
+export HMPTense, hmpTense
 export code
 
 include("morphologicalproperties/properties.jl")

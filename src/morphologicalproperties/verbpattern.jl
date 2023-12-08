@@ -6,10 +6,7 @@ struct HMPVerbPattern <: HebrewMorphologicalProperty
 end
 
 """Create a `HMPVerbPattern` from its string name."""
-function hmpVerbPattern(s::S) where S <: AbstractString
-    klist = keys(patterntocodedict) |> collect
-    @info("Looking for $(s) in $(klist)")
-
+function hmpVerbPattern(s::S)::HMPVerbPattern where S <: AbstractString
     if s in keys(patterntocodedict) 
         HMPVerbPattern(patterntocodedict[s])
     else 
