@@ -18,4 +18,9 @@
     @test n == hmpNumber("singular")
     @test code(n) == 1
     @test label(n) == "singular"
+
+    g = HMPGender(1)
+    @test g == hmpGender("masculine")
+    @test code(g) == 1
+    @test label(g) == "masculine"
 end

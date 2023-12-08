@@ -32,6 +32,7 @@ export HMPVerbPattern, hmpVerbPattern
 export HMPTense, hmpTense
 export HMPPerson, hmpPerson
 export HMPNumber, hmpNumber
+export HMPGender, hmpGender
 
 export code
 
@@ -39,6 +40,8 @@ include("morphologicalproperties/properties.jl")
 include("morphologicalproperties/verbpattern.jl")
 include("morphologicalproperties/tense.jl")
 include("morphologicalproperties/person.jl")
+include("morphologicalproperties/number.jl")
+include("morphologicalproperties/gender.jl")
 
 include("forms/forms.jl")
 include("forms/finiteverbs.jl")
