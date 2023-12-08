@@ -18,6 +18,10 @@ import CitableParserBuilder: lexemes
 using Documenter, DocStringExtensions
 
 
+export HebrewMorphologicalProperty
+export HMPVerbPattern, hmpVerbPattern
+
+
 include("morphologicalproperties/properties.jl")
 include("morphologicalproperties/verbpattern.jl")
 
