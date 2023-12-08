@@ -4,6 +4,7 @@ authors = ["Neel Smith  <dnsmith.neel@gmail.com>"]
 version = "0.1.0"
 
 [deps]
+BiblicalHebrew = "23d2231d-1fc1-47c2-a612-987552d9b38e"
 CitableParserBuilder = "c834cb9d-35b9-419a-8ff8-ecaeea9e2a2a"
 Orthography = "0b4c9448-09b0-4e78-95ea-3eb3328be36d"
 TestSetExtensions = "98d24dd4-01ad-11ea-1b02-c9a08f80db04"
