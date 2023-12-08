@@ -30,7 +30,7 @@ function label(p::HMPPerson)
     codetopersondict[p.code]
 end
 
-"""Dict mapping codes to labels for verb pattern.
+"""Dict mapping codes to labels for person.
 
 $(SIGNATURES)
 """
@@ -41,6 +41,10 @@ const codetopersondict = Dict(
 )
 
 
+"""Dict mapping codes to labels for person.
+
+$(SIGNATURES)
+"""
 const persontocodedict = Dict(
     "first"  => 1,
     "second" => 2,

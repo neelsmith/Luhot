@@ -31,6 +31,8 @@ export HebrewMorphologicalProperty
 export HMPVerbPattern, hmpVerbPattern
 export HMPTense, hmpTense
 export HMPPerson, hmpPerson
+export HMPNumber, hmpNumber
+
 export code
 
 include("morphologicalproperties/properties.jl")

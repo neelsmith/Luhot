@@ -30,7 +30,7 @@ function label(tns::HMPTense)
     codetotensedict[tns.code]
 end
 
-"""Dict mapping codes to labels for verb pattern.
+"""Dict mapping codes to labels for tense.
 
 $(SIGNATURES)
 """
@@ -40,6 +40,10 @@ const codetotensedict = Dict(
 )
 
 
+"""Dict mapping codes to labels for tense.
+
+$(SIGNATURES)
+"""
 const tensetocodedict = Dict(
     "perfect"  => 1,
     "imperfect" => 2
