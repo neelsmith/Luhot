@@ -8,5 +8,5 @@
     tns = HMPTense(1)
     @test tns == hmpTense("perfect")
     @test code(tns) == 1
-    @test label(nts) == "perfect"
+    @test label(tns) == "perfect"
 end

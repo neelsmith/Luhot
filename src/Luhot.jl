@@ -25,7 +25,6 @@ import CitableParserBuilder: lexemes
 
 using Documenter, DocStringExtensions
 
-
 export label
 
 export HebrewMorphologicalProperty
@@ -35,6 +34,7 @@ export code
 
 include("morphologicalproperties/properties.jl")
 include("morphologicalproperties/verbpattern.jl")
+include("morphologicalproperties/tense.jl")
 
 include("forms/forms.jl")
 include("forms/finiteverbs.jl")

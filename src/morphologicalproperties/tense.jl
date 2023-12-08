@@ -8,7 +8,7 @@ end
 """Create a `HMPTense` from its string name."""
 function hmpTense(s::S)::HMPTense where S <: AbstractString
     if s in keys(tensetocodedict) 
-        HMPVerbPattern(tensetocodedict[s])
+        HMPTense(tensetocodedict[s])
     else 
         DomainError(string(s, " is not a valid value for tense."))
     end
