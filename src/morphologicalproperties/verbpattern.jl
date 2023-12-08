@@ -16,31 +16,23 @@ function hmpVerbPattern(s::S) where S <: AbstractString
         DomainError(string(s, " is not a valid value for verb pattern."))
     end
 end
-#=
-struct GMPPerson <: GreekMorphologicalProperty
-    code::Int64
-    function GMPPerson(code)
-        code in keys(personlabeldict) ? new(code) : throw(DomainError(string(code, " is out of range.")))
-    end
+
+"""Create a `HMPVerbPattern` from its integer code."""
+function hmpVerbPattern(code::Int64)
+    HMPVerbPattern(code)
 end
 
-function gmpPerson(s::AbstractString)
-    s in keys(personcodedict) ? GMPPerson(personcodedict[s]) : DomainError(string(s, " is not a valid value for person.")) 
+"""Find code for a verbal pattern."""
+function code(verbpattern::HMPVerbPattern)
+    verbpattern.code
 end
 
-function gmpPerson(code::Int64)
-    GMPPerson(code)
+
+"""Find lable for a verbal pattern."""
+function label(verbpattern::HMPVerbPattern)
+    codetopatterndict[verbpattern.code]
 end
 
-function code(person::GMPPerson)
-    person.code
-end
-
-function label(person::GMPPerson)
-    personlabeldict[person.code]
-end
-
-=#
 """Dict mapping codes to labels for verb pattern.
 
 $(SIGNATURES)

@@ -3,7 +3,15 @@ module Luhot
 using BiblicalHebrew
 using Orthography
 
-using CitableBase, CitableObject
+
+
+import CitableBase: CitableTrait
+import CitableBase: urn
+import CitableBase: label
+import CitableBase: cex
+
+using CitableBase
+using CitableObject
 
 using CitableParserBuilder
 import CitableParserBuilder: formurn
@@ -18,9 +26,11 @@ import CitableParserBuilder: lexemes
 using Documenter, DocStringExtensions
 
 
+export label
+
 export HebrewMorphologicalProperty
 export HMPVerbPattern, hmpVerbPattern
-
+export code
 
 include("morphologicalproperties/properties.jl")
 include("morphologicalproperties/verbpattern.jl")
