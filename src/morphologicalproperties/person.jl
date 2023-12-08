@@ -6,7 +6,7 @@ struct HMPPerson <: HebrewMorphologicalProperty
 end
 
 """Create a `HMPPerson` from its string name."""
-function HMPPerson(s::S)::HMPPerson where S <: AbstractString
+function hmpPerson(s::S)::HMPPerson where S <: AbstractString
     if s in keys(persontocodedict) 
         HMPPerson(persontocodedict[s])
     else 
@@ -15,7 +15,7 @@ function HMPPerson(s::S)::HMPPerson where S <: AbstractString
 end
 
 """Create a `HMPPerson` from its integer code."""
-function HMPPerson(code::Int64)
+function hmpPerson(code::Int64)
     HMPPerson(code)
 end
 

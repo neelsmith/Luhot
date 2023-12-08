@@ -12,7 +12,7 @@
 
 
     p = HMPPerson(1)
-    @test p == hmpTense("first")
+    @test p == hmpPerson("first")
     @test code(p) == 1
     @test label(p) == "first"
 end
