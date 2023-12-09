@@ -29,6 +29,11 @@ begin
 	md"""*Julia environment defined in this cell.*"""
 end
 
+# ╔═╡ 7a4684d9-ae9c-47a2-9791-036d914875de
+md"""!!! note "Local version"
+    This version of the verb generator notebook is for use in a local clone of the `Luhot.jl` repository.
+"""	
+
 # ╔═╡ 807a2a54-96aa-11ee-378b-394db7f08761
 md"""# Generate Biblical Hebrew verb forms"""
 
@@ -152,11 +157,6 @@ end
 
 # ╔═╡ f0287782-4a61-47ba-b946-70d098e46a1f
 join(map(s -> string("1. ", s), result_by_codept), "\n") |> Markdown.parse
-
-# ╔═╡ 7a4684d9-ae9c-47a2-9791-036d914875de
-md"""!!! note "Local version"
-    This version of the verb generator notebook is for use in a local clone of the `Luhot.jl` repository.
-"""	
 
 # ╔═╡ Cell order:
 # ╟─c2db99e7-dc25-4e86-bd78-454d34515886
