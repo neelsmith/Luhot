@@ -36,6 +36,10 @@ export HMPGender, hmpGender
 
 export code
 
+export HebrewForm
+export HebrewFiniteVerb
+
+
 export filesDataset
 
 include("io.jl")

@@ -14,14 +14,14 @@ end
 """Find verb pattern for a `HebrewFiniteVerb`.
 $(SIGNATURES)
 """
-function hmpPattern(v::HMFFiniteVerb)
+function hmpPattern(v::HebrewFiniteVerb)
     v.vpattern
 end
 
 """Find verb pattern for a `HebrewFiniteVerb`.
 $(SIGNATURES)
 """
-function hmpTense(v::HMFFiniteVerb)
+function hmpTense(v::HebrewFiniteVerb)
     v.vtense
 end
 
@@ -29,14 +29,14 @@ end
 """Find person for a `HebrewFiniteVerb`.
 $(SIGNATURES)
 """
-function hmpPerson(v::HMFFiniteVerb)
+function hmpPerson(v::HebrewFiniteVerb)
     v.vperson
 end
 
 """Find person for a `HebrewFiniteVerb`.
 $(SIGNATURES)
 """
-function hmpNumber(v::HMFFiniteVerb)
+function hmpNumber(v::HebrewFiniteVerb)
     v.vnumber
 end
 
@@ -44,7 +44,7 @@ end
 """Find gender for a `HebrewFiniteVerb`.
 $(SIGNATURES)
 """
-function hmpGender(v::HMFFiniteVerb)
+function hmpGender(v::HebrewFiniteVerb)
     v.vgender
 end
 
@@ -53,22 +53,22 @@ end
 
 
 """Finite verb forms are citable by Cite2Urn"""
-CitableTrait(::Type{HMFFiniteVerb}) = CitableByCite2Urn()
+CitableTrait(::Type{HebrewFiniteVerb}) = CitableByCite2Urn()
 
 #=
 """Compose a digital code for `adj`.
 $(SIGNATURES)
 """
-function code(verb::HMFFiniteVerb)
+function code(verb::HebrewFiniteVerb)
     string(FINITEVERB, code(verb.vperson),code(verb.vnumber), code(verb.vtense), code(verb.vmood), code(verb.vvoice),"0000")
 end
 
 
-"""Compose a label for a `HMFFiniteVerb`
+"""Compose a label for a `HebrewFiniteVerb`
 
 $(SIGNATURES)
 """
-function label(verb::HMFFiniteVerb)
+function label(verb::HebrewFiniteVerb)
     join(
         [
         "finite verb: ",
@@ -80,16 +80,16 @@ function label(verb::HMFFiniteVerb)
         ], " ")
 end
 
-"""Compose a Cite2Urn for a `HMFFiniteVerb`.
+"""Compose a Cite2Urn for a `HebrewFiniteVerb`.
 
 $(SIGNATURES)
 """
-function urn(verb::HMFFiniteVerb)
+function urn(verb::HebrewFiniteVerb)
     # PosPNTMVGCDCat
     Cite2Urn(BASE_MORPHOLOGY_URN * code(verb) )
 end
 
-"""Create a `HMFFiniteVerb` from a string value.
+"""Create a `HebrewFiniteVerb` from a string value.
 
 $(SIGNATURES)
 """
@@ -103,7 +103,7 @@ function gmfFiniteVerb(code::AbstractString)
     prsn = hmpPerson(parse(Int64, morphchars[2]))
     nmbr = hmpNumber(parse(Int64, morphchars[3]))
     
-    HMFFiniteVerb(
+    HebrewFiniteVerb(
         prsn,
         nmbr,
         tns,
@@ -113,7 +113,7 @@ function gmfFiniteVerb(code::AbstractString)
 end
 
 
-"""Create a `HMFFiniteVerb` from a `Cite2URN`.
+"""Create a `HebrewFiniteVerb` from a `Cite2URN`.
 
 $(SIGNATURES)
 """
@@ -122,7 +122,7 @@ function gmfFiniteVerb(urn::Cite2Urn)
 end
 
 
-"""Create a `HMFFiniteVerb` from a `FormUrn`.
+"""Create a `HebrewFiniteVerb` from a `FormUrn`.
 
 $(SIGNATURES)
 """
@@ -130,7 +130,7 @@ function gmfFiniteVerb(f::FormUrn)
     gmfFiniteVerb(f.objectid)
 end
 
-"""Create a `HMFFiniteVerb` from an `Analysis`.
+"""Create a `HebrewFiniteVerb` from an `Analysis`.
 
 $(SIGNATURES)
 """
@@ -140,11 +140,11 @@ end
 
 
 
-"""Compose a `FormUrn` for a `HMFFiniteVerb`.
+"""Compose a `FormUrn` for a `HebrewFiniteVerb`.
 
 $(SIGNATURES)
 """
-function formurn(verbform::HMFFiniteVerb)
+function formurn(verbform::HebrewFiniteVerb)
     FormUrn(string("$(COLLECTION_ID).", code(verbform)))
 end
 
