@@ -9,7 +9,15 @@ struct HebrewFiniteVerb <: HebrewForm
 
 end
 
-
+"""Shorthand summary of person, number and gender 
+properties as 3-letter string."""
+function pngSummary(v::HebrewFiniteVerb)
+    string(
+        hmpPerson(v).code,
+        label(hmpNumber(v))[1],
+        label(hmpGender(v))[1]
+    )
+end
 
 """Find verb pattern for a `HebrewFiniteVerb`.
 $(SIGNATURES)

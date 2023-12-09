@@ -13,9 +13,9 @@ function lexeme(stem::T) where {T <: LuhotStem}
     nothing
 end
 
-"""Default method for function `hmpVerbPattern` for subtypes of `LuhotStem`."""
-function hmpVerbPattern(stem::T) where {T <: LuhotStem}
-    @warn "Function hmpVerbPattern not implemented for stems of type $(typeof(stem))."
+"""Default method for function `hmpPattern` for subtypes of `LuhotStem`."""
+function hmpPattern(stem::T) where {T <: LuhotStem}
+    @warn "Function hmpPattern not implemented for stems of type $(typeof(stem))."
     nothing
 end
 

@@ -24,24 +24,25 @@ function rootclass(verb)
     # pe-guttural
 end
 
-function qal_perfect(root,form)
+function qal_perfect(root::String,form::HebrewFiniteVerb)
     verbclass = rootclass(root)    
 
-    if verbclass == :strong
+    #if verbclass == :strong
         qal_perfect_strong(root, form)
-    else
-        @warn("Verb class $(verbclass) not yet implemented")
-        nothing
-    end
+    #else
+    #    @warn("Verb class $(verbclass) not yet implemented")
+    #    nothing
+    #end
 
 end
 
 # Woo hoo, singular complete!
 
 """Generate requested person+number+gender of the perfect for the given strong verb."""
-function qal_perfect_strong(root, form)
+function qal_perfect_strong(root::String,verb::HebrewFiniteVerb)
     consonants = collect(unpointed(root))
-
+    form = pngSummary(verb)
+    
     if form == "3sm"
         string(qamats(consonants[1]), patah(consonants[2]), consonants[3])
 
@@ -60,4 +61,5 @@ function qal_perfect_strong(root, form)
     else
         @warn("Form $(form) not recognized or not yet implemented.")
     end
+    
 end

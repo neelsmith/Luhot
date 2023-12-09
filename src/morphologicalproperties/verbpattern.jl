@@ -6,7 +6,7 @@ struct HMPVerbPattern <: HebrewMorphologicalProperty
 end
 
 """Create a `HMPVerbPattern` from its string name."""
-function hmpVerbPattern(s::S)::HMPVerbPattern where S <: AbstractString
+function hmpPattern(s::S)::HMPVerbPattern where S <: AbstractString
     if s in keys(patterntocodedict) 
         HMPVerbPattern(patterntocodedict[s])
     else 
@@ -15,7 +15,7 @@ function hmpVerbPattern(s::S)::HMPVerbPattern where S <: AbstractString
 end
 
 """Create a `HMPVerbPattern` from its integer code."""
-function hmpVerbPattern(code::Int64)
+function hmpPattern(code::Int64)
     HMPVerbPattern(code)
 end
 

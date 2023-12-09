@@ -28,7 +28,7 @@ using Documenter, DocStringExtensions
 export label
 
 export HebrewMorphologicalProperty
-export HMPVerbPattern, hmpVerbPattern
+export HMPVerbPattern, hmpPattern
 export HMPTense, hmpTense
 export HMPPerson, hmpPerson
 export HMPNumber, hmpNumber
@@ -41,6 +41,8 @@ export HebrewFiniteVerb
 
 
 export filesDataset
+
+export generate
 
 include("io.jl")
 
