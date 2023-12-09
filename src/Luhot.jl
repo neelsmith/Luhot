@@ -36,6 +36,8 @@ export HMPGender, hmpGender
 
 export code
 
+export filesDataset
+
 include("io.jl")
 
 include("morphologicalproperties/properties.jl")
