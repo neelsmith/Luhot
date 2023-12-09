@@ -9,26 +9,24 @@ struct VerbStem <: LuhotStem
 end
 
 
-#=
-
 """Implementation of reading one row of a stems table for finite verbs.
 
 $(SIGNATURES)
 """
 function readstemrow(usp::VerbIO, delimited::AbstractString; delimiter = "|")
+    #stem|lexeme|root|class
     parts = split(delimited, delimiter)
-    if length(parts) < 5
+    if length(parts) < 4
         throw(ArgumentError("readstemrow for verb: too few parts in $(delimited)"))
     end
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])
-    stem = parts[3]
+    root = parts[3]
     stemclass = parts[4]
-    augmented = lowercase(parts[5]) == "true" || lowercase(parts[5]) == "t"
-    VerbStem(stemid,lexid,stem,stemclass, augmented)
-    # Rule|LexicalEntity|StemClass|Stem|
+   
+    VerbStem(stemid,lexid,root,stemclass)
 end
-=#
+
 """Part of speech value for a `VerbStem`."""
 function pos(vb::VerbStem)
     :verb
