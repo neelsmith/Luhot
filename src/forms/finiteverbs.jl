@@ -1,72 +1,74 @@
 struct HebrewFiniteVerb <: HebrewForm
+    vpattern::HMPVerbPattern
+    vtense::HMPTense
+    vperson::HMPPerson
+    vnumber::HMPNumber
+    vgender::HMPGender
 
-    pattern::HMPVerbPattern
-end
+    # object endings?
 
-#=
-"""Finite verbs have person, number, tense, mood and voice."""
-struct GMFFiniteVerb <: GreekMorphologicalForm
-    vperson::GMPPerson
-    vnumber::GMPNumber
-    vtense::GMPTense
-    vmood::GMPMood
-    vvoice::GMPVoice
 end
 
 
-"""Extract person property from `v`.
+
+"""Find verb pattern for a `HebrewFiniteVerb`.
 $(SIGNATURES)
 """
-function gmpPerson(v::GMFFiniteVerb)
-    v.vperson
+function hmpPattern(v::HMFFiniteVerb)
+    v.vpattern
 end
 
-"""Extract number property from `v`.
+"""Find verb pattern for a `HebrewFiniteVerb`.
 $(SIGNATURES)
 """
-function gmpNumber(v::GMFFiniteVerb)
-    v.vnumber
-end
-
-
-"""Extract tense property from `v`.
-$(SIGNATURES)
-"""
-function gmpTense(v::GMFFiniteVerb)
+function hmpTense(v::HMFFiniteVerb)
     v.vtense
 end
 
 
-"""Extract mood property from `v`.
+"""Find person for a `HebrewFiniteVerb`.
 $(SIGNATURES)
 """
-function gmpMood(v::GMFFiniteVerb)
-    v.vmood
+function hmpPerson(v::HMFFiniteVerb)
+    v.vperson
 end
 
-"""Extract voice property from `v`.
+"""Find person for a `HebrewFiniteVerb`.
 $(SIGNATURES)
 """
-function gmpVoice(v::GMFFiniteVerb)
-    v.vvoice
+function hmpNumber(v::HMFFiniteVerb)
+    v.vnumber
 end
+
+
+"""Find gender for a `HebrewFiniteVerb`.
+$(SIGNATURES)
+"""
+function hmpGender(v::HMFFiniteVerb)
+    v.vgender
+end
+
+
+
+
 
 """Finite verb forms are citable by Cite2Urn"""
-CitableTrait(::Type{GMFFiniteVerb}) = CitableByCite2Urn()
+CitableTrait(::Type{HMFFiniteVerb}) = CitableByCite2Urn()
 
+#=
 """Compose a digital code for `adj`.
 $(SIGNATURES)
 """
-function code(verb::GMFFiniteVerb)
+function code(verb::HMFFiniteVerb)
     string(FINITEVERB, code(verb.vperson),code(verb.vnumber), code(verb.vtense), code(verb.vmood), code(verb.vvoice),"0000")
 end
 
 
-"""Compose a label for a `GMFFiniteVerb`
+"""Compose a label for a `HMFFiniteVerb`
 
 $(SIGNATURES)
 """
-function label(verb::GMFFiniteVerb)
+function label(verb::HMFFiniteVerb)
     join(
         [
         "finite verb: ",
@@ -78,16 +80,16 @@ function label(verb::GMFFiniteVerb)
         ], " ")
 end
 
-"""Compose a Cite2Urn for a `GMFFiniteVerb`.
+"""Compose a Cite2Urn for a `HMFFiniteVerb`.
 
 $(SIGNATURES)
 """
-function urn(verb::GMFFiniteVerb)
+function urn(verb::HMFFiniteVerb)
     # PosPNTMVGCDCat
     Cite2Urn(BASE_MORPHOLOGY_URN * code(verb) )
 end
 
-"""Create a `GMFFiniteVerb` from a string value.
+"""Create a `HMFFiniteVerb` from a string value.
 
 $(SIGNATURES)
 """
@@ -95,13 +97,13 @@ function gmfFiniteVerb(code::AbstractString)
     morphchars = split(code,"")
     # PosPNTMVGCDCat
     
-    tns = gmpTense(parse(Int64, morphchars[4]))
-    md = gmpMood(parse(Int64, morphchars[5]))
-    vc = gmpVoice(parse(Int64,morphchars[6]))
-    prsn = gmpPerson(parse(Int64, morphchars[2]))
-    nmbr = gmpNumber(parse(Int64, morphchars[3]))
+    tns = hmpTense(parse(Int64, morphchars[4]))
+    md = hmpMood(parse(Int64, morphchars[5]))
+    vc = hmpVoice(parse(Int64,morphchars[6]))
+    prsn = hmpPerson(parse(Int64, morphchars[2]))
+    nmbr = hmpNumber(parse(Int64, morphchars[3]))
     
-    GMFFiniteVerb(
+    HMFFiniteVerb(
         prsn,
         nmbr,
         tns,
@@ -111,7 +113,7 @@ function gmfFiniteVerb(code::AbstractString)
 end
 
 
-"""Create a `GMFFiniteVerb` from a `Cite2URN`.
+"""Create a `HMFFiniteVerb` from a `Cite2URN`.
 
 $(SIGNATURES)
 """
@@ -120,7 +122,7 @@ function gmfFiniteVerb(urn::Cite2Urn)
 end
 
 
-"""Create a `GMFFiniteVerb` from a `FormUrn`.
+"""Create a `HMFFiniteVerb` from a `FormUrn`.
 
 $(SIGNATURES)
 """
@@ -128,7 +130,7 @@ function gmfFiniteVerb(f::FormUrn)
     gmfFiniteVerb(f.objectid)
 end
 
-"""Create a `GMFFiniteVerb` from an `Analysis`.
+"""Create a `HMFFiniteVerb` from an `Analysis`.
 
 $(SIGNATURES)
 """
@@ -138,11 +140,11 @@ end
 
 
 
-"""Compose a `FormUrn` for a `GMFFiniteVerb`.
+"""Compose a `FormUrn` for a `HMFFiniteVerb`.
 
 $(SIGNATURES)
 """
-function formurn(verbform::GMFFiniteVerb)
+function formurn(verbform::HMFFiniteVerb)
     FormUrn(string("$(COLLECTION_ID).", code(verbform)))
 end
 
@@ -179,11 +181,11 @@ function finiteverbscex()
                      pers, num, tense, INDICATIVE, voice,"00000")
                     
                     label = string("verb: ", 
-                    label(gmpPerson(pers)), 
-                    label(gmpNumber(num)), 
-                    label(gmpTense(tense)), 
+                    label(hmpPerson(pers)), 
+                    label(hmpNumber(num)), 
+                    label(hmpTense(tense)), 
                     "indicative", 
-                    label(gmpVoice(voice)))
+                    label(hmpVoice(voice)))
                     
                     cex = string(u, "|", label)
                     push!(lines, cex)
@@ -202,11 +204,11 @@ function finiteverbscex()
                     pers, num, FUTURE, mood, voice,"00000")
                     
                     label = string("verb: ", 
-                    code(gmpPerson(pers)), 
-                    code(gmpNumber(num))s, 
+                    code(hmpPerson(pers)), 
+                    code(hmpNumber(num))s, 
                     "future", 
-                    code(gmpMood(mood)), 
-                    code(gmpVoice(voice)))
+                    code(hmpMood(mood)), 
+                    code(hmpVoice(voice)))
                     
                     cex = string(u, "|", label)
                     push!(lines, cex)
@@ -226,11 +228,11 @@ function finiteverbscex()
                         pers, num, tense, mood, voice,"00000")
                         
                         label = string("verb: ", 
-                        code(gmpPerson(pers)), 
-                        code(gmpNumber(num)), 
-                        code(gmpTense(tense)), 
-                        code(gmpMood(mood)), 
-                        code(gmpVoice(voice)))
+                        code(hmpPerson(pers)), 
+                        code(hmpNumber(num)), 
+                        code(hmpTense(tense)), 
+                        code(hmpMood(mood)), 
+                        code(hmpVoice(voice)))
                         
                         cex = string(u, "|", label)
                         push!(lines, cex)
