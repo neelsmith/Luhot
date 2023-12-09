@@ -12,5 +12,4 @@ LuhotIO type for reading and writing data for finite verb form.
 $(SIGNATURES)
 """    
 struct VerbIO <: LuhotIO
-    label::AbstractString
 end

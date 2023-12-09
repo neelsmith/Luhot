@@ -17,7 +17,8 @@ makedocs(
     sitename="Luhot.jl",
     pages = [
             "Luhot.jl" => "index.md",  
-            "API documentation" => "apis.md"
+            "API documentation" => "apis.md",
+            "Internals: the Luhot IO system" => "io.md"
 
     ],
     )

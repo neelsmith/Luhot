@@ -3,9 +3,10 @@
 $(SIGNATURES)
 """
 struct VerbStem <: LuhotStem
-    stemid::AbbreviatedUrn
-    lexid::AbbreviatedUrn
-    root::AbstractString
+    stemid::StemUrn
+    lexid::LexemeUrn
+    root
+    stemclass
 end
 
 
@@ -13,7 +14,7 @@ end
 
 $(SIGNATURES)
 """
-function readstemrow(usp::VerbIO, delimited::AbstractString; delimiter = "|")
+function readstemrow(delimited::AbstractString, io::VerbIO ; delimiter = "|")
     #stem|lexeme|root|class
     parts = split(delimited, delimiter)
     if length(parts) < 4
@@ -41,7 +42,7 @@ CitableTrait(::Type{VerbStem}) = CitableByCite2Urn()
 $(SIGNATURES)
 """
 function stemstring(vs::VerbStem)
-   vs.form
+   vs.root
 end
 
 
@@ -53,7 +54,8 @@ function lexeme(vs::VerbStem)
     vs.lexid
 end
 
-"""Identify root for `vs`.
+"""Synonym for generic `stemstring` function when
+stem is a `VerbStem`.
 $(SIGNATURES)
 """
 function root(vs::VerbStem)
@@ -70,7 +72,7 @@ Required for `CitableTrait`.
 function label(vs::VerbStem)
     string("Verb stem ", 
         root(vs),
-        "- (",  lexeme(vs),   ")")
+        " (",  lexeme(vs), ")")
 end
 
 

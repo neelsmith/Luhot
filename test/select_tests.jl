@@ -3,6 +3,7 @@ Pkg.activate("..")
 
 
 using Luhot, BiblicalHebrew
+using CitableParserBuilder
 using Unicode
 using Orthography
 

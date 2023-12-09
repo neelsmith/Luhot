@@ -36,6 +36,8 @@ export HMPGender, hmpGender
 
 export code
 
+include("io.jl")
+
 include("morphologicalproperties/properties.jl")
 include("morphologicalproperties/verbpattern.jl")
 include("morphologicalproperties/tense.jl")
@@ -46,5 +48,7 @@ include("morphologicalproperties/gender.jl")
 include("forms/forms.jl")
 include("forms/finiteverbs.jl")
 
+include("stems/stems.jl")
+include("stems/verbstems.jl")
 
 end # module Luhot
