@@ -51,4 +51,10 @@ include("forms/finiteverbs.jl")
 include("stems/stems.jl")
 include("stems/verbstems.jl")
 
+include("dataset/dataset.jl")
+include("dataset/fileslayout.jl")
+include("dataset/filesdataset.jl")
+
+include("generate/verbs.jl")
+
 end # module Luhot

@@ -13,3 +13,12 @@ $(SIGNATURES)
 """    
 struct VerbIO <: LuhotIO
 end
+
+
+"""
+LuhotIO type for reading and writing data for noun form.
+
+$(SIGNATURES)
+"""    
+struct NounIO <: LuhotIO
+end
