@@ -7,3 +7,31 @@
 
 
 See the awesome Pluto notebook(s) in the `pluto` directory.
+
+Also here's a pretty awesome quick demo.
+
+Use Luhot functions to create a finite verb form:
+
+```@example tldr
+using Luhot
+pattern = hmpPattern("qal")
+tense = hmpTense("perfect")
+pers = hmpPerson("third")
+num = hmpNumber("singular")
+gender = hmpGender("masculine")
+verbform = HebrewFiniteVerb(
+    pattern, tense,
+    pers, num, gender
+)
+```
+
+Create a stem record from a delimited string:
+```@example tldr
+verbdata = "verbs.BDB4250|bdb.BDB4250|כתב|sound"
+verbstem = Luhot.readstemrow(verbdata, Luhot.VerbIO())
+```
+
+```@example tldr
+verbstring = generate(verbstem, verbform)
+Markdown.parse(verbstring)
+```
