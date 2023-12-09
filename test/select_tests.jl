@@ -2,7 +2,7 @@ using Pkg
 Pkg.activate("..")
 
 
-using Luhot, BiblicalHebrew
+using Luhot#, BiblicalHebrew
 using CitableParserBuilder
 using Unicode
 using Orthography

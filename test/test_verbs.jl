@@ -5,16 +5,16 @@
     pers = hmpPerson("third")
     num = hmpNumber("singular")
     gender = hmpGender("masculine")
-    verb = HebrewFiniteVerb(
+    verbform = HebrewFiniteVerb(
         pattern, tense,
         pers, num, gender
     )
-    @test verb isa HebrewFiniteVerb
-    @test label(hmpPattern(verb)) = "qal"
-    @test label(hmpTense(verb)) = "perfect"
-    @test label(hmpPerson(verb)) == "third"
-    @test label(hmpNumber(verb)) == "singular"
-    @test label(hmpGender(verb)) == "masculine"
+    @test verbform isa HebrewFiniteVerb
+    @test label(hmpPattern(verbform)) == "qal"
+    @test label(hmpTense(verbform)) == "perfect"
+    @test label(hmpPerson(verbform)) == "third"
+    @test label(hmpNumber(verbform)) == "singular"
+    @test label(hmpGender(verbform)) == "masculine"
 
 end
 
