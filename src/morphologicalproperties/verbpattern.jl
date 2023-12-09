@@ -14,6 +14,7 @@ function hmpPattern(s::S)::HMPVerbPattern where S <: AbstractString
     end
 end
 
+
 """Create a `HMPVerbPattern` from its integer code."""
 function hmpPattern(code::Int64)
     HMPVerbPattern(code)

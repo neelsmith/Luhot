@@ -58,8 +58,8 @@ end
 stem is a `VerbStem`.
 $(SIGNATURES)
 """
-function root(vs::VerbStem)
-    vs.root
+function root(vs::VerbStem)::String
+    vs.root |> String
 end
 
 

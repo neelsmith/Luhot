@@ -3,7 +3,7 @@
     vs = Luhot.readstemrow(verbdata, Luhot.VerbIO())
     @test vs isa Luhot.VerbStem
 
-    @test Luhot.pos(vs) == :verb
+    @test Luhot.pos(vs) == :verb # This is wrong?
     @test Luhot.stemstring(vs) == "כתב"
     @test Luhot.lexeme(vs) == LexemeUrn("bdb.BDB4250")
     @test label(vs) == "Verb stem כתב (bdb.BDB4250)"
