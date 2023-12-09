@@ -36,7 +36,8 @@ $(SIGNATURES)
 """
 const codetogenderdict = Dict(
     1 => "masculine",
-    2 => "feminine"
+    2 => "feminine",
+    3 => "common"
 )
 
 
@@ -46,5 +47,6 @@ $(SIGNATURES)
 """
 const gendertocodedict = Dict(
     "masculine"  => 1,
-    "feminine" => 2
+    "feminine" => 2,
+    "common" => 3
 )

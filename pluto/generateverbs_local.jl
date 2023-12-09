@@ -29,11 +29,6 @@ begin
 	md"""*Julia environment defined in this cell.*"""
 end
 
-# ╔═╡ 7a4684d9-ae9c-47a2-9791-036d914875de
-md"""!!! note "Local version"
-    This version of the verb generator notebook is for use in a local clone of the `Luhot.jl` repository.
-"""	
-
 # ╔═╡ 807a2a54-96aa-11ee-378b-394db7f08761
 md"""# Generate Biblical Hebrew verb forms"""
 
@@ -51,6 +46,9 @@ html"""
 <br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/>
 """
+
+# ╔═╡ fe39afca-9838-41c4-b076-f3da5ced8be0
+hmpGender("common")
 
 # ╔═╡ 4bd1e3d1-00ca-4fe8-b58b-c7791b339367
 md"""---"""
@@ -130,10 +128,19 @@ end
 md"""*Person:* $(@bind person Select(personmenu)) *Number:* $(@bind number Select(numbermenu)) *Gender:* $(@bind gender Select(gendermenu))"""
 
 # ╔═╡ 5ccc3cb7-a791-4735-9f7b-f604383aada4
-form = HebrewFiniteVerb(
+form = if person == 1
+	HebrewFiniteVerb(
+	hmpPattern(pattern), hmpTense(tense),
+	hmpPerson(person), hmpNumber(number), hmpGender("common")
+)
+else
+
+	
+	HebrewFiniteVerb(
 	hmpPattern(pattern), hmpTense(tense),
 	hmpPerson(person), hmpNumber(number), hmpGender(gender)
 )
+end
 
 # ╔═╡ 51440ca3-ad09-42ff-b19b-17bd8ad3d538
 result = generate(vocab, form)
@@ -149,6 +156,11 @@ end
 # ╔═╡ f0287782-4a61-47ba-b946-70d098e46a1f
 join(map(s -> string("1. ", s), result_by_codept), "\n") |> Markdown.parse
 
+# ╔═╡ 7a4684d9-ae9c-47a2-9791-036d914875de
+md"""!!! note "Local version"
+    This version of the verb generator notebook is for use in a local clone of the `Luhot.jl` repository.
+"""	
+
 # ╔═╡ Cell order:
 # ╟─c2db99e7-dc25-4e86-bd78-454d34515886
 # ╟─807a2a54-96aa-11ee-378b-394db7f08761
@@ -161,11 +173,12 @@ join(map(s -> string("1. ", s), result_by_codept), "\n") |> Markdown.parse
 # ╟─a91185b9-fd60-4b05-9df1-2a56cdef72c6
 # ╟─f0287782-4a61-47ba-b946-70d098e46a1f
 # ╟─b2af5c82-6547-4ec2-b56b-6c84b632b59f
+# ╠═fe39afca-9838-41c4-b076-f3da5ced8be0
 # ╟─4bd1e3d1-00ca-4fe8-b58b-c7791b339367
 # ╟─6316c95c-c0ce-48e5-bd4e-134b2fd5fa72
 # ╟─51440ca3-ad09-42ff-b19b-17bd8ad3d538
 # ╟─9de7a4a3-0bc6-4c06-bf9b-2fdf4f4e4411
-# ╟─5ccc3cb7-a791-4735-9f7b-f604383aada4
+# ╠═5ccc3cb7-a791-4735-9f7b-f604383aada4
 # ╟─f2d1543a-4014-4b71-9b45-332b699272c5
 # ╟─23885ff7-07b3-42ff-b341-d3555a5360c6
 # ╟─e54c7dd6-6cd6-46ac-98dd-2641ed5df379
