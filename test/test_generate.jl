@@ -31,4 +31,37 @@
     )
 
     @test generate(verbstem,firstsgmasc) == generate(verbstem,firstsgfem) == generate(verbstem, firstsgcommon)
+
+
+    piel = HebrewFiniteVerb(
+        hmpPattern("piel"), tense,
+        pers, num, gender
+    )
+    @test_broken generate(verbstem, piel) == "??"
+
+    pual = HebrewFiniteVerb(
+        hmpPattern("pual"), tense,
+        pers, num, gender
+    )
+    @test_broken generate(verbstem, pual) == "??"
+
+    hiphil = HebrewFiniteVerb(
+        hmpPattern("hiphil"), tense,
+        pers, num, gender
+    )
+    @test_broken generate(verbstem, hiphil) == "??"
+
+    hophal = HebrewFiniteVerb(
+        hmpPattern("hophal"), tense,
+        pers, num, gender
+    )
+    @test_broken generate(verbstem, hophal) == "??"
+
+    hithpael = HebrewFiniteVerb(
+        hmpPattern("hithpael"), tense,
+        pers, num, gender
+    )
+    @test_broken generate(verbstem, hithpael) == "??"
+
+    
 end
