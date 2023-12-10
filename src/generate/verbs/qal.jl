@@ -40,7 +40,11 @@ end
 function qal_perfect_strong(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     form = pngSummary(verb)
-    
+    # initial = check if consonants[1] is in the begadkefat and
+    # if so add daghesh
+    #
+    # for consonants 2-3, check depending on person-number for need of dagesh
+
     if form == "3sm"
         string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.patah(consonants[2]), consonants[3])
 
