@@ -66,6 +66,11 @@ include("dataset/filesdataset.jl")
 include("generate/generate.jl")
 include("generate/verbs/qal.jl")
 include("generate/verbs/piel.jl")
+include("generate/verbs/pual.jl")
+include("generate/verbs/niphal.jl")
+include("generate/verbs/hiphil.jl")
+include("generate/verbs/hophal.jl")
+include("generate/verbs/hithpael.jl")
 include("generate/verbs/verbs.jl")
 
 end # module Luhot

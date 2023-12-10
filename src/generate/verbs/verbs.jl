@@ -1,3 +1,30 @@
+function rootclass(verb)::Symbol
+        consonants = collect(BiblicalHebrew.unpointed(verb))
+        if length(consonants) != 3
+                @warn("Analysis only available for roots with 3 consonants")
+                nothing
+        elseif BiblicalHebrew.isguttural(consonants[1])
+                :pe_guttural
+
+        # handle others here....
+        # pe-nun
+        # ayin-guttural
+        # lamed-guttural
+        # lamed-aleph
+        # pe-waw and pe-yod
+        # ayin-waw and ayin-yod
+        # lamed-he
+        # double ayin
+        # various doubly weak combos
+
+        else
+                :strong
+        end
+
+        # pe-guttural
+end
+
+
 
 """Generate the correct string for a given stem and finite verb form.
 $(SIGNATURES)
