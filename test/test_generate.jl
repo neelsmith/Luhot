@@ -31,7 +31,13 @@
     )
 
     @test generate(verbstem,firstsgmasc) == generate(verbstem,firstsgfem) == generate(verbstem, firstsgcommon)
+    
 
+    niphal = HebrewFiniteVerb(
+        hmpPattern("niphal"), tense,
+        pers, num, gender
+    )
+    @test generate(verbstem,niphal) == "נִכְתַב"
 
     piel = HebrewFiniteVerb(
         hmpPattern("piel"), tense,
@@ -63,5 +69,11 @@
     )
     @test_broken generate(verbstem, hithpael) == "??"
 
-    
+    # Test imperfects:
+    niphalimpft = verbform = HebrewFiniteVerb(hmpPattern("niphal"), hmpTense("imperfect"),
+        pers, num, gender
+    )
+    @test generate(verbstem, niphalimpft) == "יִכָּתֵב" 
+
+
 end
