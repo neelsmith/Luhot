@@ -58,8 +58,8 @@ function qal_perfect_strong(root::String,verb::HebrewFiniteVerb)
         string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.patah(BiblicalHebrew.ole(consonants[2])), BiblicalHebrew.sheva(consonants[3]), BiblicalHebrew.mappiq("נו"))
 
 
-    elseif form == "3pc"
-        string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.sheva(consonants[2]), consonants[3], BiblicalHebrew.madppiq("נו"))
+    elseif form == "3pc"  || form == "3pm" || form == "3pf"
+        string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.sheva(consonants[2]), consonants[3], BiblicalHebrew.mappiq("נו"))
 
 
     elseif form == "2pm"
@@ -119,7 +119,7 @@ function qal_imperfect_strong(root::String,verb::HebrewFiniteVerb)
 
 
     elseif form == "3pc"
-        string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.sheva(consonants[2]), consonants[3], BiblicalHebrew.madppiq("נו"))
+        string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.sheva(consonants[2]), consonants[3], BiblicalHebrew.mappiq("נו"))
 
 
     elseif form == "2pm"

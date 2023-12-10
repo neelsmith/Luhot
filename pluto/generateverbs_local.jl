@@ -26,7 +26,7 @@ begin
 	using Unicode
 	using BiblicalHebrew
 	using PlutoUI
-	md"""*Julia environment defined in this cell.*"""
+	md"""*Unhide this cell to see the Julia environment.*"""
 end
 
 # ╔═╡ 7a4684d9-ae9c-47a2-9791-036d914875de
@@ -42,9 +42,6 @@ md"""### Define a finite verb form"""
 
 # ╔═╡ 6d365395-bcc4-455c-880f-e7f549ad236f
 md"""### Select a root"""
-
-# ╔═╡ b5277a97-47d8-4869-abc6-75102fedd697
-md"""### Resulting form"""
 
 # ╔═╡ b2af5c82-6547-4ec2-b56b-6c84b632b59f
 html"""
@@ -68,6 +65,10 @@ bdbarticles = map(readlines(bdbfile)[2:end]) do ln
 	(id = bdbcols[1], def = bdbcols[5])
 
 end
+
+# ╔═╡ 3c5ac535-4fd4-4f1b-996b-4b93c72ca0be
+md"""Choose a root from **$(bdbarticles |> length) articles** about verbs extracted from *Brown-Driver-Briggs* lexicon.
+"""
 
 # ╔═╡ 6316c95c-c0ce-48e5-bd4e-134b2fd5fa72
 md""">**Generating content**"""
@@ -93,6 +94,9 @@ end
 
 # ╔═╡ 1b9478ed-e36a-453d-b5ec-d973a0c3abcb
 md"""*Verb root:* $(@bind vocab Select(rootsmenu)) *Show BDB article* $(@bind bdb CheckBox())"""
+
+# ╔═╡ 4a449798-f1e2-424e-b0be-69bb813f51c3
+Markdown.parse("#### *Selected root*: $(vocab.root)")
 
 # ╔═╡ 6a804049-3908-4caa-9660-356ab777d1c7
 if bdb
@@ -169,8 +173,11 @@ end
 # ╔═╡ 51440ca3-ad09-42ff-b19b-17bd8ad3d538
 result = generate(vocab, form)
 
-# ╔═╡ a91185b9-fd60-4b05-9df1-2a56cdef72c6
-string("*Form*: ", result, " *composed of **", length(collect(result)), "** Unicode symbols*:") |> Markdown.parse
+# ╔═╡ b5277a97-47d8-4869-abc6-75102fedd697
+md"""### Resulting form: $(result)"""
+
+# ╔═╡ fe6a22f7-9f53-4f92-91e0-8873ab5be7d8
+string("Composed from **", length(collect(result)),"** Unicode symbols:") |> Markdown.parse
 
 # ╔═╡ 9de7a4a3-0bc6-4c06-bf9b-2fdf4f4e4411
 result_by_codept = map(collect(result)) do ch
@@ -188,10 +195,12 @@ join(map(s -> string("1. ", s), result_by_codept), "\n") |> Markdown.parse
 # ╟─13acbbb0-b3cc-41bb-ad64-17789306cd08
 # ╟─5eb3dc2e-0ca2-49de-8926-86228ec6fb8b
 # ╟─6d365395-bcc4-455c-880f-e7f549ad236f
+# ╟─3c5ac535-4fd4-4f1b-996b-4b93c72ca0be
 # ╟─1b9478ed-e36a-453d-b5ec-d973a0c3abcb
+# ╟─4a449798-f1e2-424e-b0be-69bb813f51c3
 # ╟─6a804049-3908-4caa-9660-356ab777d1c7
 # ╟─b5277a97-47d8-4869-abc6-75102fedd697
-# ╟─a91185b9-fd60-4b05-9df1-2a56cdef72c6
+# ╟─fe6a22f7-9f53-4f92-91e0-8873ab5be7d8
 # ╟─f0287782-4a61-47ba-b946-70d098e46a1f
 # ╟─b2af5c82-6547-4ec2-b56b-6c84b632b59f
 # ╟─4bd1e3d1-00ca-4fe8-b58b-c7791b339367
