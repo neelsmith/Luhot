@@ -10,6 +10,43 @@ function generate(stem::VerbStem, verb::HebrewFiniteVerb)::String
     elseif label(hmpPattern(verb)) == "qal" && label(hmpTense(verb)) == "imperfect"
         qal_imperfect(triliteral, verb)
 
+    elseif label(hmpPattern(verb)) == "niphal" && label(hmpTense(verb)) == "perfect"
+            niphal_perfect(triliteral, verb)
+
+    elseif label(hmpPattern(verb)) == "niphal" && label(hmpTense(verb)) == "imperfect"
+            niphal_imperfect(triliteral, verb)   
+            
+    elseif label(hmpPattern(verb)) == "piel" && label(hmpTense(verb)) == "perfect"
+            piel_perfect(triliteral, verb)
+
+    elseif label(hmpPattern(verb)) == "piel" && label(hmpTense(verb)) == "imperfect"
+            piel_imperfect(triliteral, verb)            
+
+    elseif label(hmpPattern(verb)) == "pual" && label(hmpTense(verb)) == "perfect"
+            pual_perfect(triliteral, verb)
+
+    elseif label(hmpPattern(verb)) == "pual" && label(hmpTense(verb)) == "imperfect"
+            pual_imperfect(triliteral, verb) 
+
+
+    elseif label(hmpPattern(verb)) == "hiphil" && label(hmpTense(verb)) == "perfect"
+            hiphil_perfect(triliteral, verb)
+
+    elseif label(hmpPattern(verb)) == "hiphil" && label(hmpTense(verb)) == "imperfect"
+            hiphil_imperfect(triliteral, verb)             
+
+    elseif label(hmpPattern(verb)) == "hophal" && label(hmpTense(verb)) == "perfect"
+            hophal_perfect(triliteral, verb)
+
+    elseif label(hmpPattern(verb)) == "hophal" && label(hmpTense(verb)) == "imperfect"
+            hophal_imperfect(triliteral, verb)     
+
+    elseif label(hmpPattern(verb)) == "hithpael" && label(hmpTense(verb)) == "perfect"
+            hithpael_perfect(triliteral, verb)
+
+    elseif label(hmpPattern(verb)) == "hithpael" && label(hmpTense(verb)) == "imperfect"
+            hithpael_imperfect(triliteral, verb)     
+
 
     else
         @warn("")

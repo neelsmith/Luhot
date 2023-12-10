@@ -37,7 +37,7 @@ $(SIGNATURES)
 """
 const codetopatterndict = Dict(
     1 => "qal",
-    2 => "niphil",
+    2 => "niphal",
     3 => "piel",
     4 => "pual",
     5 => "hiphil",
@@ -48,7 +48,7 @@ const codetopatterndict = Dict(
 
 const patterntocodedict = Dict(
     "qal"  => 1,
-    "niphil" => 2,
+    "niphal" => 2,
     "piel" => 3,
     "pual" => 4,
     "hiphil" => 5,
