@@ -43,37 +43,58 @@
         hmpPattern("piel"), tense,
         pers, num, gender
     )
-    @test_broken generate(verbstem, piel) == "??"
+    @test generate(verbstem, piel) == "כִתֵּב"
 
     pual = HebrewFiniteVerb(
         hmpPattern("pual"), tense,
         pers, num, gender
     )
-    @test_broken generate(verbstem, pual) == "??"
+    @test generate(verbstem, pual) == "כֻתַּב"
 
     hiphil = HebrewFiniteVerb(
         hmpPattern("hiphil"), tense,
         pers, num, gender
     )
-    @test_broken generate(verbstem, hiphil) == "??"
+    @test generate(verbstem, hiphil) == "הִכְתִיב"
 
     hophal = HebrewFiniteVerb(
         hmpPattern("hophal"), tense,
         pers, num, gender
     )
-    @test_broken generate(verbstem, hophal) == "??"
+    @test generate(verbstem, hophal) == "הָכְתַיב"
+
 
     hithpael = HebrewFiniteVerb(
         hmpPattern("hithpael"), tense,
         pers, num, gender
     )
-    @test_broken generate(verbstem, hithpael) == "??"
+    @test generate(verbstem, hithpael) == "הִתְכַתֵּיב"
 
     # Test imperfects:
-    niphalimpft = verbform = HebrewFiniteVerb(hmpPattern("niphal"), hmpTense("imperfect"),
+    niphalimpft = HebrewFiniteVerb(hmpPattern("niphal"), hmpTense("imperfect"),
         pers, num, gender
     )
     @test generate(verbstem, niphalimpft) == "יִכָּתֵב" 
 
+    pielimpft = HebrewFiniteVerb(hmpPattern("piel"), hmpTense("imperfect"),
+    pers, num, gender)
+    @test generate(verbstem, pielimpft) == "יְכַתֵּב"
 
+    pualimpft =  HebrewFiniteVerb(hmpPattern("pual"), hmpTense("imperfect"),
+    pers, num, gender)
+    @test generate(verbstem, pualimpft) == "יְכֻתַּב"
+
+
+    hiphilimpft = HebrewFiniteVerb(hmpPattern("hiphil"), hmpTense("imperfect"),
+    pers, num, gender)
+    @test generate(verbstem, hiphilimpft) == "יַכְתִיב"
+
+    hophalimpft = HebrewFiniteVerb(hmpPattern("hophal"), hmpTense("imperfect"),
+    pers, num, gender)
+    @test generate(verbstem, hophalimpft) == "יָכְתַב"
+
+
+    hithpaelimpft = HebrewFiniteVerb(hmpPattern("hithpael"), hmpTense("imperfect"),
+    pers, num, gender)
+    @test generate(verbstem, hithpaelimpft) == "יִתְכַתֵּיב"
 end

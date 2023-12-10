@@ -22,8 +22,8 @@ function hithpael_perfect_strong(root::String,verb::HebrewFiniteVerb)
     # for consonants 2-3, check depending on person-number for need of dagesh
 
     if form == "3sm"
-        #string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.patah(consonants[2]), consonants[3])
-        "HEY"
+       
+        string(BiblicalHebrew.hiriq("ה"), BiblicalHebrew.sheva("ת"), BiblicalHebrew.patah(consonants[1]), BiblicalHebrew.tsere(BiblicalHebrew.dagesh(consonants[2])), "י", consonants[3])
 
     else
         @warn("Form $(form) not recognized or not yet implemented.")
@@ -54,7 +54,10 @@ function hithpael_imperfect_strong(root::String,verb::HebrewFiniteVerb)
     
     if form == "3sm"
         #string(BiblicalHebrew.hiriq("י"), BiblicalHebrew.sheva(consonants[1]), BiblicalHebrew.holam(consonants[2]), consonants[3])
-        "HEY"
+        string(BiblicalHebrew.hiriq("י"), BiblicalHebrew.sheva("ת"), BiblicalHebrew.patah(consonants[1]), BiblicalHebrew.tsere(BiblicalHebrew.dagesh(consonants[2])), "י", consonants[3])
+
+
+
         #=
     elseif form == "3sf"
         string(BiblicalHebrew.qamats(consonants[1]) |> BiblicalHebrew.metheg, BiblicalHebrew.sheva(consonants[2]), BiblicalHebrew.qamats(consonants[3]), BiblicalHebrew.he_ch)
