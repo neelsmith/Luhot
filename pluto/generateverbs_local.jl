@@ -55,6 +55,20 @@ html"""
 # ╔═╡ 4bd1e3d1-00ca-4fe8-b58b-c7791b339367
 md"""---"""
 
+# ╔═╡ 4747324d-3bd8-4d59-886f-f5b0d2bb4ed9
+md"""> **BDB**"""
+
+# ╔═╡ dd3406f1-b5aa-4d4f-bba0-cdc668731da9
+bdbfile = joinpath(pwd() |> dirname, "cexcollections", "verbs-bdb-hebrew.cex")
+
+# ╔═╡ 97d46486-0422-4206-adac-d37b86dada7f
+bdbarticles = map(readlines(bdbfile)[2:end]) do ln
+
+	bdbcols = split(ln, "|")
+	(id = bdbcols[1], def = bdbcols[5])
+
+end
+
 # ╔═╡ 6316c95c-c0ce-48e5-bd4e-134b2fd5fa72
 md""">**Generating content**"""
 
@@ -62,7 +76,7 @@ md""">**Generating content**"""
 md""">**Dataset with stems**"""
 
 # ╔═╡ 23885ff7-07b3-42ff-b341-d3555a5360c6
-dsdir = joinpath(pwd() |> dirname, "datasets", "tanach_rules")
+dsdir = joinpath(pwd() |> dirname, "datasets", "bdbquarry")
 
 # ╔═╡ e54c7dd6-6cd6-46ac-98dd-2641ed5df379
 ds = filesDataset(dsdir)
@@ -78,7 +92,15 @@ rootsmenu = map(verbstems) do vstem
 end
 
 # ╔═╡ 1b9478ed-e36a-453d-b5ec-d973a0c3abcb
-md"""*Verb root:* $(@bind vocab Select(rootsmenu))"""
+md"""*Verb root:* $(@bind vocab Select(rootsmenu)) *Show BDB article* $(@bind bdb CheckBox())"""
+
+# ╔═╡ 6a804049-3908-4caa-9660-356ab777d1c7
+if bdb
+	mdtext = "> " * filter(article -> article.id == vocab.lexid.objectid, bdbarticles)[1].def
+
+	replace(mdtext, "¶" => "\n>\n>") |> Markdown.parse
+	
+end
 
 # ╔═╡ 12c8c67c-634f-4633-8bf5-e4aadf3fc4ec
 md"""> **UI for defining forms**"""
@@ -167,11 +189,15 @@ join(map(s -> string("1. ", s), result_by_codept), "\n") |> Markdown.parse
 # ╟─5eb3dc2e-0ca2-49de-8926-86228ec6fb8b
 # ╟─6d365395-bcc4-455c-880f-e7f549ad236f
 # ╟─1b9478ed-e36a-453d-b5ec-d973a0c3abcb
+# ╟─6a804049-3908-4caa-9660-356ab777d1c7
 # ╟─b5277a97-47d8-4869-abc6-75102fedd697
 # ╟─a91185b9-fd60-4b05-9df1-2a56cdef72c6
 # ╟─f0287782-4a61-47ba-b946-70d098e46a1f
 # ╟─b2af5c82-6547-4ec2-b56b-6c84b632b59f
 # ╟─4bd1e3d1-00ca-4fe8-b58b-c7791b339367
+# ╟─4747324d-3bd8-4d59-886f-f5b0d2bb4ed9
+# ╟─dd3406f1-b5aa-4d4f-bba0-cdc668731da9
+# ╟─97d46486-0422-4206-adac-d37b86dada7f
 # ╟─6316c95c-c0ce-48e5-bd4e-134b2fd5fa72
 # ╟─51440ca3-ad09-42ff-b19b-17bd8ad3d538
 # ╟─9de7a4a3-0bc6-4c06-bf9b-2fdf4f4e4411
