@@ -88,12 +88,13 @@ function paradigm_png(tns::HMPTense)
         perfect_png()
     elseif label(tns) == "imperfect"
         imperfect_png()
+    elseif label(tns) == "imperative"
+        imperative_png()
     else
         @warn("Unrecognized or unimplemented tense $(tns)")
         []
     end
 end
-
 
 """Compose string for triple values.
 $(SIGNATURES)
@@ -117,6 +118,13 @@ function imperfect_png_labels()
     IMPERFECT_PNG_SEQUENCE .|> triplelabel
 end
 
+"""Compose a list of person, number, gender labels for paradigms of the imperative tense.
+$(SIGNATURES)
+"""
+function impererative_png_labels()
+    IMPERATIVE_PNG_SEQUENCE .|> triplelabel
+end
+
 """Compose a list of person, number, gender labels for paradigms of a given tense.
 $(SIGNATURES)
 """
@@ -125,6 +133,8 @@ function png_labels(tns::HMPTense)
         perfect_png_labels()
     elseif label(tns) == "imperfect"
         imperfect_png_labels()
+    elseif label(tns) == "imperative"
+        impererative_png_labels()
     else
         @warn("Unrecognized or unimplemented tense $(tns)")
     end
@@ -159,6 +169,7 @@ $(SIGNATURES)
 function conjugate(s::T, ptrn::HMPVerbPattern, tns::HMPTense) where T <: AbstractString
     root = BiblicalHebrew.unpointed(s)
     forms = String[]
+    @info("Looking at $(length(paradigm_png(tns))) triples")
     for triple in paradigm_png(tns)
         form = HebrewFiniteVerb(ptrn, tns, 
         triple.person, triple.number, triple.gender)

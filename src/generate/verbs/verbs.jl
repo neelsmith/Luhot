@@ -45,6 +45,9 @@ function generate(root::S, verb::HebrewFiniteVerb)::Union{String,Nothing} where 
     elseif label(hmpPattern(verb)) == "qal" && label(hmpTense(verb)) == "imperfect"
         qal_imperfect(root, verb)
 
+     elseif label(hmpPattern(verb)) == "qal" && label(hmpTense(verb)) == "imperative"
+        qal_imperative(root, verb)
+
     elseif label(hmpPattern(verb)) == "niphal" && label(hmpTense(verb)) == "perfect"
             niphal_perfect(root, verb)
 
