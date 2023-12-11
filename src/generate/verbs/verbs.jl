@@ -1,3 +1,6 @@
+"""Determine root class of a verb.
+$(SIGNATURES)
+"""
 function rootclass(verb)::Symbol
         consonants = collect(BiblicalHebrew.unpointed(verb))
         if length(consonants) != 3
@@ -79,7 +82,7 @@ function generate(root::S, verb::HebrewFiniteVerb)::Union{String,Nothing} where 
     elseif label(hmpPattern(verb)) == "hithpael" && label(hmpTense(verb)) == "imperfect"
             hithpael_imperfect(root, verb)     
 
-
+# add imperatives for qal, niphal, piel, hiphil, hithpael
     else
         @warn("")
         #@warn("$(verbhead) + $(tense) not recognized or not yet implemented")

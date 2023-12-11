@@ -36,7 +36,8 @@ $(SIGNATURES)
 """
 const codetotensedict = Dict(
     1 => "perfect",
-    2 => "imperfect"
+    2 => "imperfect",
+    3 => "imperative"
 )
 
 
@@ -46,5 +47,6 @@ $(SIGNATURES)
 """
 const tensetocodedict = Dict(
     "perfect"  => 1,
-    "imperfect" => 2
+    "imperfect" => 2,
+    "imperative" => 3
 )
