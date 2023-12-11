@@ -29,6 +29,8 @@ end
 # ╔═╡ e6a349c4-e4e0-4d08-8186-9b122139290e
 md"""!!! warn "Font deficiencies!"
     Need to add custom CSS to that display of tables uses a reasonable font! Pluto's default doeasn't show vowel points or accents.
+
+    This should be done with  the CSS property `unicode-range` (discussion [here](https://github.com/fonsp/Pluto.jl/issues/296) and docs [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/unicode-range))
 """
 
 # ╔═╡ f3aa400c-9800-11ee-2d39-417338333971
