@@ -169,7 +169,7 @@ $(SIGNATURES)
 function conjugate(s::T, ptrn::HMPVerbPattern, tns::HMPTense) where T <: AbstractString
     root = BiblicalHebrew.unpointed(s)
     forms = String[]
-    @info("Looking at $(length(paradigm_png(tns))) triples")
+    @debug("Looking at $(length(paradigm_png(tns))) triples")
     for triple in paradigm_png(tns)
         form = HebrewFiniteVerb(ptrn, tns, 
         triple.person, triple.number, triple.gender)
@@ -212,9 +212,9 @@ function conjugation_md(s::T, tns::HMPTense) where T <: AbstractString
     # 1st dim is pattern, second is png
     # create a row for eah png
 
-    @info("Conjugating $(label(tns)) tense")
+    @debug("Conjugating $(label(tns)) tense")
     rowlabels = png_labels(tns)
-    @info("There are $(length(rowlabels)) labels for rows")
+    @debug("There are $(length(rowlabels)) labels for rows")
     mdrows = String[]
     for pngindex in 1:length(rowlabels)
         rowcells = String[]

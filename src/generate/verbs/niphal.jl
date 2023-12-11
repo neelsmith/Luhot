@@ -53,7 +53,7 @@ function niphal_perfect_strong(root::String,verb::HebrewFiniteVerb)
     ayin = consonants[2]
     lamed = consonants[3]
     form = pngSummary(verb)
-    form = pngSummary(verb)
+
     # initial = check if consonants[1] is in the begadkefat and
     # if so add daghesh
     #
