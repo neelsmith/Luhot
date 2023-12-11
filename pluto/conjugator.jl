@@ -21,8 +21,10 @@ begin
 	Pkg.activate(pwd() |> dirname)
 	using Luhot
 	Pkg.add("PlutoUI")
-	
 	using PlutoUI
+
+	Pkg.add("HypertextLiteral")
+	using HypertextLiteral
 	md"""*Unhide this cell to see the Julia environment.*"""
 end
 
@@ -35,14 +37,9 @@ end
 # ╔═╡ bb0321d7-838d-4447-b3ac-7d3dddcd0879
 if versioninfo
 	md"""
-- **1.0.0**: initial release supports display of all forms of a selected tense for a selected verb; allows optional display of *BDB* article for the selected verb.
+- **1.0.0**: initial release supports display of all forms of a selected tense for a selected verb; allows optional display of *BDB* article for the selected verb. Tweaks default CSS for Pluto so that full Hebrew range of Unicode is displayed.
 """	
 end
-
-# ╔═╡ e6a349c4-e4e0-4d08-8186-9b122139290e
-md"""!!! warn "Font deficiencies!"
-    Version $(nbversion) of this notebook uses Pluto's default font choices.  In some contexts, Pluto uses fonts that don't show vowel points or accents.  This should be remedied with custom CSS leveraging the CSS property `unicode-range` (see discussion [here](https://github.com/fonsp/Pluto.jl/issues/296) and docs [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/unicode-range)).
-"""
 
 # ╔═╡ f3aa400c-9800-11ee-2d39-417338333971
 md"""# Verb conjugator"""
@@ -90,11 +87,25 @@ if showbdb
 	replace(mdtext, "¶" => "\n>\n>") |> Markdown.parse
 end
 
+# ╔═╡ 4eb0f4a4-e7b7-4b01-a959-d3b11f3ac260
+md"""> **UI**
+
+The following (hidden) cell hijacks Pluto CSS to get fonts including pointed Hebrew.
+"""
+
+# ╔═╡ 4af6193a-9787-41a0-b6e5-eb7035f1321d
+@htl """
+<style>
+	pluto-output {
+		--julia-mono-font-stack: system-ui,sans-serif;
+	}
+</style>
+"""
+
 # ╔═╡ Cell order:
 # ╟─2c42462a-0516-4c18-a9c0-99782b543ce5
 # ╟─7b5429dd-ef31-4a98-96ee-49c12f22de07
 # ╟─bb0321d7-838d-4447-b3ac-7d3dddcd0879
-# ╟─e6a349c4-e4e0-4d08-8186-9b122139290e
 # ╟─f3aa400c-9800-11ee-2d39-417338333971
 # ╟─d5bf261d-6e81-4bef-b138-1566e7c6a2b6
 # ╟─ed448cf2-1dbd-4f96-9577-a901a0390bb3
@@ -106,3 +117,5 @@ end
 # ╟─90dd4ee2-8c79-468a-8961-0c6cff85461f
 # ╟─c0efa1e7-fc1d-4973-be80-22407510ccde
 # ╟─aa3231aa-6a54-405f-bfa2-4ac527f1a18e
+# ╟─4eb0f4a4-e7b7-4b01-a959-d3b11f3ac260
+# ╟─4af6193a-9787-41a0-b6e5-eb7035f1321d

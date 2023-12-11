@@ -41,51 +41,50 @@ function generate(root::S, verb::HebrewFiniteVerb)::Union{String,Nothing} where 
   
     if label(hmpPattern(verb)) == "qal" && label(hmpTense(verb)) == "perfect"
         qal_perfect(root, verb)
-
     elseif label(hmpPattern(verb)) == "qal" && label(hmpTense(verb)) == "imperfect"
         qal_imperfect(root, verb)
-
-     elseif label(hmpPattern(verb)) == "qal" && label(hmpTense(verb)) == "imperative"
+    elseif label(hmpPattern(verb)) == "qal" && label(hmpTense(verb)) == "imperative"
         qal_imperative(root, verb)
 
     elseif label(hmpPattern(verb)) == "niphal" && label(hmpTense(verb)) == "perfect"
             niphal_perfect(root, verb)
-
     elseif label(hmpPattern(verb)) == "niphal" && label(hmpTense(verb)) == "imperfect"
             niphal_imperfect(root, verb)   
+    elseif label(hmpPattern(verb)) == "niphal" && label(hmpTense(verb)) == "imperative"
+                niphal_imperative(root, verb)            
             
     elseif label(hmpPattern(verb)) == "piel" && label(hmpTense(verb)) == "perfect"
             piel_perfect(root, verb)
-
     elseif label(hmpPattern(verb)) == "piel" && label(hmpTense(verb)) == "imperfect"
             piel_imperfect(root, verb)            
+    elseif label(hmpPattern(verb)) == "piel" && label(hmpTense(verb)) == "imperative"
+                piel_imperative(root, verb)                  
 
     elseif label(hmpPattern(verb)) == "pual" && label(hmpTense(verb)) == "perfect"
             pual_perfect(root, verb)
-
     elseif label(hmpPattern(verb)) == "pual" && label(hmpTense(verb)) == "imperfect"
             pual_imperfect(root, verb) 
 
 
     elseif label(hmpPattern(verb)) == "hiphil" && label(hmpTense(verb)) == "perfect"
             hiphil_perfect(root, verb)
-
     elseif label(hmpPattern(verb)) == "hiphil" && label(hmpTense(verb)) == "imperfect"
             hiphil_imperfect(root, verb)             
+    elseif label(hmpPattern(verb)) == "hiphil" && label(hmpTense(verb)) == "imperative"
+            hiphil_imperative(root, verb) 
 
     elseif label(hmpPattern(verb)) == "hophal" && label(hmpTense(verb)) == "perfect"
             hophal_perfect(root, verb)
-
     elseif label(hmpPattern(verb)) == "hophal" && label(hmpTense(verb)) == "imperfect"
             hophal_imperfect(root, verb)     
 
     elseif label(hmpPattern(verb)) == "hithpael" && label(hmpTense(verb)) == "perfect"
             hithpael_perfect(root, verb)
-
     elseif label(hmpPattern(verb)) == "hithpael" && label(hmpTense(verb)) == "imperfect"
             hithpael_imperfect(root, verb)     
+    elseif label(hmpPattern(verb)) == "hithpael" && label(hmpTense(verb)) == "imperative"
+                hithpael_imperative(root, verb) 
 
-# add imperatives for qal, niphal, piel, hiphil, hithpael
     else
         @warn("")
         #@warn("$(verbhead) + $(tense) not recognized or not yet implemented")

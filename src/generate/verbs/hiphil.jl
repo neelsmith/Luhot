@@ -1,3 +1,40 @@
+"""Compose a string for the given person, number, gender form of 
+the given verb in the imperative of the *hiphil* pattern.
+$(SIGNATURES)
+"""
+function hiphil_imperative(root::String,form::HebrewFiniteVerb)
+    #verbclass = rootclass(root)    
+
+    #if verbclass == :strong
+    hiphil_imperative_strong(root, form)
+    #else
+    #    @warn("Verb class $(verbclass) not yet implemented")
+    #    nothing
+    #end
+end
+
+"""Generate requested person+number+gender of the *hiphil* imperative for the given strong verb."""
+function hiphil_imperative_strong(root::String,verb::HebrewFiniteVerb)
+    consonants = collect(BiblicalHebrew.unpointed(root))
+    pe = consonants[1]
+    ayin = consonants[2]
+    lamed = consonants[3]
+    form = pngSummary(verb)
+    if form == "2sm"
+       "Hmm"
+    elseif form == "2sf"
+        "Hmm"
+    elseif form == "2pm"
+        "Hmm"
+    elseif form == "2pf"
+        "Hmm"
+    else
+        @warn("Form $(form) not recognized or not yet implemented.")
+    end
+end
+
+
+
 
 
 function hiphil_perfect(root::String,form::HebrewFiniteVerb)
