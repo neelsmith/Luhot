@@ -62,7 +62,24 @@ function piel_perfect_strong(root::String,verb::HebrewFiniteVerb)
         #string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.patah(consonants[2]), consonants[3])
         
         string(BiblicalHebrew.hiriq(consonants[1]), BiblicalHebrew.tsere(BiblicalHebrew.dagesh(consonants[2])), consonants[3])
-
+    elseif form == "3sf"
+        "..."
+    elseif form == "2sm"
+        "..."
+    elseif form == "2sf"
+        "..."        
+    elseif form == "1sc" || form == "1sm" || form == "1sf"
+        "..."    
+       
+        
+    elseif form == "3pc" || form == "3pm" || form == "3pf"
+        "..."        
+    elseif form == "2pm"
+        "..."    
+    elseif form == "2pf"
+        "..."     
+    elseif form == "1pc" || form == "1pm" || form == "1pf"
+        "..."
     else
         @warn("Form $(form) not recognized or not yet implemented.")
     end
