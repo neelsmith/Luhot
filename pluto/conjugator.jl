@@ -63,7 +63,10 @@ verbmenu = map(bdb -> bdb.lemma, bdbarticles)
 md"""Choose a tense and a verbstem from a list of **$(length(verbmenu)) verb stems** quarried from *BDB* lexicon."""
 
 # ╔═╡ ed448cf2-1dbd-4f96-9577-a901a0390bb3
-md"""*Verb*: $(@bind vrb Select(verbmenu)) *Tense*: $(@bind tns Select(["perfect", "imperfect"])) *Show BDB article for verb*: $(@bind showbdb CheckBox())"""
+md"""*Verb*: $(@bind vrb Select(verbmenu, default = "קָטַל")) *Tense*: $(@bind tns Select(["perfect", "imperfect", "imperative"])) *Show BDB article for verb*: $(@bind showbdb CheckBox())"""
+
+# ╔═╡ 772bae28-6d6b-4db6-9ea2-77ac5c419b5f
+md"""### Conjugation of $(vrb) in the $(tns)"""
 
 # ╔═╡ b520d59a-049c-4974-937c-f3f7961ec655
 # ╠═╡ show_logs = false
@@ -82,6 +85,7 @@ end
 # ╟─f3aa400c-9800-11ee-2d39-417338333971
 # ╟─d5bf261d-6e81-4bef-b138-1566e7c6a2b6
 # ╟─ed448cf2-1dbd-4f96-9577-a901a0390bb3
+# ╟─772bae28-6d6b-4db6-9ea2-77ac5c419b5f
 # ╟─b520d59a-049c-4974-937c-f3f7961ec655
 # ╟─0c0d991d-6c2e-4892-8c6a-d3c2b85f2739
 # ╟─995c5348-db6e-40db-8f8f-646865d4324b
