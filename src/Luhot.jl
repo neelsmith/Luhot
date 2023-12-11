@@ -39,10 +39,10 @@ export code
 export HebrewForm
 export HebrewFiniteVerb
 
-
 export filesDataset
 
 export generate
+export conjugate, conjugation_md
 
 include("io.jl")
 
@@ -72,5 +72,7 @@ include("generate/verbs/hiphil.jl")
 include("generate/verbs/hophal.jl")
 include("generate/verbs/hithpael.jl")
 include("generate/verbs/verbs.jl")
+
+include("paradigms/verbs.jl")
 
 end # module Luhot

@@ -24,55 +24,60 @@ function rootclass(verb)::Symbol
         # pe-guttural
 end
 
-
+"""Generate the correct string for a given stem and finite verb form.
+$(SIGNATURES)
+"""
+function generate(stem::VerbStem, verb::HebrewFiniteVerb)::Union{String, Nothing}
+        generate(root(stem), verb)
+end
 
 """Generate the correct string for a given stem and finite verb form.
 $(SIGNATURES)
 """
-function generate(stem::VerbStem, verb::HebrewFiniteVerb)::String
-    triliteral = root(stem)
+function generate(root::S, verb::HebrewFiniteVerb)::Union{String,Nothing} where S <: AbstractString
+  
     if label(hmpPattern(verb)) == "qal" && label(hmpTense(verb)) == "perfect"
-        qal_perfect(triliteral, verb)
+        qal_perfect(root, verb)
 
     elseif label(hmpPattern(verb)) == "qal" && label(hmpTense(verb)) == "imperfect"
-        qal_imperfect(triliteral, verb)
+        qal_imperfect(root, verb)
 
     elseif label(hmpPattern(verb)) == "niphal" && label(hmpTense(verb)) == "perfect"
-            niphal_perfect(triliteral, verb)
+            niphal_perfect(root, verb)
 
     elseif label(hmpPattern(verb)) == "niphal" && label(hmpTense(verb)) == "imperfect"
-            niphal_imperfect(triliteral, verb)   
+            niphal_imperfect(root, verb)   
             
     elseif label(hmpPattern(verb)) == "piel" && label(hmpTense(verb)) == "perfect"
-            piel_perfect(triliteral, verb)
+            piel_perfect(root, verb)
 
     elseif label(hmpPattern(verb)) == "piel" && label(hmpTense(verb)) == "imperfect"
-            piel_imperfect(triliteral, verb)            
+            piel_imperfect(root, verb)            
 
     elseif label(hmpPattern(verb)) == "pual" && label(hmpTense(verb)) == "perfect"
-            pual_perfect(triliteral, verb)
+            pual_perfect(root, verb)
 
     elseif label(hmpPattern(verb)) == "pual" && label(hmpTense(verb)) == "imperfect"
-            pual_imperfect(triliteral, verb) 
+            pual_imperfect(root, verb) 
 
 
     elseif label(hmpPattern(verb)) == "hiphil" && label(hmpTense(verb)) == "perfect"
-            hiphil_perfect(triliteral, verb)
+            hiphil_perfect(root, verb)
 
     elseif label(hmpPattern(verb)) == "hiphil" && label(hmpTense(verb)) == "imperfect"
-            hiphil_imperfect(triliteral, verb)             
+            hiphil_imperfect(root, verb)             
 
     elseif label(hmpPattern(verb)) == "hophal" && label(hmpTense(verb)) == "perfect"
-            hophal_perfect(triliteral, verb)
+            hophal_perfect(root, verb)
 
     elseif label(hmpPattern(verb)) == "hophal" && label(hmpTense(verb)) == "imperfect"
-            hophal_imperfect(triliteral, verb)     
+            hophal_imperfect(root, verb)     
 
     elseif label(hmpPattern(verb)) == "hithpael" && label(hmpTense(verb)) == "perfect"
-            hithpael_perfect(triliteral, verb)
+            hithpael_perfect(root, verb)
 
     elseif label(hmpPattern(verb)) == "hithpael" && label(hmpTense(verb)) == "imperfect"
-            hithpael_imperfect(triliteral, verb)     
+            hithpael_imperfect(root, verb)     
 
 
     else
