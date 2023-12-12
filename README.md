@@ -5,15 +5,49 @@
 **Current status**:  work for an initial release is in progress.  Release 0.1.0 will focus on parsing the complete verbal system of Biblical Hebrew.  [This milestone](https://github.com/neelsmith/Luhot.jl/milestone/1) in the project issue tracker defines outstanding tasks to reach 0.1.0.
 
 
-**Grid of implementation: finite verb forms**:
+## Grid of implementation
 
-| Verb type | Perfect | Imperfect | Imperative | Jussive | Corhortative|
-| --- | --- | --- | --- | --- | --- | 
-| sound | ✅ |  |  |  |  |  
+Key:
+
+- 🥇 target for 0.1 release
+- 🥈 target for 0.2 release
+- 🥉 target for 0.3 release: TBD
+- ✅ fully implemented
+
+**Finite verb forms**:
+
+| Verb type | Example | Perfect | Imperfect | Imperative | Jussive | Corhortative|
+| --- | --- | --- | --- | --- | --- |  --- | 
+| sound | קָטַל | 🥇 ✅  | 🥇 | 🥇 | 🥇 | 🥇 |
+| sound - begadkefat | כָתַב |  🥇 | 🥇 | 🥇  | 🥇 | 🥇 |
+| pe-guttural | עָבַד |  |  |  |  |   |
+| pe-aleph | אָחַר |  |  |  |  |   |
+| pe-waw/yod | יָלַד |  |  |  |  |   |
+| pe-nun | נָפַל |  |  |  |  |   |
+| ayin-guttural | בָּחַר |  |  |  |  |   |
+| ayin-waw/yod  ("hollow root")| קָם| |  |  |  |  |  
+| lamed-guttural | שָׁמַע |  |  |  |  |   |
+| lamed-aleph | בָּרָא |  |  |  |  |   |
+| lamed-he | בָּנָה |  |  |  |  |   |
+| geminates | סָבַב |  |  |  |  |   |
 
 
-**Grid of implementation: other verb forms**:
+**Other verb forms**:
 
-| Infinitives | Participles | waw-consecutive  |
-| --- | --- | --- |
-| sound | | |  |
+| Verb type | Example |Infinitives | Participles | waw-consecutive  |
+| --- | --- | --- | --- | --- |
+| sound | קָטַל | 🥈 | 🥈 | 🥈|
+| sound - begadkefat | כָתַב | 🥈 | 🥈 | 🥈 | 
+| pe-guttural | עָבַד |  |  |  | 
+| pe-aleph | אָחַר |  |  |  |  
+| pe-waw/yod | יָלַד |  |  |  | 
+| pe-nun | נָפַל |  |  |  | 
+| ayin-guttural | בָּחַר |  |  |  |  
+| ayin-waw/yod ("hollow root") |   קָם||  |  |   
+| lamed-guttural | שָׁמַע |  |  |  |  
+| lamed-aleph | בָּרָא  |  |  |  |  
+| lamed-he | בָּנָה |  |  |  | 
+| geminates | סָבַב |  |  |  | 
+
+**Nouns**: TBA
+
