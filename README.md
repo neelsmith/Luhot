@@ -2,7 +2,7 @@
 
 > *Build morphological parsers for Biblical Hebrew from tabular data sources*.
 
-**Current status**:  work for an initial release is in progress.  Release 0.1.0 will focus on parsing the complete verbal system of Biblical Hebrew.  [This milestone](https://github.com/neelsmith/Luhot.jl/milestone/1) in the project issue tracker defines outstanding tasks to reach 0.1.0.
+**Current status**:  work for an initial release is in progress.  Release 0.1.0 will focus on parsing the complete system of finite forms for strong verbs.  [This milestone](https://github.com/neelsmith/Luhot.jl/milestone/1) in the project issue tracker defines outstanding tasks to reach 0.1.0.
 
 
 ## Grid of implementation
@@ -18,7 +18,7 @@ Key:
 
 | Verb type | Example | Perfect | Imperfect | Imperative | Jussive | Corhortative|
 | --- | --- | --- | --- | --- | --- |  --- | 
-| sound | קָטַל | 🥇 ✅  | 🥇 | 🥇 | 🥇 | 🥇 |
+| sound | קָטַל | ✅  | 🥇 | 🥇 | 🥇 | 🥇 |
 | sound - begadkefat | כָתַב |  🥇 | 🥇 | 🥇  | 🥇 | 🥇 |
 | pe-guttural | עָבַד |  |  |  |  |   |
 | pe-aleph | אָחַר |  |  |  |  |   |
@@ -28,7 +28,7 @@ Key:
 | ayin-waw/yod  ("hollow root")| קָם| |  |  |  |  |  
 | lamed-guttural | שָׁמַע |  |  |  |  |   |
 | lamed-aleph | בָּרָא |  |  |  |  |   |
-| lamed-he | בָּנָה |  |  |  |  |   |
+| lamed-he | בָּנָה |  🥈 | 🥈 | 🥈  |  🥈 | 🥈  |
 | geminates | סָבַב |  |  |  |  |   |
 
 
