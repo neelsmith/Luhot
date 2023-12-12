@@ -12,7 +12,9 @@ function hophal_perfect(root::String,form::HebrewFiniteVerb)
 
 end
 
-"""Generate requested person+number+gender of the perfect for the given strong verb."""
+"""Generate requested person+number+gender of the perfect for the given strong verb.
+$(SIGNATURES)
+"""
 function hophal_perfect_strong(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
