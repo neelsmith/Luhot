@@ -1,5 +1,8 @@
 
 
+"""Generate requested person+number+gender of the perfect for the given verb.
+$(SIGNATURES)
+"""
 function pual_perfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
@@ -12,7 +15,9 @@ function pual_perfect(root::String,form::HebrewFiniteVerb)
 
 end
 
-"""Generate requested person+number+gender of the perfect for the given strong verb."""
+"""Generate requested person+number+gender of the perfect for the given strong verb.
+$(SIGNATURES)
+"""
 function pual_perfect_strong(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
@@ -55,7 +60,9 @@ end
 
 
 
-
+"""Generate requested person+number+gender of the imperfect for the given verb.
+$(SIGNATURES)
+"""
 function pual_imperfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
@@ -69,9 +76,14 @@ function pual_imperfect(root::String,form::HebrewFiniteVerb)
 end
 
 
-"""Generate requested person+number+gender of the perfect for the given strong verb."""
+"""Generate requested person+number+gender of the imperfect for the given strong verb.
+$(SIGNATURES)
+"""
 function pual_imperfect_strong(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
+    pe = consonants[1]
+    ayin = consonants[2]
+    lamed = consonants[3]
     form = pngSummary(verb)
     
     if form == "3sm"
@@ -112,7 +124,9 @@ function pual_imperfect_strong(root::String,verb::HebrewFiniteVerb)
         string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.patah(BiblicalHebrew.ole(consonants[2])), BiblicalHebrew.sheva(consonants[3]), BiblicalHebrew.mappiq("נו"))
 
 
-    elseif form == "3pc"
+    elseif form == "3pm"
+        "hi"
+    elseif form == "3pf"        
         string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.sheva(consonants[2]), consonants[3], BiblicalHebrew.mappiq("נו"))
 
 
