@@ -121,26 +121,23 @@ $(SIGNATURES)
 """
 function niphal_imperfect_strong(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
+    pe = consonants[1]
+    ayin = consonants[2]
+    lamed = consonants[3]
     form = pngSummary(verb)
     
     if form == "3sm"
-        string(BiblicalHebrew.hiriq("י"), BiblicalHebrew.qamats(BiblicalHebrew.dagesh(consonants[1])), BiblicalHebrew.tsere(consonants[2]), consonants[3])
-
-        #=
+        string(BiblicalHebrew.hiriq("י"), BiblicalHebrew.qamats(BiblicalHebrew.dagesh(pe)), BiblicalHebrew.tsere(ayin), lamed)
     elseif form == "3sf"
-        string(BiblicalHebrew.qamats(consonants[1]) |> BiblicalHebrew.metheg, BiblicalHebrew.sheva(consonants[2]), BiblicalHebrew.qamats(consonants[3]), BiblicalHebrew.he_ch)
-
+        string(BiblicalHebrew.dagesh(BiblicalHebrew.hiriq("ת")), BiblicalHebrew.qamats(BiblicalHebrew.dagesh(pe)), BiblicalHebrew.tsere(ayin), lamed)
     elseif form == "2sm"
-        string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.patah(BiblicalHebrew.ole(consonants[2])), BiblicalHebrew.sheva(consonants[3]), BiblicalHebrew.dagesh("ת") |> BiblicalHebrew.qamats)
-
+        string(BiblicalHebrew.dagesh(BiblicalHebrew.hiriq("ת")), BiblicalHebrew.qamats(BiblicalHebrew.dagesh(pe)), BiblicalHebrew.tsere(ayin), lamed)
     elseif form == "2sf"
-        string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.patah(consonants[2]), BiblicalHebrew.sheva(consonants[3]), BiblicalHebrew.dagesh("ת") |> BiblicalHebrew.sheva)
-    
-
+        string(BiblicalHebrew.dagesh(BiblicalHebrew.hiriq("ת")), BiblicalHebrew.qamats(BiblicalHebrew.dagesh(pe)), BiblicalHebrew.sheva(ayin), BiblicalHebrew.hiriq(lamed), "י")
     elseif form == "1sc" || form == "1sm" || form == "1sf"
-        string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.patah(BiblicalHebrew.ole(consonants[2])), BiblicalHebrew.sheva(consonants[3]), BiblicalHebrew.mappiq("נו"))
+        string(BiblicalHebrew.seghol("א"), BiblicalHebrew.qamats(BiblicalHebrew.dagesh(pe)), BiblicalHebrew.tsere(ayin), lamed)
 
-
+     #=
     elseif form == "3pc"
         string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.sheva(consonants[2]), consonants[3], BiblicalHebrew.mappiq("נו"))
 
