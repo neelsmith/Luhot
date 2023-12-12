@@ -11,14 +11,16 @@ Pkg.activate(".")
 Pkg.instantiate()
 
 using Documenter, DocStringExtensions, Luhot
+using Markdown
 
 
 makedocs(
     sitename="Luhot.jl",
     pages = [
             "Luhot.jl" => "index.md",  
+            "Paradigms" => "paradigms.md",
             "API documentation" => "apis.md",
-            "Internals: the Luhot IO system" => "io.md"
+            "Internals: the Luhot IO system" => "io.md",
 
     ],
     )

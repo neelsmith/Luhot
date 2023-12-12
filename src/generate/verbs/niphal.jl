@@ -1,4 +1,4 @@
-"""Compose a string for the given person, number, gender form of 
+"""Compose a string for the requested person, number, gender form of 
 the given verb in the imperative of the *niphal* pattern.
 $(SIGNATURES)
 """
@@ -13,7 +13,10 @@ function niphal_imperative(root::String,form::HebrewFiniteVerb)
     #end
 end
 
-"""Generate requested person+number+gender of the *niphal* imperative for the given strong verb."""
+"""Compose a string for the requested person, number, gender form of 
+the given strong verb in the imperative of the *niphal* pattern.
+$(SIGNATURES)
+"""
 function niphal_imperative_strong(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
@@ -34,6 +37,10 @@ function niphal_imperative_strong(root::String,verb::HebrewFiniteVerb)
 end
 
 
+"""Compose a string for the requested person, number, gender form of 
+the given verb in the perfect tense of the *niphal* pattern.
+$(SIGNATURES)
+"""
 function niphal_perfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
@@ -46,7 +53,10 @@ function niphal_perfect(root::String,form::HebrewFiniteVerb)
 
 end
 
-"""Generate requested person+number+gender of the perfect for the given strong verb."""
+"""Compose a string for the requested person, number, gender form of 
+the given strong verb in the perfect tense of the *niphal* pattern.
+$(SIGNATURES)
+"""
 function niphal_perfect_strong(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
@@ -89,7 +99,10 @@ end
 
 
 
-
+"""Compose a string for the requested person, number, gender form of 
+the given verb in the imperfect tense of the *niphal* pattern.
+$(SIGNATURES)
+"""
 function niphal_imperfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
@@ -102,15 +115,15 @@ function niphal_imperfect(root::String,form::HebrewFiniteVerb)
 
 end
 
-
-"""Generate requested person+number+gender of the perfect for the given strong verb."""
+"""Compose a string for the requested person, number, gender form of 
+the given strong verb in the imperfect tense of the *niphal* pattern.
+$(SIGNATURES)
+"""
 function niphal_imperfect_strong(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     form = pngSummary(verb)
     
     if form == "3sm"
-        #string(BiblicalHebrew.hiriq("י"), BiblicalHebrew.sheva(consonants[1]), BiblicalHebrew.holam(consonants[2]), consonants[3])
-        
         string(BiblicalHebrew.hiriq("י"), BiblicalHebrew.qamats(BiblicalHebrew.dagesh(consonants[1])), BiblicalHebrew.tsere(consonants[2]), consonants[3])
 
         #=

@@ -8,7 +8,8 @@
 
 See the awesome Pluto notebook(s) in the `pluto` directory.
 
-Also here's a pretty awesome quick demo.
+
+## Quick demo: generating forms
 
 Use Luhot functions to create a finite verb form:
 
@@ -32,6 +33,7 @@ verbstem = Luhot.readstemrow(verbdata, Luhot.VerbIO())
 ```
 
 ```@example tldr
+using Markdown
 verbstring = generate(verbstem, verbform)
 Markdown.parse(verbstring)
 ```
