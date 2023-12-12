@@ -9,10 +9,11 @@
 
 Key:
 
+- ✅ fully implemented
 - 🥇 target for 0.1 release
 - 🥈 target for 0.2 release
 - 🥉 target for 0.3 release: TBD
-- ✅ fully implemented
+
 
 **Finite verb forms**:
 
