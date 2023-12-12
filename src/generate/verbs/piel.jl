@@ -91,9 +91,9 @@ function piel_perfect_strong(root::String,verb::HebrewFiniteVerb)
     
 end
 
-
-
-
+"""Generate requested person+number+gender of the imperfect for the given verb.
+$(SIGNATURES)
+"""
 function piel_imperfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
@@ -103,51 +103,48 @@ function piel_imperfect(root::String,form::HebrewFiniteVerb)
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
     #end
-
 end
 
-
-"""Generate requested person+number+gender of the perfect for the given strong verb."""
+"""Generate requested person+number+gender of the imperfect for the given strong verb.
+$(SIGNATURES)
+"""
 function piel_imperfect_strong(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
+    pe = consonants[1]
+    ayin = consonants[2]
+    lamed = consonants[3]
     form = pngSummary(verb)
     
     if form == "3sm"
-        #string(BiblicalHebrew.hiriq("י"), BiblicalHebrew.sheva(consonants[1]), BiblicalHebrew.holam(consonants[2]), consonants[3])
-
-        string(BiblicalHebrew.sheva("י"), BiblicalHebrew.patah(consonants[1]), 
-        BiblicalHebrew.tsere(BiblicalHebrew.dagesh(consonants[2])), consonants[3])
-        
-        #=
+        string(BiblicalHebrew.sheva("י"), BiblicalHebrew.patah(pe), 
+        BiblicalHebrew.tsere(BiblicalHebrew.dagesh(ayin)), lamed)
     elseif form == "3sf"
-        string(BiblicalHebrew.qamats(consonants[1]) |> BiblicalHebrew.metheg, BiblicalHebrew.sheva(consonants[2]), BiblicalHebrew.qamats(consonants[3]), BiblicalHebrew.he_ch)
-
+        string(BiblicalHebrew.dagesh(BiblicalHebrew.sheva("ת")), BiblicalHebrew.patah(pe), 
+        BiblicalHebrew.tsere(BiblicalHebrew.dagesh(ayin)), lamed)
     elseif form == "2sm"
-        string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.patah(BiblicalHebrew.ole(consonants[2])), BiblicalHebrew.sheva(consonants[3]), BiblicalHebrew.dagesh("ת") |> BiblicalHebrew.qamats)
-
+        string(BiblicalHebrew.dagesh(BiblicalHebrew.sheva("ת")), BiblicalHebrew.patah(pe), BiblicalHebrew.tsere(BiblicalHebrew.dagesh(ayin)),lamed)
     elseif form == "2sf"
-        string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.patah(consonants[2]), BiblicalHebrew.sheva(consonants[3]), BiblicalHebrew.dagesh("ת") |> BiblicalHebrew.sheva)
-    
-
+        string(BiblicalHebrew.dagesh(BiblicalHebrew.sheva("ת")), BiblicalHebrew.patah(pe), BiblicalHebrew.sheva(BiblicalHebrew.dagesh(ayin)), BiblicalHebrew.hiriq(lamed), "י")
     elseif form == "1sc" || form == "1sm" || form == "1sf"
-        string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.patah(BiblicalHebrew.ole(consonants[2])), BiblicalHebrew.sheva(consonants[3]), BiblicalHebrew.mappiq("נו"))
+        string(BiblicalHebrew.sheva(BiblicalHebrew.patah("א")), BiblicalHebrew.patah(pe), 
+        BiblicalHebrew.tsere(BiblicalHebrew.dagesh(ayin)), lamed)
 
-
-    elseif form == "3pc"
-        string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.sheva(consonants[2]), consonants[3], BiblicalHebrew.mappiq("נו"))
-
-
+    elseif form == "3pm" 
+        string(BiblicalHebrew.sheva("י"), BiblicalHebrew.patah(pe), 
+        BiblicalHebrew.sheva(BiblicalHebrew.dagesh(ayin)), lamed, BiblicalHebrew.mappiq("ו"))
+    elseif form == "3pf" 
+        string(BiblicalHebrew.dagesh(BiblicalHebrew.sheva("ת")), BiblicalHebrew.patah(pe), 
+        BiblicalHebrew.ole(BiblicalHebrew.tsere(BiblicalHebrew.dagesh(ayin))), BiblicalHebrew.sheva(lamed), BiblicalHebrew.qamats("נ"), "ה")
     elseif form == "2pm"
-        string(BiblicalHebrew.sheva(consonants[1]), BiblicalHebrew.patah(consonants[2]), BiblicalHebrew.sheva(consonants[3]), BiblicalHebrew.seghol(BiblicalHebrew.dagesh("ת")), "מ")
-
+        string(BiblicalHebrew.sheva("ת"), BiblicalHebrew.patah(pe), 
+        BiblicalHebrew.sheva(BiblicalHebrew.dagesh(ayin)), lamed, BiblicalHebrew.mappiq("ו"))
     elseif form == "2pf"
-        string(BiblicalHebrew.sheva(consonants[1]), BiblicalHebrew.patah(consonants[2]), BiblicalHebrew.sheva(consonants[3]), BiblicalHebrew.seghol(BiblicalHebrew.dagesh("ת")), "ן")
-
-
+        string(BiblicalHebrew.dagesh(BiblicalHebrew.sheva("ת")), BiblicalHebrew.patah(pe), 
+        BiblicalHebrew.ole(BiblicalHebrew.tsere(BiblicalHebrew.dagesh(ayin))), BiblicalHebrew.sheva(lamed), BiblicalHebrew.qamats("נ"), "ה")
     elseif form == "1pc"
-        string(BiblicalHebrew.qamats(consonants[1]), BiblicalHebrew.ole(BiblicalHebrew.patah(consonants[2])), BiblicalHebrew.sheva(consonants[3]), BiblicalHebrew.mappiq("נו"))
-
-=#
+        string(BiblicalHebrew.sheva("נ"), BiblicalHebrew.patah(pe), 
+        BiblicalHebrew.tsere(BiblicalHebrew.dagesh(ayin)), lamed)
+    
     else
         @warn("Form $(form) not recognized or not yet implemented.")
     end
