@@ -29,7 +29,7 @@ Key:
 | lamed-guttural | שָׁמַע |  |  |  |  |   |
 | lamed-aleph | בָּרָא |  |  |  |  |   |
 | lamed-he | בָּנָה |  🥈 | 🥈 | 🥈  |  🥈 | 🥈  |
-| geminates | סָבַב |  |  |  |  |   |
+| double-ayin ("geminates") | סָבַב |  |  |  |  |   |
 
 
 **Other verb forms**:
@@ -47,7 +47,7 @@ Key:
 | lamed-guttural | שָׁמַע |  |  |  |  
 | lamed-aleph | בָּרָא  |  |  |  |  
 | lamed-he | בָּנָה |  |  |  | 
-| geminates | סָבַב |  |  |  | 
+| double-ayin ("geminates") | סָבַב |  |  |  | 
 
 **Nouns**: TBA
 
