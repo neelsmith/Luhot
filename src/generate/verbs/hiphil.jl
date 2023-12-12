@@ -52,6 +52,9 @@ end
 """Generate requested person+number+gender of the perfect for the given strong verb."""
 function hiphil_perfect_strong(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
+    pe = consonants[1]
+    ayin = consonants[2]
+    lamed = consonants[3]
     form = pngSummary(verb)
     # initial = check if consonants[1] is in the begadkefat and
     # if so add daghesh
@@ -61,7 +64,7 @@ function hiphil_perfect_strong(root::String,verb::HebrewFiniteVerb)
     if form == "3sm"
         string(BiblicalHebrew.hiriq("ה"), BiblicalHebrew.sheva(consonants[1]), BiblicalHebrew.hiriq(consonants[2]), "י", consonants[3])
     elseif form == "3sf"
-        "..."
+        string(BiblicalHebrew.hiriq("ה"), BiblicalHebrew.sheva(consonants[1]), BiblicalHebrew.hiriq(consonants[2]), "י", consonants[3])
     elseif form == "2sm"
         "..."
     elseif form == "2sf"

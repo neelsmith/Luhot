@@ -13,7 +13,9 @@ function piel_imperative(root::String,form::HebrewFiniteVerb)
     #end
 end
 
-"""Generate requested person+number+gender of the *piel* imperative for the given strong verb."""
+"""Generate requested person+number+gender of the *piel* imperative for the given strong verb.
+$(SIGNATURES)
+"""
 function piel_imperative_strong(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
@@ -34,9 +36,9 @@ function piel_imperative_strong(root::String,verb::HebrewFiniteVerb)
 end
 
 
-
-
-
+"""Generate requested person+number+gender of the *piel* perfect for the given verb.
+$(SIGNATURES)
+"""
 function piel_perfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
@@ -49,7 +51,9 @@ function piel_perfect(root::String,form::HebrewFiniteVerb)
 
 end
 
-"""Generate requested person+number+gender of the perfect for the given strong verb."""
+"""Generate requested person+number+gender of the perfect for the given strong verb.
+$(SIGNATURES)
+"""
 function piel_perfect_strong(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
