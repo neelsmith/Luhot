@@ -36,7 +36,10 @@ end
 
 
 
-
+"""Compose a string for the given person, number, gender form of 
+the given verb in the perfect tense of the *hiphil* pattern.
+$(SIGNATURES)
+"""
 function hiphil_perfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
@@ -49,7 +52,12 @@ function hiphil_perfect(root::String,form::HebrewFiniteVerb)
 
 end
 
-"""Generate requested person+number+gender of the perfect for the given strong verb."""
+
+
+"""Compose a string for the given person, number, gender form of 
+the given strong verb in the perfect tense of the *hiphil* pattern.
+$(SIGNATURES)
+"""
 function hiphil_perfect_strong(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
@@ -90,6 +98,10 @@ end
 
 
 
+"""Compose a string for the given person, number, gender form of 
+the given verb in the imperfect tense of the *hiphil* pattern.
+$(SIGNATURES)
+"""
 function hiphil_imperfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
@@ -103,9 +115,16 @@ function hiphil_imperfect(root::String,form::HebrewFiniteVerb)
 end
 
 
-"""Generate requested person+number+gender of the perfect for the given strong verb."""
+
+"""Compose a string for the given person, number, gender form of 
+the given strong verb in the imperfect tense of the *hiphil* pattern.
+$(SIGNATURES)
+"""
 function hiphil_imperfect_strong(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
+    pe = consonants[1]
+    ayin = consonants[2]
+    lamed = consonants[3]
     form = pngSummary(verb)
     
     if form == "3sm"
