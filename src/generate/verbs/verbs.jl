@@ -21,7 +21,7 @@ function rootclass(verb)::Symbol
         # various doubly weak combos
 
         else
-                :strong
+                :sound
         end
 
         # pe-guttural

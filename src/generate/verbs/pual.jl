@@ -6,8 +6,8 @@ $(SIGNATURES)
 function pual_perfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-        pual_perfect_strong(root, form)
+    #if verbclass == :sound
+        pual_perfect_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
@@ -15,10 +15,10 @@ function pual_perfect(root::String,form::HebrewFiniteVerb)
 
 end
 
-"""Generate requested person+number+gender of the perfect for the given strong verb.
+"""Generate requested person+number+gender of the perfect for the given sound verb.
 $(SIGNATURES)
 """
-function pual_perfect_strong(root::String,verb::HebrewFiniteVerb)
+function pual_perfect_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]
@@ -64,8 +64,8 @@ $(SIGNATURES)
 function pual_imperfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-        pual_imperfect_strong(root, form)
+    #if verbclass == :sound
+        pual_imperfect_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
@@ -74,10 +74,10 @@ function pual_imperfect(root::String,form::HebrewFiniteVerb)
 end
 
 
-"""Generate requested person+number+gender of the imperfect for the given strong verb.
+"""Generate requested person+number+gender of the imperfect for the given sound verb.
 $(SIGNATURES)
 """
-function pual_imperfect_strong(root::String,verb::HebrewFiniteVerb)
+function pual_imperfect_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]

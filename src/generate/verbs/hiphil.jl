@@ -5,16 +5,16 @@ $(SIGNATURES)
 function hiphil_imperative(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-    hiphil_imperative_strong(root, form)
+    #if verbclass == :sound
+    hiphil_imperative_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
     #end
 end
 
-"""Generate requested person+number+gender of the *hiphil* imperative for the given strong verb."""
-function hiphil_imperative_strong(root::String,verb::HebrewFiniteVerb)
+"""Generate requested person+number+gender of the *hiphil* imperative for the given sound verb."""
+function hiphil_imperative_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]
@@ -43,8 +43,8 @@ $(SIGNATURES)
 function hiphil_perfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-        hiphil_perfect_strong(root, form)
+    #if verbclass == :sound
+        hiphil_perfect_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
@@ -55,10 +55,10 @@ end
 
 
 """Compose a string for the given person, number, gender form of 
-the given strong verb in the perfect tense of the *hiphil* pattern.
+the given sound verb in the perfect tense of the *hiphil* pattern.
 $(SIGNATURES)
 """
-function hiphil_perfect_strong(root::String,verb::HebrewFiniteVerb)
+function hiphil_perfect_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]
@@ -105,8 +105,8 @@ $(SIGNATURES)
 function hiphil_imperfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-        hiphil_imperfect_strong(root, form)
+    #if verbclass == :sound
+        hiphil_imperfect_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
@@ -115,10 +115,10 @@ function hiphil_imperfect(root::String,form::HebrewFiniteVerb)
 end
 
 """Compose a string for the given person, number, gender form of 
-the given strong verb in the imperfect tense of the *hiphil* pattern.
+the given sound verb in the imperfect tense of the *hiphil* pattern.
 $(SIGNATURES)
 """
-function hiphil_imperfect_strong(root::String,verb::HebrewFiniteVerb)
+function hiphil_imperfect_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]

@@ -5,8 +5,8 @@ $(SIGNATURES)
 function hithpael_imperative(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-    hithpael_imperative_strong(root, form)
+    #if verbclass == :sound
+    hithpael_imperative_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
@@ -14,10 +14,10 @@ function hithpael_imperative(root::String,form::HebrewFiniteVerb)
 end
 
 """Compose a string for the given person, number, gender form of 
-the given strong verb in the imperative of the *hithpael* pattern.
+the given sound verb in the imperative of the *hithpael* pattern.
 $(SIGNATURES)
 """
-function hithpael_imperative_strong(root::String,verb::HebrewFiniteVerb)
+function hithpael_imperative_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]
@@ -43,8 +43,8 @@ $(SIGNATURES)
 function hithpael_perfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-        hithpael_perfect_strong(root, form)
+    #if verbclass == :sound
+        hithpael_perfect_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
@@ -53,10 +53,10 @@ function hithpael_perfect(root::String,form::HebrewFiniteVerb)
 end
 
 """Compose a string for the given person, number, gender form of 
-the given strong verb in the perfect of the *hithpael* pattern.
+the given sound verb in the perfect of the *hithpael* pattern.
 $(SIGNATURES)
 """
-function hithpael_perfect_strong(root::String,verb::HebrewFiniteVerb)
+function hithpael_perfect_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]
@@ -101,8 +101,8 @@ $(SIGNATURES)
 function hithpael_imperfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-        hithpael_imperfect_strong(root, form)
+    #if verbclass == :sound
+        hithpael_imperfect_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
@@ -111,10 +111,10 @@ function hithpael_imperfect(root::String,form::HebrewFiniteVerb)
 end
 
 """Compose a string for the given person, number, gender form of 
-the given strong verb in the imperative of the *hithpael* pattern.
+the given sound verb in the imperative of the *hithpael* pattern.
 $(SIGNATURES)
 """
-function hithpael_imperfect_strong(root::String,verb::HebrewFiniteVerb)
+function hithpael_imperfect_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]

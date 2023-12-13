@@ -5,16 +5,16 @@ $(SIGNATURES)
 function qal_imperative(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-    qal_imperative_strong(root, form)
+    #if verbclass == :sound
+    qal_imperative_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
     #end
 end
 
-"""Generate requested person+number+gender of the *qal* imperative for the given strong verb."""
-function qal_imperative_strong(root::String,verb::HebrewFiniteVerb)
+"""Generate requested person+number+gender of the *qal* imperative for the given sound verb."""
+function qal_imperative_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]
@@ -40,8 +40,8 @@ $(SIGNATURES)
 function qal_perfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-        qal_perfect_strong(root, form)
+    #if verbclass == :sound
+        qal_perfect_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
@@ -49,8 +49,8 @@ function qal_perfect(root::String,form::HebrewFiniteVerb)
 
 end
 
-"""Generate requested person+number+gender of the perfect for the given strong verb."""
-function qal_perfect_strong(root::String,verb::HebrewFiniteVerb)
+"""Generate requested person+number+gender of the perfect for the given sound verb."""
+function qal_perfect_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     form = pngSummary(verb)
     # initial = check if consonants[1] is in the begadkefat and
@@ -98,12 +98,12 @@ end
 
 
 
-"""Generate requested person+number+gender of the imperfect for the given strong verb."""
+"""Generate requested person+number+gender of the imperfect for the given sound verb."""
 function qal_imperfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-        qal_imperfect_strong(root, form)
+    #if verbclass == :sound
+        qal_imperfect_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
@@ -112,8 +112,8 @@ function qal_imperfect(root::String,form::HebrewFiniteVerb)
 end
 
 
-"""Generate requested person+number+gender of the perfect for the given strong verb."""
-function qal_imperfect_strong(root::String,verb::HebrewFiniteVerb)
+"""Generate requested person+number+gender of the perfect for the given sound verb."""
+function qal_imperfect_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]

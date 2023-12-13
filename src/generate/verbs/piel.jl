@@ -5,18 +5,18 @@ $(SIGNATURES)
 function piel_imperative(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-    piel_imperative_strong(root, form)
+    #if verbclass == :sound
+    piel_imperative_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
     #end
 end
 
-"""Generate requested person+number+gender of the *piel* imperative for the given strong verb.
+"""Generate requested person+number+gender of the *piel* imperative for the given sound verb.
 $(SIGNATURES)
 """
-function piel_imperative_strong(root::String,verb::HebrewFiniteVerb)
+function piel_imperative_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]
@@ -42,8 +42,8 @@ $(SIGNATURES)
 function piel_perfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-        piel_perfect_strong(root, form)
+    #if verbclass == :sound
+        piel_perfect_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
@@ -51,10 +51,10 @@ function piel_perfect(root::String,form::HebrewFiniteVerb)
 
 end
 
-"""Generate requested person+number+gender of the perfect for the given strong verb.
+"""Generate requested person+number+gender of the perfect for the given sound verb.
 $(SIGNATURES)
 """
-function piel_perfect_strong(root::String,verb::HebrewFiniteVerb)
+function piel_perfect_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]
@@ -97,18 +97,18 @@ $(SIGNATURES)
 function piel_imperfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-        piel_imperfect_strong(root, form)
+    #if verbclass == :sound
+        piel_imperfect_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
     #end
 end
 
-"""Generate requested person+number+gender of the imperfect for the given strong verb.
+"""Generate requested person+number+gender of the imperfect for the given sound verb.
 $(SIGNATURES)
 """
-function piel_imperfect_strong(root::String,verb::HebrewFiniteVerb)
+function piel_imperfect_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]

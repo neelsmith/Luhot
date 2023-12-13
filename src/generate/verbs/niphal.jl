@@ -5,8 +5,8 @@ $(SIGNATURES)
 function niphal_imperative(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-    niphal_imperative_strong(root, form)
+    #if verbclass == :sound
+    niphal_imperative_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
@@ -14,10 +14,10 @@ function niphal_imperative(root::String,form::HebrewFiniteVerb)
 end
 
 """Compose a string for the requested person, number, gender form of 
-the given strong verb in the imperative of the *niphal* pattern.
+the given sound verb in the imperative of the *niphal* pattern.
 $(SIGNATURES)
 """
-function niphal_imperative_strong(root::String,verb::HebrewFiniteVerb)
+function niphal_imperative_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]
@@ -44,8 +44,8 @@ $(SIGNATURES)
 function niphal_perfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-        niphal_perfect_strong(root, form)
+    #if verbclass == :sound
+        niphal_perfect_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
@@ -54,10 +54,10 @@ function niphal_perfect(root::String,form::HebrewFiniteVerb)
 end
 
 """Compose a string for the requested person, number, gender form of 
-the given strong verb in the perfect tense of the *niphal* pattern.
+the given sound verb in the perfect tense of the *niphal* pattern.
 $(SIGNATURES)
 """
-function niphal_perfect_strong(root::String,verb::HebrewFiniteVerb)
+function niphal_perfect_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]
@@ -106,8 +106,8 @@ $(SIGNATURES)
 function niphal_imperfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-        niphal_imperfect_strong(root, form)
+    #if verbclass == :sound
+        niphal_imperfect_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
@@ -116,10 +116,10 @@ function niphal_imperfect(root::String,form::HebrewFiniteVerb)
 end
 
 """Compose a string for the requested person, number, gender form of 
-the given strong verb in the imperfect tense of the *niphal* pattern.
+the given sound verb in the imperfect tense of the *niphal* pattern.
 $(SIGNATURES)
 """
-function niphal_imperfect_strong(root::String,verb::HebrewFiniteVerb)
+function niphal_imperfect_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]

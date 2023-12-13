@@ -1,5 +1,5 @@
 @testset "Test identifying root class of a triliteral verb" begin
-    strong = "קָטַל"
+    sound = "קָטַל"
     begadkefat = "כָתַב"
 
     peguttural = "עָבַד"

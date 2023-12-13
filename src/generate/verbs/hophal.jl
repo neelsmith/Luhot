@@ -3,8 +3,8 @@
 function hophal_perfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-        hophal_perfect_strong(root, form)
+    #if verbclass == :sound
+        hophal_perfect_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
@@ -12,10 +12,10 @@ function hophal_perfect(root::String,form::HebrewFiniteVerb)
 
 end
 
-"""Generate requested person+number+gender of the perfect for the given strong verb.
+"""Generate requested person+number+gender of the perfect for the given sound verb.
 $(SIGNATURES)
 """
-function hophal_perfect_strong(root::String,verb::HebrewFiniteVerb)
+function hophal_perfect_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]
@@ -60,8 +60,8 @@ $(SIGNATURES)
 function hophal_imperfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :strong
-        hophal_imperfect_strong(root, form)
+    #if verbclass == :sound
+        hophal_imperfect_sound(root, form)
     #else
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
@@ -70,10 +70,10 @@ function hophal_imperfect(root::String,form::HebrewFiniteVerb)
 end
 
 
-"""Generate requested person+number+gender of the *hophal* form of the imperfect for the given strong verb.
+"""Generate requested person+number+gender of the *hophal* form of the imperfect for the given sound verb.
 $(SIGNATURES)
 """
-function hophal_imperfect_strong(root::String,verb::HebrewFiniteVerb)
+function hophal_imperfect_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
     ayin = consonants[2]
