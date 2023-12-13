@@ -83,11 +83,11 @@ function hophal_imperfect_strong(root::String,verb::HebrewFiniteVerb)
     if form == "3sm"       
         string(BiblicalHebrew.qamats( "י"), BiblicalHebrew.sheva(pe), BiblicalHebrew.patah(ayin), lamed)
     elseif form == "3sf"
-        string(BiblicalHebrew.qamats("ת"), BiblicalHebrew.sheva(pe), BiblicalHebrew.patah(ayin), lamed)
+        string(BiblicalHebrew.dagesh(BiblicalHebrew.qamats("ת")), BiblicalHebrew.sheva(pe), BiblicalHebrew.patah(ayin), lamed)
     elseif form == "2sm"
-        string(BiblicalHebrew.qamats("ת"), BiblicalHebrew.sheva(pe), BiblicalHebrew.patah(ayin), lamed)
+        string(BiblicalHebrew.dagesh(BiblicalHebrew.qamats("ת")), BiblicalHebrew.sheva(pe), BiblicalHebrew.patah(ayin), lamed)
     elseif form == "2sf"
-        string(BiblicalHebrew.qamats("ת"), BiblicalHebrew.sheva(pe), BiblicalHebrew.sheva(ayin), BiblicalHebrew.hiriq(lamed), "י")
+        string(BiblicalHebrew.dagesh(BiblicalHebrew.qamats("ת")), BiblicalHebrew.sheva(pe), BiblicalHebrew.sheva(ayin), BiblicalHebrew.hiriq(lamed), "י")
     elseif form == "1sc" || form == "1sm" || form == "1sf"
         string(BiblicalHebrew.qamats("א"), BiblicalHebrew.sheva(pe), BiblicalHebrew.patah(ayin), lamed)    
        
@@ -95,11 +95,11 @@ function hophal_imperfect_strong(root::String,verb::HebrewFiniteVerb)
     elseif form == "3pm"
         string(BiblicalHebrew.qamats( "י"), BiblicalHebrew.sheva(pe), BiblicalHebrew.sheva(ayin), lamed, BiblicalHebrew.mappiq("ו"))     
     elseif form == "3pf"        
-        string(BiblicalHebrew.qamats("ת"), BiblicalHebrew.sheva(pe), BiblicalHebrew.ole(BiblicalHebrew.patah(ayin)), BiblicalHebrew.sheva(lamed), BiblicalHebrew.qamats("נ"),"ה" )
+        string(BiblicalHebrew.dagesh(BiblicalHebrew.qamats("ת")), BiblicalHebrew.sheva(pe), BiblicalHebrew.ole(BiblicalHebrew.patah(ayin)), BiblicalHebrew.sheva(lamed), BiblicalHebrew.qamats("נ"),"ה" )
     elseif form == "2pm"
-        string(BiblicalHebrew.qamats("ת"), BiblicalHebrew.sheva(pe), BiblicalHebrew.sheva(ayin), lamed, BiblicalHebrew.mappiq("ו"))
+        string(BiblicalHebrew.dagesh(BiblicalHebrew.qamats("ת")), BiblicalHebrew.sheva(pe), BiblicalHebrew.sheva(ayin), lamed, BiblicalHebrew.mappiq("ו"))
     elseif form == "2pf"
-        string(BiblicalHebrew.qamats("ת"), BiblicalHebrew.sheva(pe), BiblicalHebrew.ole(BiblicalHebrew.patah(ayin)), BiblicalHebrew.sheva(lamed), BiblicalHebrew.qamats("נ"),"ה" )  
+        string(BiblicalHebrew.dagesh(BiblicalHebrew.qamats("ת")), BiblicalHebrew.sheva(pe), BiblicalHebrew.ole(BiblicalHebrew.patah(ayin)), BiblicalHebrew.sheva(lamed), BiblicalHebrew.qamats("נ"),"ה" )  
     elseif form == "1pc" || form == "1pm" || form == "1pf"
         string(BiblicalHebrew.qamats("נ"), BiblicalHebrew.sheva(pe), BiblicalHebrew.patah(ayin), lamed)
         
