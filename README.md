@@ -19,7 +19,7 @@ Key:
 
 | Verb type | Example | Perfect | Imperfect | Imperative | Jussive | Corhortative|
 | --- | --- | --- | --- | --- | --- |  --- | 
-| sound | קָטַל | ✅  | ✅  | 🥇 | 🥇 | 🥇 |
+| sound | קָטַל | ✅  | ✅  | ✅ | 🥇 | 🥇 |
 | sound - begadkefat | כָּתַב |  🥇 | 🥇 | 🥇  | 🥇 | 🥇 |
 | pe-guttural | עָבַד |  |  |  |  |   |
 | pe-aleph | אָחַר |  |  |  |  |   |
