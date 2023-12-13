@@ -13,7 +13,10 @@ function hiphil_imperative(root::String,form::HebrewFiniteVerb)
     #end
 end
 
-"""Generate requested person+number+gender of the *hiphil* imperative for the given sound verb."""
+"""Compose a string for the given person, number, gender form of 
+the given sound verb in the imperative of the *hiphil* pattern.
+$(SIGNATURES)
+"""
 function hiphil_imperative_sound(root::String,verb::HebrewFiniteVerb)
     consonants = collect(BiblicalHebrew.unpointed(root))
     pe = consonants[1]
@@ -21,13 +24,13 @@ function hiphil_imperative_sound(root::String,verb::HebrewFiniteVerb)
     lamed = consonants[3]
     form = pngSummary(verb)
     if form == "2sm"
-       "Hmm"
+        string(BiblicalHebrew.patah("ה"), BiblicalHebrew.sheva(pe), BiblicalHebrew.tsere(ayin), lamed)
     elseif form == "2sf"
-        "Hmm"
+        string(BiblicalHebrew.patah("ה"), BiblicalHebrew.sheva(pe), BiblicalHebrew.ole(BiblicalHebrew.hiriq(ayin)),"י",  BiblicalHebrew.hiriq(lamed), "י")
     elseif form == "2pm"
-        "Hmm"
+        string(BiblicalHebrew.patah("ה"), BiblicalHebrew.sheva(pe), BiblicalHebrew.ole(BiblicalHebrew.hiriq(ayin)),"י", lamed, BiblicalHebrew.mappiq("ו"))
     elseif form == "2pf"
-        "Hmm"
+        string(BiblicalHebrew.patah("ה"), BiblicalHebrew.sheva(pe), BiblicalHebrew.ole(BiblicalHebrew.tsere(ayin)), BiblicalHebrew.sheva(lamed), BiblicalHebrew.qamats("נ"), "ה")
     else
         @warn("Form $(form) not recognized or not yet implemented.")
     end
