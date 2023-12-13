@@ -24,13 +24,14 @@ function niphal_imperative_sound(root::String,verb::HebrewFiniteVerb)
     lamed = consonants[3]
     form = pngSummary(verb)
     if form == "2sm"
-       "Hmm"
+        string(BiblicalHebrew.hiriq("ה"), BiblicalHebrew.dagesh(BiblicalHebrew.qamats(pe)), BiblicalHebrew.tsere(ayin), lamed)
+
     elseif form == "2sf"
-        "Hmm"
+        string(BiblicalHebrew.hiriq("ה"), BiblicalHebrew.dagesh(BiblicalHebrew.metheg(BiblicalHebrew.qamats(pe))), BiblicalHebrew.sheva(ayin), BiblicalHebrew.hiriq(lamed), "י")        
     elseif form == "2pm"
-        "Hmm"
+        string(BiblicalHebrew.hiriq("ה"), BiblicalHebrew.dagesh(BiblicalHebrew.metheg(BiblicalHebrew.qamats(pe))), BiblicalHebrew.sheva(ayin), lamed, BiblicalHebrew.mappiq("ו")) 
     elseif form == "2pf"
-        "Hmm"
+        string(BiblicalHebrew.hiriq("ה"), BiblicalHebrew.dagesh(BiblicalHebrew.qamats(pe)), BiblicalHebrew.ole(BiblicalHebrew.patah(ayin)), BiblicalHebrew.sheva(lamed), BiblicalHebrew.qamats("נ"), "ה") 
     else
         @warn("Form $(form) not recognized or not yet implemented.")
     end
