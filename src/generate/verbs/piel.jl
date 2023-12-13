@@ -23,13 +23,15 @@ function piel_imperative_sound(root::String,verb::HebrewFiniteVerb)
     lamed = consonants[3]
     form = pngSummary(verb)
     if form == "2sm"
-       "Hmm"
+        string(BiblicalHebrew.patah(pe), BiblicalHebrew.dagesh(BiblicalHebrew.tsere(ayin)), lamed)
     elseif form == "2sf"
-        "Hmm"
+        string(BiblicalHebrew.patah(pe), BiblicalHebrew.dagesh(BiblicalHebrew.sheva(ayin)), BiblicalHebrew.hiriq(lamed), "י")
     elseif form == "2pm"
-        "Hmm"
+        string(BiblicalHebrew.patah(pe), BiblicalHebrew.dagesh(BiblicalHebrew.sheva(ayin)), lamed, BiblicalHebrew.mappiq("ו"))
     elseif form == "2pf"
-        "Hmm"
+        string(BiblicalHebrew.patah(pe), BiblicalHebrew.ole(BiblicalHebrew.dagesh(BiblicalHebrew.tsere(ayin))), BiblicalHebrew.sheva(lamed), BiblicalHebrew.qamats("נ"), "ה")
+
+
     else
         @warn("Form $(form) not recognized or not yet implemented.")
     end
