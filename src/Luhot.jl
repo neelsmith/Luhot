@@ -53,6 +53,7 @@ include("morphologicalproperties/person.jl")
 include("morphologicalproperties/number.jl")
 include("morphologicalproperties/gender.jl")
 
+include("forms/formvalues.jl")
 include("forms/forms.jl")
 include("forms/finiteverbs.jl")
 

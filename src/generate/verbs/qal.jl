@@ -1,4 +1,58 @@
 """Compose a string for the given person, number, gender form of 
+the given verb in the cohortative-jussive of the *qal* pattern.
+$(SIGNATURES)
+"""
+function qal_jussive(root::String,form::HebrewFiniteVerb)
+    #verbclass = rootclass(root)    
+
+    #if verbclass == :sound
+    qal_jussive_sound(root, form)
+    #else
+    #    @warn("Verb class $(verbclass) not yet implemented")
+    #    nothing
+    #end
+end
+
+"""Compose a string for the given person, number, gender form of 
+the given sound verb in the cohortative-jussive of the *qal* pattern.
+$(SIGNATURES)
+"""
+function qal_jussive_sound(root::String,verb::HebrewFiniteVerb)
+    consonants = collect(BiblicalHebrew.unpointed(root))
+    pe = consonants[1]
+    ayin = consonants[2]
+    lamed = consonants[3]
+    form = pngSummary(verb)
+
+    if form == "3sm"
+        "hi: jusssive"
+    elseif form == "3sf"
+        "hi: jusssive"
+    elseif form == "2sm"
+        "hi: emphatic imperative"
+    elseif form == "2sf"
+        "hi: emphatic imperative"
+    elseif form == "1sc" || form == "1sm" || form == "1sf"
+        "hi: cohortative"
+
+    elseif form == "3pm"
+        "hi: jussive"
+    elseif form == "3pf"
+        "hi: jussive"  
+    elseif form == "2pm"
+        "hi: emphatic imperative"
+    elseif form == "2pf"
+        "hi: emphatic imperative"        
+    elseif form == "1pc" || form == "1pm" || form == "1pf"
+        "hi: cohortative"    
+    else
+        @warn("Form $(form) not recognized or not yet implemented.")
+    end
+end
+
+
+
+"""Compose a string for the given person, number, gender form of 
 the given verb in the imperative of the *qal* pattern.
 $(SIGNATURES)
 """

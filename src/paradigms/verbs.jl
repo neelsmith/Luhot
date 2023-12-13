@@ -90,6 +90,8 @@ function paradigm_png(tns::HMPTense)
         imperfect_png()
     elseif label(tns) == "imperative"
         imperative_png()
+    elseif label(tns) == "cohortative-jussive"
+        imperfect_png()
     else
         @warn("Unrecognized or unimplemented tense $(tns)")
         []

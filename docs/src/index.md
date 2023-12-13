@@ -37,3 +37,9 @@ using Markdown
 verbstring = generate(verbstem, verbform)
 Markdown.parse(verbstring)
 ```
+
+
+Note on labelling of tenses:
+
+- perfect, imperfect, imperative follow traditional usages.
+- 1st person cohortative, second person emhatic imperative, third person jussive are treated together and labelled "cohortative-jussive"
