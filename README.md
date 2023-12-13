@@ -47,7 +47,7 @@ Key:
 | ayin-waw/yod ("hollow root") |   קָם||  |  |   
 | lamed-guttural | שָׁמַע |  |  |  |  
 | lamed-aleph | בָּרָא  |  |  |  |  
-| lamed-he | בָּנָה |  |  |  | 
+| lamed-he | בָּנָה |  🥈 |  🥈 |  🥈 | 
 | double-ayin ("geminates") | סָבַב |  |  |  | 
 
 **Nouns**: TBA
