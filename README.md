@@ -20,7 +20,7 @@ Key:
 | Verb type | Example | Perfect | Imperfect | Imperative | Jussive | Corhortative|
 | --- | --- | --- | --- | --- | --- |  --- | 
 | sound | קָטַל | ✅  | ✅  | 🥇 | 🥇 | 🥇 |
-| sound - begadkefat | כָתַב |  🥇 | 🥇 | 🥇  | 🥇 | 🥇 |
+| sound - begadkefat | כָּתַב |  🥇 | 🥇 | 🥇  | 🥇 | 🥇 |
 | pe-guttural | עָבַד |  |  |  |  |   |
 | pe-aleph | אָחַר |  |  |  |  |   |
 | pe-waw/yod | יָלַד |  |  |  |  |   |
@@ -38,7 +38,7 @@ Key:
 | Verb type | Example |Infinitives | Participles | waw-consecutive  |
 | --- | --- | --- | --- | --- |
 | sound | קָטַל | 🥈 | 🥈 | 🥈|
-| sound - begadkefat | כָתַב | 🥈 | 🥈 | 🥈 | 
+| sound - begadkefat | כָּתַב | 🥈 | 🥈 | 🥈 | 
 | pe-guttural | עָבַד |  |  |  | 
 | pe-aleph | אָחַר |  |  |  |  
 | pe-waw/yod | יָלַד |  |  |  | 
