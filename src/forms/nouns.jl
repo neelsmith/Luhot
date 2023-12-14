@@ -1,6 +1,7 @@
 struct HebrewNoun <: HebrewForm
-    # construct/absolute
+    
     gender::HMPGender
     num::HMPNumber
+    subststate::HMPState
     # object suffix properties...
 end

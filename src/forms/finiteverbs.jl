@@ -58,13 +58,101 @@ end
 
 
 
+"""Create a `HebrewFiniteVerb` from a string value.
+
+$(SIGNATURES)
+"""
+function hmfFiniteVerb(code::AbstractString)
+    morphchars = split(code,"")
+    
+    # PosPatTPNG...
+
+    #=
+    vpattern::HMPVerbPattern
+    vtense::HMPTense
+    vperson::HMPPerson
+    vnumber::HMPNumber
+    vgender::HMPGender
+    =#
+
+
+
+    #=
+    tns = gmpTense(parse(Int64, morphchars[4]))
+    md = gmpMood(parse(Int64, morphchars[5]))
+    vc = gmpVoice(parse(Int64,morphchars[6]))
+    prsn = gmpPerson(parse(Int64, morphchars[2]))
+    nmbr = gmpNumber(parse(Int64, morphchars[3]))
+    =#
+
+
+    #=
+    HebrewFiniteVerb(
+        ptrn, tns, prsn, nmbr, gndr
+    )
+    =#
+end
+
+
+
+"""Compose delimited-text representation of CITE collection for morphological forms of finite verbs.
+
+$(SIGNATURES)
+"""
+function finiteverbscex()
+    # Sequence of integers in code string:
+    # PosPatTPNGStateUninfcat
+
+    # Pad out 0s for other properties TBD
+    padothers = "00"
+
+    lines = []
+    # Limit person/number on imperative
+    PERFECT = 1
+    IMPERFECT = 2
+    IMPERATIVE = 3
+    JUSSIVE = 4
+
+    patternkeys = keys(Luhot.codetopatterndict) |> collect |> sort
+    personkeys = keys(Luhot.codetopersondict) |> collect |> sort
+
+    SINGULAR = 1
+    PLURAL = 3
+    numberkeys  = [SINGULAR, PLURAL]
+
+    MASCULINE = 1
+    FEMININE  = 2
+    genderkeys = [MASCULINE, FEMININE]
+    for pttrn in patternkeys
+        for tns in [PERFECT, IMPERFECT, JUSSIVE]
+            for prsn in personkeys
+                for nmbr in numberkeys
+                    for gndr in genderkeys
+                        u = string(BASE_MORPHOLOGY_URN,FINITEVERB, pttrn, tns, prsn, nmbr, gndr, padothers)
+                        textlabel = string("verb: ", 
+                        label(hmpPattern(pttrn))," ",
+                        label(hmpTense(tns)), " ",
+                        label(hmpPerson(prsn)), " ",
+                        label(hmpNumber(nmbr))," ",
+                        label(hmpGender(gndr))
+                        )
+                        push!(lines, string(u, "|", textlabel))
+                    end
+                end
+            end
+        end
+    end
+    join(lines, "\n")  
+end
+
+
 
 
 """Finite verb forms are citable by Cite2Urn"""
 CitableTrait(::Type{HebrewFiniteVerb}) = CitableByCite2Urn()
 
 #=
-"""Compose a digital code for `adj`.
+"""Compose a digital code for `verb`.
 $(SIGNATURES)
 """
 function code(verb::HebrewFiniteVerb)
@@ -157,98 +245,4 @@ function formurn(verbform::HebrewFiniteVerb)
 end
 
 
-"""Compose delimited-text representation of CITE collection for morphological forms of finite verbs.
-
-$(SIGNATURES)
-"""
-function finiteverbscex()
-
-    #tensekeys = keys(Kanones.tenselabeldict)   |> collect |> sort 
-    moodkeys = keys(Kanones.moodlabeldict)   |> collect |> sort 
-    voicekeys = keys(Kanones.voicelabeldict)   |> collect |> sort 
-    personkeys = keys(Kanones.personlabeldict)  |> collect |> sort 
-    numberkeys = keys(Kanones.numberlabeldict)  |> collect |> sort 
-
-    lines = []
-    PRESENT = 1
-    IMPERFECT = 2
-    FUTURE = 3
-    AORIST = 4
-    PERFECT = 5
-    PLUPERFECT = 6
-    
-    
-    # indic mood only: imperfect, pluperfect
-    INDICATIVE = 1
-    # PosPNTMVGCDCat
-    for tense in [IMPERFECT, PLUPERFECT]
-        for pers in personkeys
-            for num in numberkeys
-                for voice in voicekeys
-                    u = string(BASE_MORPHOLOGY_URN, FINITEVERB, 
-                     pers, num, tense, INDICATIVE, voice,"00000")
-                    
-                    label = string("verb: ", 
-                    label(hmpPerson(pers)), 
-                    label(hmpNumber(num)), 
-                    label(hmpTense(tense)), 
-                    "indicative", 
-                    label(hmpVoice(voice)))
-                    
-                    cex = string(u, "|", label)
-                    push!(lines, cex)
-                end
-            end
-        end 
-    end
-
-    # indicative and optative moods only: future
-    OPTATIVE = 3
-    for mood in [INDICATIVE, OPTATIVE]
-        for pers in personkeys
-            for num in numberkeys
-                for voice in voicekeys
-                    u = string(BASE_MORPHOLOGY_URN, FINITEVERB, 
-                    pers, num, FUTURE, mood, voice,"00000")
-                    
-                    label = string("verb: ", 
-                    code(hmpPerson(pers)), 
-                    code(hmpNumber(num))s, 
-                    "future", 
-                    code(hmpMood(mood)), 
-                    code(hmpVoice(voice)))
-                    
-                    cex = string(u, "|", label)
-                    push!(lines, cex)
-                end
-            end
-        end 
-    end
-  
-    # all tense/mood combinations
-    # present, aorist, perfect
-    for tense in [PRESENT, AORIST, PERFECT]
-        for pers in personkeys
-            for num in numberkeys
-                for mood in moodkeys
-                    for voice in voicekeys
-                        u = string(BASE_MORPHOLOGY_URN, FINITEVERB, 
-                        pers, num, tense, mood, voice,"00000")
-                        
-                        label = string("verb: ", 
-                        code(hmpPerson(pers)), 
-                        code(hmpNumber(num)), 
-                        code(hmpTense(tense)), 
-                        code(hmpMood(mood)), 
-                        code(hmpVoice(voice)))
-                        
-                        cex = string(u, "|", label)
-                        push!(lines, cex)
-                    end
-                end
-            end
-        end 
-    end
-    join(lines, "\n")  
-end
 =#

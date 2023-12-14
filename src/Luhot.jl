@@ -3,8 +3,6 @@ module Luhot
 using BiblicalHebrew
 using Orthography
 
-
-
 import CitableBase: CitableTrait
 import CitableBase: urn
 import CitableBase: label
@@ -28,11 +26,14 @@ using Documenter, DocStringExtensions
 export label
 
 export HebrewMorphologicalProperty
+# Verbs:
 export HMPVerbPattern, hmpPattern
 export HMPTense, hmpTense
 export HMPPerson, hmpPerson
 export HMPNumber, hmpNumber
 export HMPGender, hmpGender
+# Nouns:
+export HMPSubstantiveState, hmpSubstantiveState
 
 export code
 
@@ -52,6 +53,7 @@ include("morphologicalproperties/tense.jl")
 include("morphologicalproperties/person.jl")
 include("morphologicalproperties/number.jl")
 include("morphologicalproperties/gender.jl")
+include("morphologicalproperties/state.jl")
 
 include("forms/formvalues.jl")
 include("forms/forms.jl")

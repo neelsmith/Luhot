@@ -1,8 +1,52 @@
 """Abstract type of a morphological form in Luhot."""
 abstract type HebrewForm end
 
+const COLLECTION_ID = "forms"
+const BASE_MORPHOLOGY_URN = "urn:cite2:luhot:$(COLLECTION_ID).v1:"
+
+
 """Hebrew morphological forms are citable by Cite2Urn"""
 CitableTrait(::T) where {T <: HebrewForm} = CitableByCite2Urn()
+
+
+"""Return Luhot code for analytical type
+encoded in first digit of `codestring`.
+$(SIGNATURES)
+"""
+function poscode(codestring::AbstractString)
+    parse(Int32, codestring[1])
+end
+
+
+"""Create a `HebrewForm` from a form code.
+$(SIGNATURES)
+"""
+function hebrewForm(codestr::AbstractString)
+    if poscode(codestr) == FINITEVERB
+        hmfFiniteVerb(codestr)
+    else
+        @warn("PoS code $(poscode(codestr)) not recognized or notyet implemented.")
+        nothing
+        #=
+    if poscode(codestr) == ADJECTIVE
+        gmfAdjective(codestr)
+    elseif poscode(codestr) == NOUN
+        gmfNoun(codestr)
+    elseif poscode(codestr) == FINITEVERB
+        gmfFiniteVerb(codestr)
+    elseif poscode(codestr) == VERBALADJECTIVE
+        gmfVerbalAdjective(codestr)
+    elseif poscode(codestr) == INFINITIVE
+        gmfInfinitive(codestr)
+    elseif poscode(codestr) == PARTICIPLE
+        gmfParticiple(codestr)
+    elseif poscode(codestr) == PRONOUN
+        gmfPronoun(codestr)
+    elseif poscode(codestr) == UNINFLECTED
+        gmfUninflected(codestr)
+        =#
+    end
+end
 
 
 #=

@@ -43,3 +43,19 @@ Note on labelling of tenses:
 
 - perfect, imperfect, imperative follow traditional usages.
 - 1st person cohortative, second person emhatic imperative, third person jussive are treated together and labelled "cohortative-jussive"
+
+
+Note on URNs for forms:
+
+PosPatTPNGStateUninfcat
+
+Code digits are:
+
+1. part of speech
+2. verb pattern (benyamin)
+3. tense
+4. person
+5. number
+6. gender
+7. substantive state
+8. uninflected category
