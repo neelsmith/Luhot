@@ -38,7 +38,7 @@ export HMPSubstantiveState, hmpSubstantiveState
 export code
 
 export HebrewForm
-export HebrewFiniteVerb
+export HebrewFiniteVerb, hmfFiniteVerb
 
 export filesDataset
 

@@ -9,8 +9,19 @@ struct HebrewFiniteVerb <: HebrewForm
 
 end
 
+"""Compose a readable label for the form of a `HebrewFiniteVerb`.
+$(SIGNATURES)
+"""
+function label(v::HebrewFiniteVerb)
+    pieces = ["verb:", label(v.vpattern), label(v.vtense), 
+    label(v.vperson), label(v.vnumber), label(v.vgender)]
+    join(pieces, " ")
+end
+
 """Shorthand summary of person, number and gender 
-properties as 3-letter string."""
+properties as 3-letter string.
+$(SIGNATURES)
+"""
 function pngSummary(v::HebrewFiniteVerb)
     string(
         hmpPerson(v).code,
@@ -32,7 +43,6 @@ $(SIGNATURES)
 function hmpTense(v::HebrewFiniteVerb)
     v.vtense
 end
-
 
 """Find person for a `HebrewFiniteVerb`.
 $(SIGNATURES)
@@ -56,44 +66,23 @@ function hmpGender(v::HebrewFiniteVerb)
     v.vgender
 end
 
-
-
 """Create a `HebrewFiniteVerb` from a string value.
 
 $(SIGNATURES)
 """
 function hmfFiniteVerb(code::AbstractString)
+    # PosPatTPNGStateUinflcat
     morphchars = split(code,"")
-    
-    # PosPatTPNG...
+    pttrn = hmpPattern(parse(Int64, morphchars[2]))
+    tns = hmpTense(parse(Int64, morphchars[3]))
+    prsn = hmpPerson(parse(Int64, morphchars[4]))
+    nmbr = hmpNumber(parse(Int64, morphchars[5]))
+    gndr = hmpGender(parse(Int64, morphchars[6]))
 
-    #=
-    vpattern::HMPVerbPattern
-    vtense::HMPTense
-    vperson::HMPPerson
-    vnumber::HMPNumber
-    vgender::HMPGender
-    =#
-
-
-
-    #=
-    tns = gmpTense(parse(Int64, morphchars[4]))
-    md = gmpMood(parse(Int64, morphchars[5]))
-    vc = gmpVoice(parse(Int64,morphchars[6]))
-    prsn = gmpPerson(parse(Int64, morphchars[2]))
-    nmbr = gmpNumber(parse(Int64, morphchars[3]))
-    =#
-
-
-    #=
     HebrewFiniteVerb(
-        ptrn, tns, prsn, nmbr, gndr
+        pttrn, tns, prsn, nmbr, gndr
     )
-    =#
 end
-
-
 
 """Compose delimited-text representation of CITE collection for morphological forms of finite verbs.
 
@@ -142,6 +131,28 @@ function finiteverbscex()
             end
         end
     end
+
+    SECOND = 2
+    for pttrn in patternkeys
+        for tns in [IMPERATIVE]
+            for prsn in [SECOND]
+                for nmbr in numberkeys
+                    for gndr in genderkeys
+                        u = string(BASE_MORPHOLOGY_URN,FINITEVERB, pttrn, tns, prsn, nmbr, gndr, padothers)
+                        textlabel = string("verb: ", 
+                        label(hmpPattern(pttrn))," ",
+                        label(hmpTense(tns)), " ",
+                        label(hmpPerson(prsn)), " ",
+                        label(hmpNumber(nmbr))," ",
+                        label(hmpGender(gndr))
+                        )
+                        push!(lines, string(u, "|", textlabel))
+                    end
+                end
+            end
+        end
+    end
+
     join(lines, "\n")  
 end
 
@@ -151,39 +162,26 @@ end
 """Finite verb forms are citable by Cite2Urn"""
 CitableTrait(::Type{HebrewFiniteVerb}) = CitableByCite2Urn()
 
-#=
+
 """Compose a digital code for `verb`.
 $(SIGNATURES)
 """
 function code(verb::HebrewFiniteVerb)
-    string(FINITEVERB, code(verb.vperson),code(verb.vnumber), code(verb.vtense), code(verb.vmood), code(verb.vvoice),"0000")
+    string(FINITEVERB, code(verb.vpattern),code(verb.vtense), code(verb.vperson),code(verb.vnumber), code(verb.vgender),"00")
 end
 
 
-"""Compose a label for a `HebrewFiniteVerb`
-
-$(SIGNATURES)
-"""
-function label(verb::HebrewFiniteVerb)
-    join(
-        [
-        "finite verb: ",
-        label(verb.vtense), 
-        label(verb.vmood), 
-        label(verb.vvoice),
-        label(verb.vperson),  
-        label(verb.vnumber)
-        ], " ")
-end
 
 """Compose a Cite2Urn for a `HebrewFiniteVerb`.
 
 $(SIGNATURES)
 """
 function urn(verb::HebrewFiniteVerb)
-    # PosPNTMVGCDCat
     Cite2Urn(BASE_MORPHOLOGY_URN * code(verb) )
 end
+
+
+#=
 
 """Create a `HebrewFiniteVerb` from a string value.
 
