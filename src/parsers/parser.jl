@@ -2,7 +2,7 @@
 abstract type LuhotParser <: CitableParser end
 
 Pkg.project()
-const RULE_URN = Cite2Urn(string("urn:cite2:luhot:rules.", replace(string(Pkg.project().version), "." => "_"), ":pkg"))
+const RULE_URN = Cite2Urn(string("urn:cite2:luhot:rules.algorithmic:", replace(string(Pkg.project().version), "." => "_")))
 
 """Catch all method of `parsetoken` function.
 $(SIGNATURES)

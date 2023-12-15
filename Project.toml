@@ -18,7 +18,7 @@ Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 TestSetExtensions = "98d24dd4-01ad-11ea-1b02-c9a08f80db04"
 
 [compat]
-BiblicalHebrew = "0.2"
+BiblicalHebrew = "0.3"
 CitableBase = "10"
 CitableObject = "0.16"
 CitableParserBuilder = "0.25"

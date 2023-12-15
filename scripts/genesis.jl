@@ -9,4 +9,3 @@ ds = filesDataset(dirlist)
 
 parser = stringParser(ds)
 
-pa

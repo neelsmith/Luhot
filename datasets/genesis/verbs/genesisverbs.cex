@@ -1,7 +1,15 @@
 stem|lexeme|root|class
 
-verbs.BDB7394|bdb.BDB7394|אָהֵב|sound
+verbs.BDB143|bdb.BDB143|אָהֵב|sound
 verbs.BDB557|bdb.BDB557|אָמַר|sound
+
+verbs.BDB946|bdb.BDB946|בּוֺא|sound
+verbs.BDB1296|bdb.BDB1296|בָּקַשׁ|sound
+
+verbs.ּּBDB1716|bdb.ּּBDB1716|גָּעַר|sound
+
+verbs.ּּBDB2162|bdb.ּּBDB2162|הָלַךְ|sound
+verbs.BDB2223|bdb.BDB2223|הָרַג|sound
 
 verbs.BDB2791|bdb.BDB2791|חָלַם|sound
 
@@ -9,7 +17,16 @@ verbs.BDB3774|bdb.BDB3774|יָשַׁב|sound
 
 verbs.BDB4672|bdb.BDB4672|מָלַךְ|sound
 
+verbs.BDB4775|bdb.BDB4775|מָצָא|sound
+
+verbs.ּּBDB5201|bdb.ּּBDB5201|נָכַל|sound
+verbs.ּּBDB5243|bdb.ּּBDB5243|נָסַע|sound
+
 verbs.BDB5695|bdb.BDB5695|סָפַר|sound
+
+
+verbs.BDB7477|bdb.BDB7477|קָנָא|sound
+
 
 verbs.BDB7656|bdb.BDB7656|רָאָה|sound
 

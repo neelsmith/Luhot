@@ -19,9 +19,13 @@ $(SIGNATURES)
 """
 function parsetoken(s::AbstractString, parser::StringParser; data = nothing)
     #strlist = resolvestring(s)
-    ptrn = s * "|"
+    ptrn = BiblicalHebrew.rm_accents(s) * "|"
     @debug("Match pattern", ptrn)
     matches = filter(ln -> startswith(ln, ptrn), parser.entries)
+    if isempty(matches)
+        # ... test for waw 
+        # ... test for article
+    end
     map(ln -> fromline(ln), matches)
 end
 
