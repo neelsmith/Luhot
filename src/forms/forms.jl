@@ -17,6 +17,13 @@ function poscode(codestring::AbstractString)
     parse(Int32, codestring[1])
 end
 
+"""Compose CEX representation of all possible forms.
+$(SIGNATURES)
+"""
+function allformscex()
+    string(finiteverbscex(),"\n")
+    # nouns, etc....
+end
 
 """Create a `HebrewForm` from a form code.
 $(SIGNATURES)
@@ -48,6 +55,12 @@ function hebrewForm(codestr::AbstractString)
     end
 end
 
+"""Create a `HebrewForm` from a `Cite2Urn`.
+$(SIGNATURES)
+"""
+function hebrewForm(u::Cite2Urn)
+    hebrewForm(objectcomponent(u))
+end
 
 #=
 Add rest of CITE interface here....
@@ -89,28 +102,7 @@ end
 
 
 #=
-"""Create a `GreekMorphologicalForm` from a form code.
-$(SIGNATURES)
-"""
-function greekForm(codestr::AbstractString)
-    if poscode(codestr) == ADJECTIVE
-        gmfAdjective(codestr)
-    elseif poscode(codestr) == NOUN
-        gmfNoun(codestr)
-    elseif poscode(codestr) == FINITEVERB
-        gmfFiniteVerb(codestr)
-    elseif poscode(codestr) == VERBALADJECTIVE
-        gmfVerbalAdjective(codestr)
-    elseif poscode(codestr) == INFINITIVE
-        gmfInfinitive(codestr)
-    elseif poscode(codestr) == PARTICIPLE
-        gmfParticiple(codestr)
-    elseif poscode(codestr) == PRONOUN
-        gmfPronoun(codestr)
-    elseif poscode(codestr) == UNINFLECTED
-        gmfUninflected(codestr)
-    end
-end
+
 
 """Create a `GreekMorphologicalForm` from a `FormUrn`.
 $(SIGNATURES)

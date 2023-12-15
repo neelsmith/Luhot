@@ -1,5 +1,7 @@
 module Luhot
 
+using Pkg
+
 using BiblicalHebrew
 using Orthography
 
@@ -77,5 +79,8 @@ include("generate/verbs/hithpael.jl")
 include("generate/verbs/verbs.jl")
 
 include("paradigms/verbs.jl")
+
+include("parsers/parser.jl")
+include("parsers/stringparser.jl")
 
 end # module Luhot

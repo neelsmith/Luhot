@@ -156,12 +156,8 @@ function finiteverbscex()
     join(lines, "\n")  
 end
 
-
-
-
 """Finite verb forms are citable by Cite2Urn"""
 CitableTrait(::Type{HebrewFiniteVerb}) = CitableByCite2Urn()
-
 
 """Compose a digital code for `verb`.
 $(SIGNATURES)
@@ -169,7 +165,6 @@ $(SIGNATURES)
 function code(verb::HebrewFiniteVerb)
     string(FINITEVERB, code(verb.vpattern),code(verb.vtense), code(verb.vperson),code(verb.vnumber), code(verb.vgender),"00")
 end
-
 
 
 """Compose a Cite2Urn for a `HebrewFiniteVerb`.
@@ -180,40 +175,17 @@ function urn(verb::HebrewFiniteVerb)
     Cite2Urn(BASE_MORPHOLOGY_URN * code(verb) )
 end
 
+"""Create a `HebrewFiniteVerb` from a `Cite2Urn`.
+
+$(SIGNATURES)
+"""
+function hmfFiniteVerb(urn::Cite2Urn)
+    hmfFiniteVerb(objectcomponent(urn))
+end
 
 #=
 
-"""Create a `HebrewFiniteVerb` from a string value.
 
-$(SIGNATURES)
-"""
-function gmfFiniteVerb(code::AbstractString)
-    morphchars = split(code,"")
-    # PosPNTMVGCDCat
-    
-    tns = hmpTense(parse(Int64, morphchars[4]))
-    md = hmpMood(parse(Int64, morphchars[5]))
-    vc = hmpVoice(parse(Int64,morphchars[6]))
-    prsn = hmpPerson(parse(Int64, morphchars[2]))
-    nmbr = hmpNumber(parse(Int64, morphchars[3]))
-    
-    HebrewFiniteVerb(
-        prsn,
-        nmbr,
-        tns,
-        md, 
-        vc
-    )
-end
-
-
-"""Create a `HebrewFiniteVerb` from a `Cite2URN`.
-
-$(SIGNATURES)
-"""
-function gmfFiniteVerb(urn::Cite2Urn)
-    gmfFiniteVerb(objectcomponent(urn))
-end
 
 
 """Create a `HebrewFiniteVerb` from a `FormUrn`.
