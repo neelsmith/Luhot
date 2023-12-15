@@ -35,7 +35,7 @@ function stringParser(kd::Luhot.FilesDataset; delimiter = "|", interval = 50)
         if i % interval == 0
             @info("stem $(i)… $(stem)")
         end
-        #append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
+        append!(analyses, buildparseable(stem; delimiter = delimiter))
     end
     analyses |> StringParser
 end
@@ -91,13 +91,19 @@ $(SIGNATURES)
 function buildparseable(stem::T; delimiter = "|") where {T <: LuhotStem }
     @debug("BUILD PARSES FOR STEM", stem)
     
-    generated = AbstractString[]  
-    
+    generated = []  
+    verbforms = finiteverbforms()
     if stem isa VerbStem
-        for morphform in finiteverbscex()
+        @debug("Verb stem, so use ", verbforms)
+        for morphform in verbforms
+            @debug("Look at types $(typeof(stem)) and $(typeof(morphform))")
             token = generate(stem, morphform)
-            #delimited = join([token, lexeme(stem), formurn(morphform), urn(stem), RULE_URN], delimiter)
-            !push(delimited, generated)
+            if isnothing(token) || isempty(token)
+                @warn("For form $(label(morphform)), got nothing")
+            else
+                delimited = join([token, lexeme(stem), formurn(morphform), urn(stem), RULE_URN], delimiter)
+                push!(generated, delimited)
+            end
         end
 
         
@@ -109,6 +115,10 @@ function buildparseable(stem::T; delimiter = "|") where {T <: LuhotStem }
 end
 
 
+
+
+
+
 """Find unique lexemes recognized by a `StringParser`.
 $(SIGNATURES)
 """
@@ -118,26 +128,3 @@ function lexemes(sp::StringParser)
     end |> unique
 end
 
-#=
-"""Build a new `StringParser` by adding a further dataset
-to an existing parser. 
-
-- `sp` is an existing `StringParser`.
-- `rulesds` is the dataset used to build `sp`
-- `newdata` is an additional dataset with any new content (rules or vocab)
-"""
-function concat_ds(sp::StringParser, rulesds::FilesDataset, newdata::FilesDataset; interval = 100)
-    @info("First, get all existing rules from sp!")
-    rules_all = vcat(rulesarray(rulesds), rulesarray(newdata))
-    stems_new = stemsarray(newdata)
- 
-    analyses = sp.entries
-    for (i, stem) in enumerate(stems_new)
-        if i % interval == 0
-            @info("stem $(i)… $(stem)")
-        end
-        append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
-    end
-    analyses |> StringParser
-end
-=#

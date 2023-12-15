@@ -47,6 +47,9 @@ export filesDataset
 export generate
 export conjugate, conjugation_md
 
+
+export stringParser
+
 include("io.jl")
 
 include("morphologicalproperties/properties.jl")

@@ -76,7 +76,7 @@ function label(vs::VerbStem)
 end
 
 
-#=
+
 """Identifying URN for a `VerbStem`.  If
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
@@ -102,11 +102,11 @@ Required for `CitableTrait`.
 """
 function cex(vs::VerbStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([vs.stemid, label(vs), stemstring(vs), lexeme(vs), inflectionclass(vs)], delimiter)
+        join([vs.stemid, label(vs), stemstring(vs), lexeme(vs)], delimiter)
     else
         c2urn = expand(vs.stemid, registry)
-        join([c2urn, label(vs), stemstring(vs), lexeme(vs), inflectionclass(vs)], delimiter)
+        join([c2urn, label(vs), stemstring(vs), lexeme(vs)], delimiter)
     end
 end
-=#
+
 
