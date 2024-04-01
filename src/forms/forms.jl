@@ -25,6 +25,11 @@ function allformscex()
     # nouns, etc....
 end
 
+
+function hebrewForm(a::Analysis)
+    a |> formurn |> objectid |> hebrewForm
+end
+
 """Create a `HebrewForm` from a form code.
 $(SIGNATURES)
 """

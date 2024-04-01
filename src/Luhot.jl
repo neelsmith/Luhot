@@ -49,6 +49,7 @@ export conjugate, conjugation_md
 
 
 export stringParser
+export hebrewForm
 
 include("io.jl")
 include("tokensplitter.jl")

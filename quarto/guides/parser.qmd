@@ -19,9 +19,7 @@ This is where we have to start: build a parser and parse a string!
 ```{julia}
 #| echo: false
 #| output: false
-
 repo = pwd() |> dirname |> dirname
-
 ```
 
 
@@ -29,13 +27,16 @@ repo = pwd() |> dirname |> dirname
 Start by building a Luhot dataset.  We'll draw data from two directories.
 
 First we'll assume that you have a variable named `repo` with the name of the Luhot.jl repository's root directory.  The two directories we'll use are:
-```{julia}j
+
+
+```{julia}
 #| output: false
 rulesdir = joinpath(repo, "datasets", "tanach_rules")
 genesisdir = joinpath(repo, "datasets", "genesis")
 ```
 
 We'll use the `filesDataset` function to create a Luhot data set:
+
 
 ```{julia}
 #| output: false
@@ -59,26 +60,29 @@ Parse a string for a single word with the `parsetoken` function from the `Citabl
 #| warnings: false
 using CitableParserBuilder
 wrd = "כָתַב"
-parsetoken(wrd, parser)
+parses = parsetoken(wrd, parser)
 ```
 
 The result is a Vector of analyses. Each Analysis includes a morphological form object and an identifier for a lexeme (or vocabulary item). 
 
 
-You can use the greekForm and lexemeurn functions to extract these from an Analysis; for a human-readable string value, use the label function on the result. E.g., label the first form in the result:
+You can use the `hebrewForm` and `lexemeurn` functions to extract these from an `Analysis`; for a human-readable string value, use the `label` function on the result. E.g., `label` the first form in the result:
 
-parses[1] |> greekForm |> label
+```{julia}
+parses[1] |> hebrewForm |> label
+```
 
-"noun: masculine dative singular"
+
 
 or use Julia broadcasting to label the forms of all parses:
 
-parses .|> greekForm .|> label
+```{julia}
+parses .|> hebrewForm .|> label
+```
 
-1-element Vector{String}:
- "noun: masculine dative singular"
 
 Use broadcasting to find URNs for the lexeme from each analysis with the lexemeurn function from the CitableParserBuilder package:
 
-using CitableParserBuilder
+```{julia}
 lexemelist = parses .|> lexemeurn
+```
