@@ -1,10 +1,14 @@
 stem|lexeme|root|class
 
 verbs.BDB143|bdb.BDB143|אָהֵב|sound
+verbs.BDB398|bdb.BDB398|אָכַל|sound
 verbs.BDB557|bdb.BDB557|אָמַר|sound
 
 verbs.BDB946|bdb.BDB946|בּוֺא|sound
+verbs.BDB1256|bdb.BDB1256|בָּצַע|sound
 verbs.BDB1296|bdb.BDB1296|בָּקַשׁ|sound
+
+
 
 verbs.ּּBDB1716|bdb.ּּBDB1716|גָּעַר|sound
 
@@ -15,22 +19,33 @@ verbs.BDB2791|bdb.BDB2791|חָלַם|sound
 
 verbs.BDB3774|bdb.BDB3774|יָשַׁב|sound
 
+verbs.BDB4450|bdb.BDB4450|לָקַח|sound
+
 verbs.BDB4672|bdb.BDB4672|מָלַךְ|sound
 
+
+verbs.BDB4640|bdb.BDB4640|מָכַר|sound
 verbs.BDB4775|bdb.BDB4775|מָצָא|sound
 
 verbs.ּּBDB5201|bdb.ּּBDB5201|נָכַל|sound
 verbs.ּּBDB5243|bdb.ּּBDB5243|נָסַע|sound
 
+verbs.BDB5555|bdb.BDB5555|סָחַר|sound
 verbs.BDB5695|bdb.BDB5695|סָפַר|sound
 
+verbs.BDB6848|bdb.BDB6848|פָּשַׁט|sound
 
 verbs.BDB7477|bdb.BDB7477|קָנָא|sound
-
+verbs.BDB7605|bdb.BDB7605|קָרַע|sound
 
 verbs.BDB7656|bdb.BDB7656|רָאָה|sound
 
+
+
+
+
 verbs.BDB8270|bdb.BDB8270|שָׂנֵא|sound
 
-
+verbs.BDB8502|bdb.BDB8502|שׁוּב|sound
+verbs.BDB8725|bdb.BDB8725|שָׁלַךְ|sound
 verbs.BDB8819|bdb.BDB8819|שָׁמַע|sound

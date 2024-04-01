@@ -51,6 +51,7 @@ export conjugate, conjugation_md
 export stringParser
 
 include("io.jl")
+include("tokensplitter.jl")
 
 include("morphologicalproperties/properties.jl")
 include("morphologicalproperties/verbpattern.jl")

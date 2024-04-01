@@ -18,10 +18,10 @@ the given sound verb in the cohortative-jussive of the *qal* pattern.
 $(SIGNATURES)
 """
 function qal_jussive_sound(root::String,verb::HebrewFiniteVerb)
-    consonants = collect(BiblicalHebrew.unpointed(root))
-    pe = consonants[1]
-    ayin = consonants[2]
-    lamed = consonants[3]
+    #consonants = collect(BiblicalHebrew.unpointed(root))
+    #pe = consonants[1]
+    #ayin = consonants[2]
+    #lamed = consonants[3]
     form = pngSummary(verb)
 
     if form == "3sm"

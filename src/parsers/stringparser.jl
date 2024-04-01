@@ -18,15 +18,22 @@ end
 $(SIGNATURES)
 """
 function parsetoken(s::AbstractString, parser::StringParser; data = nothing)
-    #strlist = resolvestring(s)
-    ptrn = BiblicalHebrew.rm_accents(s) * "|"
-    @debug("Match pattern", ptrn)
-    matches = filter(ln -> startswith(ln, ptrn), parser.entries)
-    if isempty(matches)
+    strlist = resolvestring(s)
+    parses = []
+    for str in strlist
+        
+        ptrn = BiblicalHebrew.rm_accents(str) * "|"
+        @info("Match pattern", ptrn)
+            for found in filter(ln -> startswith(ln, ptrn), parser.entries)
+                @debug("Pushing $(found)")
+                push!(parses, fromline(found))
+            end
+    #if isempty(matches)
         # ... test for waw 
         # ... test for article
+    #end
     end
-    map(ln -> fromline(ln), matches)
+    parses
 end
 
 """Instantiate a `StringParser` for a dataset.
