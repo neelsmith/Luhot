@@ -2,4 +2,4 @@
 title: Tutorials
 ---
 
-Get started with Luhot.
+This page will host tutorials to help you get started with Luhot.

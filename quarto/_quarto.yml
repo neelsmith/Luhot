@@ -39,10 +39,12 @@ website:
     - title: "Guides"
       contents:
         - guides/index.qmd
+        - guides/parser.qmd
        
     - title: "Reference"
       contents: 
         - reference/index.qmd
+        - reference/properties.qmd
        
     - title: "Concepts"
       contents: 

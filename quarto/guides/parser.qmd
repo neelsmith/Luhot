@@ -1,0 +1,84 @@
+---
+title: "Build a parser and parse Hebrew strings"
+---
+
+
+This is where we have to start: build a parser and parse a string!
+
+
+::: {.callout-warning}
+## Yikes so early
+
+⚠️ Luhot is still in the early phases of design. While the code in these pages works correctly as the documentation is built right now, expect that details of the system may change before the package is first published to the Julia central registry. ⚠️ 
+:::
+
+
+
+## Build a parser from directories of delimited-text files
+
+```{julia}
+#| echo: false
+#| output: false
+
+repo = pwd() |> dirname |> dirname
+
+```
+
+
+
+Start by building a Luhot dataset.  We'll draw data from two directories.
+
+First we'll assume that you have a variable named `repo` with the name of the Luhot.jl repository's root directory.  The two directories we'll use are:
+```{julia}j
+#| output: false
+rulesdir = joinpath(repo, "datasets", "tanach_rules")
+genesisdir = joinpath(repo, "datasets", "genesis")
+```
+
+We'll use the `filesDataset` function to create a Luhot data set:
+
+```{julia}
+#| output: false
+using Luhot
+ds = filesDataset([rulesdir, genesisdir])
+```
+
+You can build a parser directly from a dataset:
+
+```{julia}
+#| warnings: false
+#| output: false
+parser = stringParser(ds)
+```
+
+## Parsing strings
+
+Parse a string for a single word with the `parsetoken` function from the `CitableParserBuilder` package.
+
+```{julia}
+#| warnings: false
+using CitableParserBuilder
+wrd = "כָתַב"
+parsetoken(wrd, parser)
+```
+
+The result is a Vector of analyses. Each Analysis includes a morphological form object and an identifier for a lexeme (or vocabulary item). 
+
+
+You can use the greekForm and lexemeurn functions to extract these from an Analysis; for a human-readable string value, use the label function on the result. E.g., label the first form in the result:
+
+parses[1] |> greekForm |> label
+
+"noun: masculine dative singular"
+
+or use Julia broadcasting to label the forms of all parses:
+
+parses .|> greekForm .|> label
+
+1-element Vector{String}:
+ "noun: masculine dative singular"
+
+Use broadcasting to find URNs for the lexeme from each analysis with the lexemeurn function from the CitableParserBuilder package:
+
+using CitableParserBuilder
+lexemelist = parses .|> lexemeurn
