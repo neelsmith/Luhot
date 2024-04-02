@@ -1,0 +1,14 @@
+---
+title: "⚠️ Tokenization and morphology"
+---
+
+
+::: {.callout-warning}
+⚠️ This page is just rough notes on questions I haven't decided yet! ⚠️ 
+:::
+
+What is a token anyway??
+
+We would like to separately cleanly the tasks of *tokenizing* a string, and of *morphologically analyzing* a string representing a single token.
+
+The line between these two tasks is less clear in Hebrew than in many languages, since lexemes like the conjunction waw or object pronouns are not only written without separation from adjoining lexemes, but actually affect their form.

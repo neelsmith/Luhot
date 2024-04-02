@@ -35,11 +35,12 @@ website:
     - title: "Tutorials"
       contents: 
         - tutorials/index.qmd
-       
+        - tutorials/parser.qmd
+
     - title: "Guides"
       contents:
         - guides/index.qmd
-        - guides/parser.qmd
+
        
     - title: "Reference"
       contents: 
@@ -49,6 +50,7 @@ website:
     - title: "Concepts"
       contents: 
         - concepts/index.qmd
+        - concepts/tokens.qmd
        
 
     - title: "Home"
