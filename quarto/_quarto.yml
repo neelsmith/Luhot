@@ -46,10 +46,12 @@ website:
       contents: 
         - reference/index.qmd
         - reference/properties.qmd
+        - reference/verb-classes.qmd
        
     - title: "Concepts"
       contents: 
         - concepts/index.qmd
+        - concepts/algorithmic_generation.qmd
         - concepts/tokens.qmd
        
 

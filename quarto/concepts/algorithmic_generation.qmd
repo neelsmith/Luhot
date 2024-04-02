@@ -1,0 +1,8 @@
+---
+title: "⚠️ Parsing from algorithmically generated forms"
+---
+
+- Stems are in tables
+- Generating rules are encoded algorithmically
+- A "parser" is a complete production of all possible forms for a give set of stems and the rules encoded in the current release of Luhot
+- "Parsing" is looking up a string in the output of all possible forms

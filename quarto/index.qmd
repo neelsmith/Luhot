@@ -4,6 +4,11 @@ title: "Luhot.jl"
 
 ☛ *Build morphological parsers for Biblical Hebrew*.
 
+::: {.callout-warning}
+ ⚠️ In addition to being highly incomplete, this documentation should be considered provisional and subject to change until the first release of `Luhot.jl` in the Julia general registry. ⚠️
+
+:::
+
 
 `Luhot.jl` is a Julia package for building Hebrew morphological parsers. It is currently in an early design phase. This documentation will track the development of the package.
 

@@ -1,0 +1,8 @@
+---
+title: "⚠️ Verb classes"
+---
+
+| Verb class | string value in data tables | Julia symbol |
+| --- | --- | --- |
+| sound triliteral root | "sound" | `:sound` |
+| lamedh-aleph | "3-aleph" | `:lamedh-aleph` |

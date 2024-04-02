@@ -2,6 +2,6 @@
 title: Guides
 ---
 
-Recipes to complete specific tasks with Luhot.
+Use this page to find recipes for how to complete specific tasks with Luhot.
 
- If you are just starting out, you may want to explore the tutorials first. You can learn more about the underlying concepts behind these tasks in the “Concepts” section of the site.
+If you are just starting out, you may want to explore the tutorials first. You can learn more about the underlying concepts behind these tasks in the “Concepts” section of the site.
