@@ -6,8 +6,10 @@ function rootclass(verb)::Symbol
         if length(consonants) != 3
                 @warn("Analysis only available for roots with 3 consonants")
                 nothing
-        elseif BiblicalHebrew.isguttural(consonants[1])
-                :pe_guttural
+        #elseif BiblicalHebrew.isguttural(consonants[1])
+        #        :pe_guttural
+        elseif consonants[3] == 'א'
+                :lamedh_aleph
 
         # handle others here....
         # pe-nun

@@ -153,9 +153,9 @@ $(SIGNATURES)
 function piel_imperfect(root::String,form::HebrewFiniteVerb)
     #verbclass = rootclass(root)    
 
-    #if verbclass == :sound
+    if verbclass == :sound
         piel_imperfect_sound(root, form)
-    #else
+    elseif verbclass ==
     #    @warn("Verb class $(verbclass) not yet implemented")
     #    nothing
     #end
