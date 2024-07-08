@@ -1,7 +1,7 @@
 @testset "Test reading verb stems" begin
     verbdata = "verbs.BDB4250|bdb.BDB4250|כתב|sound"
-    vs = Luhot.readstemrow(verbdata, Luhot.VerbIO())
-    @test vs isa Luhot.LuhotVerbStem
+    vs = fromcex(verbdata, LuhotVerbStem)
+    @test vs isa LuhotVerbStem
 
     @test Luhot.pos(vs) == :verb # This is wrong?
     @test Luhot.stemstring(vs) == "כתב"
