@@ -1,8 +1,8 @@
 
 
 STEMS_IO_DICT = Dict([
-    "nouns" => HebrewNoun,
-    "verbs" => HebrewFiniteVerb
+    #"nouns" => HebrewNoun,
+    "verbs" => LuhotVerbStem
 ])
 
 STEMS_DIRECTORIES =  keys(STEMS_IO_DICT)

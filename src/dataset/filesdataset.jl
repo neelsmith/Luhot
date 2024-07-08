@@ -35,7 +35,8 @@ function stemsarray(ds::FilesDataset; delimiter = "|")
         @debug("Reading stems from $(datasrc)")
         for dirname in STEMS_DIRECTORIES 
             
-            delimitedreader = (STEMS_IO_DICT[dirname])
+            #delimitedreader = (STEMS_IO_DICT[dirname])
+            delimitedtype = (STEMS_IO_DICT[dirname])
             dir = joinpath(datasrc, dirname)
             @debug("Looking for data in $(dir)")
             if isdir(dir)
@@ -51,7 +52,7 @@ function stemsarray(ds::FilesDataset; delimiter = "|")
                             for ln in lines[2:end]
                                 if !isempty(ln)
                                     try
-                                        stem = readstemrow(ln, delimitedreader; delimiter = delimiter)
+                                        stem = fromcex(ln, delimitedtype; delimiter = delimiter)
                                         push!(stemsarr,stem)
                                     catch e
                                         @warn("Failed to parse stem data from line $(ln) in file $(f)")

@@ -10,7 +10,7 @@
     )
 
     datarow = "verbs.BDB7394|bdb.BDB7394|קָטַל|sound"
-    verbstem = Luhot.readstemrow(datarow, Luhot.VerbIO())
+    verbstem = fromcex(datarow, LuhotVerbStem)
     result = generate(verbstem, verbform)
     expected = "קָטַל"
     @test result == expected

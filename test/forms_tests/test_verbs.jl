@@ -48,7 +48,7 @@ end
         pers, num, gender
     )
     verbdata = "verbs.BDB4250|bdb.BDB4250|כתב|sound"
-    verbstem = Luhot.readstemrow(verbdata, Luhot.VerbIO())
+    verbstem = fromcex(verbdata, LuhotVerbStem)
     expected = "כָתַב"
     @test generate(verbstem, verbform) == expected
 end
