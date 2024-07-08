@@ -1,6 +1,10 @@
 module Luhot
 
-using Pkg
+using Pkg # ?
+
+
+import Base: show
+import Base: ==
 
 using BiblicalHebrew
 using Orthography
