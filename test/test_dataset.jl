@@ -5,7 +5,7 @@
 
     stems = Luhot.stemsarray(ds)
     verbstems = filter(stems) do s
-        s isa Luhot.VerbStem
+        s isa Luhot.LuhotVerbStem
     end
     @test length(verbstems) == 1
 

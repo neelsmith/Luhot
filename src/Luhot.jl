@@ -54,6 +54,8 @@ export code
 export HebrewForm
 export HebrewFiniteVerb, hmfFiniteVerb
 
+export LuhotVerbStem
+
 export filesDataset
 
 export generate
@@ -63,7 +65,6 @@ export conjugate, conjugation_md
 export luhotStringParser
 export hebrewForm
 
-include("io.jl")
 include("tokensplitter.jl")
 
 include("morphologicalproperties/properties.jl")

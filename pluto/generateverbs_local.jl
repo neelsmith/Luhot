@@ -84,7 +84,7 @@ ds = filesDataset(dsdir)
 
 # ╔═╡ 871c7202-d2fc-4928-a0ca-0d00b7e9814c
 verbstems = filter(Luhot.stemsarray(ds)) do st
-	st isa Luhot.VerbStem
+	st isa Luhot.LuhotVerbStem
 end
 
 # ╔═╡ 9c887b3c-dc8a-420c-8d50-e45b019cbd12

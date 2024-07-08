@@ -32,7 +32,7 @@ end
 """Generate the correct string for a given stem and finite verb form.
 $(SIGNATURES)
 """
-function generate(stem::VerbStem, verb::HebrewFiniteVerb)::Union{String, Nothing}
+function generate(stem::LuhotVerbStem, verb::HebrewFiniteVerb)::Union{String, Nothing}
         generate(root(stem), verb)
 end
 

@@ -2,74 +2,49 @@
 
 $(SIGNATURES)
 """
-struct VerbStem <: LuhotStem
+struct LuhotVerbStem <: LuhotStem
     stemid::StemUrn
     lexid::LexemeUrn
-    root
-    stemclass
+    root::AbstractString
+    stemclass::AbstractString
 end
 
 
-"""Implementation of reading one row of a stems table for finite verbs.
-
+"""Override Base.show for verb stem type.
 $(SIGNATURES)
 """
-function readstemrow(delimited::AbstractString, io::VerbIO ; delimiter = "|")
-    #stem|lexeme|root|class
-    parts = split(delimited, delimiter)
-    if length(parts) < 4
-        throw(ArgumentError("readstemrow for verb: too few parts in $(delimited)"))
-    end
-    stemid = StemUrn(parts[1])
-    lexid = LexemeUrn(parts[2])
-    root = parts[3]
-    stemclass = parts[4]
-   
-    VerbStem(stemid,lexid,root,stemclass)
+function show(io::IO, vb::LuhotVerbStem)
+    print(io, label(vb))
 end
 
-"""Part of speech value for a `VerbStem`."""
-function pos(vb::VerbStem)
-    :verb
-end
-
-
-"""Verb stems are citable by Cite2Urn"""
-CitableTrait(::Type{VerbStem}) = CitableByCite2Urn()
-
-
-"""Identify value of stem string for `vs`.
+"""Override Base.== for verb stem type.
 $(SIGNATURES)
 """
-function stemstring(vs::VerbStem)
-   vs.root
+function ==(s1::LuhotVerbStem, s2::LuhotVerbStem)
+    urn(s1) == urn(s2) &&
+    lexeme(s1) == lexeme(s2) &&
+    stemvalue(s1) == stemvalue(s2)  &&
+
+    inflectionclass(s1) == inflectionclass(s2)
 end
 
 
-
-"""Identify lexeme for `vs`.
+CitableTrait(::Type{LuhotVerbStem}) = CitableByCite2Urn()
+"""Verb stems are citable by Cite2Urn
 $(SIGNATURES)
 """
-function lexeme(vs::VerbStem)
-    vs.lexid
-end
-
-"""Synonym for generic `stemstring` function when
-stem is a `VerbStem`.
-$(SIGNATURES)
-"""
-function root(vs::VerbStem)::String
-    vs.root |> String
+function citabletrait(::Type{LuhotVerbStem})
+    CitableByCite2Urn()
 end
 
 
 
-"""Human-readlable label for a `VerbStem`.
+"""Human-readlable label for a `LuhotVerbStem`.
 
 $(SIGNATURES)
 Required for `CitableTrait`.
 """
-function label(vs::VerbStem)
+function label(vs::LuhotVerbStem)
     string("Verb stem ", 
         root(vs),
         " (",  lexeme(vs), ")")
@@ -77,14 +52,14 @@ end
 
 
 
-"""Identifying URN for a `VerbStem`.  If
+"""Identifying URN for a `LuhotVerbStem`.  If
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
 
 $(SIGNATURES)
 Required for `CitableTrait`.
 """
-function urn(vs::VerbStem; registry = nothing)
+function urn(vs::LuhotVerbStem; registry = nothing)
     if isnothing(registry)
         vs.stemid
     else
@@ -93,20 +68,79 @@ function urn(vs::VerbStem; registry = nothing)
 end
 
 
-"""Compose CEX text for a `VerbStem`.
+
+struct LuhotVerbStemCex <: CexTrait end
+"""Verb stems are are CEX serializable.
+$(SIGNATURES)
+"""
+function cextrait(::Type{LuhotVerbStem})  
+    LuhotVerbStemCex()
+end
+
+
+"""Compose CEX text for a `LuhotVerbStem`.
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
 
 $(SIGNATURES)
 Required for `CitableTrait`.
 """
-function cex(vs::VerbStem; delimiter = "|", registry = nothing)
+function cex(vs::LuhotVerbStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
         join([vs.stemid, label(vs), stemstring(vs), lexeme(vs)], delimiter)
     else
         c2urn = expand(vs.stemid, registry)
         join([c2urn, label(vs), stemstring(vs), lexeme(vs)], delimiter)
     end
+end
+
+
+
+"""Instantiate a verb stem from delimited-text source.
+$(SIGNATURES)
+"""
+function fromcex(traitvalue::LuhotVerbStemCex, cexsrc::AbstractString, T;      
+    delimiter = "|", configuration = nothing, strict = true)
+    parts = split(cexsrc, delimiter)
+    if length(parts) < 4
+        throw(ArgumentError("readstemrow for verb: too few parts in $(delimited)"))
+    end
+    stemid = StemUrn(parts[1])
+    lexid = LexemeUrn(parts[2])
+    root = parts[3]
+    stemclass = parts[4]
+   
+    LuhotVerbStem(stemid,lexid,root,stemclass)
+end
+
+
+"""Part of speech value for a `LuhotVerbStem`."""
+function pos(vb::LuhotVerbStem)
+    :verb
+end
+
+
+
+"""Identify value of stem string for `vs`.
+$(SIGNATURES)
+"""
+function stemstring(vs::LuhotVerbStem)
+   vs.root
+end
+
+"""Identify lexeme for `vs`.
+$(SIGNATURES)
+"""
+function lexeme(vs::LuhotVerbStem)
+    vs.lexid
+end
+
+"""Synonym for generic `stemstring` function when
+stem is a `LuhotVerbStem`.
+$(SIGNATURES)
+"""
+function root(vs::LuhotVerbStem)::String
+    vs.root |> String
 end
 
 

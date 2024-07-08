@@ -105,7 +105,7 @@ function buildparseable(stem::T; delimiter = "|") where {T <: LuhotStem }
     
     generated = []  
     verbforms = finiteverbforms()
-    if stem isa VerbStem
+    if stem isa LuhotVerbStem
         @debug("Verb stem, so use ", verbforms)
         for morphform in verbforms
             @info("Look at types $(typeof(stem)) and $(typeof(morphform))")
