@@ -5,10 +5,44 @@ struct HebrewFiniteVerb <: HebrewForm
     vperson::HMPPerson
     vnumber::HMPNumber
     vgender::HMPGender
-
-    # object endings?
-
 end
+
+
+"""Override Base.show for a finite verb form.
+$(SIGNATURES)
+"""
+function show(io::IO, vb::HebrewFiniteVerb)
+    print(io, label(vb))
+end
+
+"""Override Base.== for a finite verb form.
+$(SIGNATURES)
+"""
+function ==(vb1::HebrewFiniteVerb, vb2::HebrewFiniteVerb)
+    hmpPattern(vb1)  == hmpPattern(vb2) &&
+    hmpTense(vb1)  == hmpTense(vb2) &&
+    hmpPerson(vb1)  == hmpPerson(vb2) &&
+    hmpNumber(vb1)  == hmNumber(vb2) &&
+    hmpGender(vb1)  == hmpGender(vb2) 
+end
+
+CitableTrait(::Type{HebrewFiniteVerb}) = CitableByCite2Urn()
+"""Finite verb forms are citable by Cite2Urn
+$(SIGNATURES)
+"""
+function citabletrait(::Type{HebrewFiniteVerb})
+    CitableByCite2Urn()
+end
+
+
+"""Compose a Cite2Urn for a `HebrewFiniteVerb`.
+
+$(SIGNATURES)
+"""
+function urn(verb::HebrewFiniteVerb)
+    Cite2Urn(BASE_MORPHOLOGY_URN * code(verb) )
+end
+
 
 """Compose a readable label for the form of a `HebrewFiniteVerb`.
 $(SIGNATURES)
@@ -18,6 +52,8 @@ function label(v::HebrewFiniteVerb)
     label(v.vperson), label(v.vnumber), label(v.vgender)]
     join(pieces, " ")
 end
+
+
 
 """Shorthand summary of person, number and gender 
 properties as 3-letter string.
@@ -85,11 +121,6 @@ function hmfFiniteVerb(code::AbstractString)
     )
 end
 
-
-
-"""Finite verb forms are citable by Cite2Urn"""
-CitableTrait(::Type{HebrewFiniteVerb}) = CitableByCite2Urn()
-
 """Compose a digital code for `verb`.
 $(SIGNATURES)
 """
@@ -98,13 +129,6 @@ function code(verb::HebrewFiniteVerb)
 end
 
 
-"""Compose a Cite2Urn for a `HebrewFiniteVerb`.
-
-$(SIGNATURES)
-"""
-function urn(verb::HebrewFiniteVerb)
-    Cite2Urn(BASE_MORPHOLOGY_URN * code(verb) )
-end
 
 """Create a `HebrewFiniteVerb` from a `Cite2Urn`.
 

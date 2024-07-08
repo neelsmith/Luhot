@@ -3,7 +3,8 @@ Pkg.activate("..")
 
 
 using Luhot#, BiblicalHebrew
-using CitableParserBuilder
+using CitableParserBuilder, CitableBase
+using CitableObject
 using Unicode
 using Orthography
 
