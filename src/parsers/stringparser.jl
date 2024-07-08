@@ -39,7 +39,7 @@ end
 """Instantiate a `StringParser` for a dataset.
 $(SIGNATURES)
 """
-function stringParser(kd::Luhot.FilesDataset; delimiter = "|", interval = 50)
+function luhotStringParser(kd::Luhot.FilesDataset; delimiter = "|", interval = 50)
     analyses = []
     stems = stemsarray(kd) 
     for (i, stem) in enumerate(stems)
@@ -91,7 +91,8 @@ function fromline(s::AbstractString; delimiter = "|")::Analysis
         LexemeUrn(pieces[2]),
         FormUrn(pieces[3]),
         StemUrn(pieces[4]),
-        RuleUrn(pieces[5])
+        RuleUrn(pieces[5]),
+        pieces[6]
     )
 end
 
@@ -100,19 +101,19 @@ end
 $(SIGNATURES)
 """
 function buildparseable(stem::T; delimiter = "|") where {T <: LuhotStem }
-    @debug("BUILD PARSES FOR STEM", stem)
+    @info("BUILD PARSES FOR STEM", stem)
     
     generated = []  
     verbforms = finiteverbforms()
     if stem isa VerbStem
         @debug("Verb stem, so use ", verbforms)
         for morphform in verbforms
-            @debug("Look at types $(typeof(stem)) and $(typeof(morphform))")
+            @info("Look at types $(typeof(stem)) and $(typeof(morphform))")
             token = generate(stem, morphform)
             if isnothing(token) || isempty(token)
                 @warn("For form $(label(morphform)), got nothing")
             else
-                delimited = join([token, lexeme(stem), formurn(morphform), urn(stem), RULE_URN], delimiter)
+                delimited = join([token, lexeme(stem), formurn(morphform), urn(stem), RULE_URN, token], delimiter)
                 push!(generated, delimited)
             end
         end

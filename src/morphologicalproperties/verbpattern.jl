@@ -5,6 +5,15 @@ struct HMPVerbPattern <: HebrewMorphologicalProperty
     end
 end
 
+
+"""Override Base.show for verb pattern property.
+$(SIGNATURES)
+"""
+function show(io::IO, prop::HMPVerbPattern)
+    print(io, label(prop))
+end
+
+
 """Create a `HMPVerbPattern` from its string name."""
 function hmpPattern(s::S)::HMPVerbPattern where S <: AbstractString
     if s in keys(patterntocodedict) 

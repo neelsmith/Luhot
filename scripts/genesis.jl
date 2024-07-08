@@ -7,5 +7,5 @@ dirlist = [
 ]
 ds = filesDataset(dirlist)
 
-parser = stringParser(ds)
+parser = luhotStringParser(ds)
 

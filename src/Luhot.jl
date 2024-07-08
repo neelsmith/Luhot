@@ -5,23 +5,31 @@ using Pkg
 using BiblicalHebrew
 using Orthography
 
-import CitableBase: CitableTrait
-import CitableBase: urn
-import CitableBase: label
-import CitableBase: cex
-
-using CitableBase
-using CitableObject
 
 using CitableParserBuilder
-import CitableParserBuilder: formurn
-import CitableParserBuilder: parsetoken
-import CitableParserBuilder: parselist
-import CitableParserBuilder: parsecorpus
-#import CitableParserBuilder: parsedocument
-import CitableParserBuilder: CanParseCitable
-import CitableParserBuilder: lexeme
-import CitableParserBuilder: lexemes
+
+import CitableParserBuilder: parsetoken #, parsewordlist,  parselistfromfile, parselistfromurl
+import CitableParserBuilder: tofile
+import CitableParserBuilder: datasource
+import CitableParserBuilder: orthography
+import CitableParserBuilder: delimiter
+import CitableParserBuilder: generate
+import CitableParserBuilder: lexemeurn, lexeme
+import CitableParserBuilder: stringParser
+import CitableParserBuilder: analyses
+
+
+using CitableBase
+import CitableBase: citabletrait
+import CitableBase: urn
+import CitableBase: label
+
+import CitableBase: cextrait
+import CitableBase: cex
+import CitableBase: fromcex
+
+using CitableObject
+
 
 using Documenter, DocStringExtensions
 
@@ -48,7 +56,7 @@ export generate
 export conjugate, conjugation_md
 
 
-export stringParser
+export luhotStringParser
 export hebrewForm
 
 include("io.jl")

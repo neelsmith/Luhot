@@ -5,6 +5,14 @@ struct HMPPerson <: HebrewMorphologicalProperty
     end
 end
 
+"""Override Base.show for person property.
+$(SIGNATURES)
+"""
+function show(io::IO, prop::HMPPerson)
+    print(io, label(prop))
+end
+
+
 """Create a `HMPPerson` from its string name."""
 function hmpPerson(s::S)::HMPPerson where S <: AbstractString
     if s in keys(persontocodedict) 

@@ -5,6 +5,13 @@ struct HMPSubstantiveState <: HebrewMorphologicalProperty
     end
 end
 
+"""Override Base.show for substantive state property.
+$(SIGNATURES)
+"""
+function show(io::IO, prop::HMPSubstantiveState)
+    print(io, label(prop))
+end
+
 """Create a `HMPSubstantiveState` from its string name."""
 function hmpSubstantiveState(s::S)::HMPSubstantiveState where S <: AbstractString
     if s in keys(statetocodedict) 

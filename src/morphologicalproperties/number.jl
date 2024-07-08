@@ -5,6 +5,15 @@ struct HMPNumber <: HebrewMorphologicalProperty
     end
 end
 
+
+"""Override Base.show for number property.
+$(SIGNATURES)
+"""
+function show(io::IO, prop::HMPNumber)
+    print(io, label(prop))
+end
+
+
 """Create a `HMPNumber` from its string name."""
 function hmpNumber(s::S)::HMPNumber where S <: AbstractString
     if s in keys(numbertocodedict) 

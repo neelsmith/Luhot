@@ -5,6 +5,15 @@ struct HMPTense <: HebrewMorphologicalProperty
     end
 end
 
+
+"""Override Base.show for tense property.
+$(SIGNATURES)
+"""
+function show(io::IO, prop::HMPTense)
+    print(io, label(prop))
+end
+
+
 """Create a `HMPTense` from its string name."""
 function hmpTense(s::S)::HMPTense where S <: AbstractString
     if s in keys(tensetocodedict) 

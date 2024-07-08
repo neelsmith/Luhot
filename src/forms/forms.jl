@@ -27,7 +27,7 @@ end
 
 
 function hebrewForm(a::Analysis)
-    a |> formurn |> objectid |> hebrewForm
+    a.form |> objectid |> hebrewForm
 end
 
 """Create a `HebrewForm` from a form code.

@@ -5,6 +5,14 @@ struct HMPGender <: HebrewMorphologicalProperty
     end
 end
 
+
+"""Override Base.show for a case property.
+$(SIGNATURES)
+"""
+function show(io::IO, prop::HMPGender)
+    print(io, label(prop))
+end
+
 """Create a `HMPGender` from its string name."""
 function hmpGender(s::S)::HMPGender where S <: AbstractString
     if s in keys(gendertocodedict) 

@@ -66,7 +66,7 @@ ds = filesDataset(dirlist)
 
 # ╔═╡ 189a8215-8db5-4386-8ade-6cb75837d9a2
 
-parser = stringParser(ds)
+parser = luhotStringParser(ds)
 
 # ╔═╡ 2a4b709c-459e-465a-b4b5-f57bd074b01b
 isempty(token) ? md"" : Luhot.parsetoken(token, parser)

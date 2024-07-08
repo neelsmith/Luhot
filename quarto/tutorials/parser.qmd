@@ -49,7 +49,7 @@ You can build a parser directly from a dataset:
 ```{julia}
 #| warnings: false
 #| output: false
-parser = stringParser(ds)
+parser = luhotStringParser(ds)
 ```
 
 ## Parsing strings
