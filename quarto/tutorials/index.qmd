@@ -3,3 +3,6 @@ title: Tutorials
 ---
 
 Find tutorials to help you get started with Luhot here.
+
+- [Build a parser and parse a string](./parser.qmd)
+- [Generate forms](./generate.qmd)

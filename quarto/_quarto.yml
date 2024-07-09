@@ -37,8 +37,10 @@ website:
     - title: "Tutorials"
       contents: 
         - tutorials/index.qmd
+        - text: "---"
         - tutorials/parser.qmd
-
+        - tutorials/generate.qmd
+        
     - title: "Guides"
       contents:
         - guides/index.qmd

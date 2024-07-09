@@ -1,0 +1,28 @@
+# Generate forms
+
+Define the form you want:
+
+```{julia}
+using Luhot
+
+verbform = HebrewFiniteVerb(
+    hmpPattern("qal"), hmpTense("perfect"),
+    hmpPerson("third"), hmpNumber("singular"), hmpGender("masculine")
+)
+
+```
+
+
+
+Define a stem:
+
+```{julia}
+using CitableParserBuilder
+verbstem = LuhotVerbStem(StemUrn("verbs.BDB7394"), LexemeUrn("bdb.BDB7394"), "קָטַל", "sound")
+```
+
+Generate!
+
+```{julia}
+result = generate(verbstem, verbform)
+```
