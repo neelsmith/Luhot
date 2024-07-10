@@ -66,7 +66,7 @@ export conjugate, conjugation_md
 export luhotStringParser
 export hebrewForm
 
-export conjugate_tense_md
+export conjugate_tense_md, parallel_conjugations_md
 
 include("tokensplitter.jl")
 
@@ -113,6 +113,6 @@ include("parsers/parser.jl")
 include("parsers/stringparser.jl")
 
 
-include("forapps/md_perfect.jl")
+include("forapps/md_verbs.jl")
 
 end # module Luhot

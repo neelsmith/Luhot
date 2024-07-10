@@ -1,7 +1,20 @@
 # Sound triliteral root: קטל
 
+## All patterns
+```{julia}
+#| asis: true
+#| echo: false
+using Luhot, Markdown
+root = "קטל"
 
-## Qal
+parallel_conjugations_md(root) |> Markdown.parse
+
+```
+
+## Individual patterns of the perfect
+
+
+### Qal
 
 ```{julia}
 #| asis: true
@@ -13,7 +26,7 @@ conjugate_tense_md(root, hmpPattern("qal"), hmpTense("perfect")) |> Markdown.par
 ```
 
 
-## Niphal
+### Niphal
 
 ```{julia}
 #| asis: true
@@ -22,7 +35,7 @@ conjugate_tense_md(root, hmpPattern("niphal"), hmpTense("perfect")) |> Markdown.
 ```
 
 
-## Piel
+### Piel
 
 ```{julia}
 #| asis: true
@@ -30,7 +43,7 @@ conjugate_tense_md(root, hmpPattern("niphal"), hmpTense("perfect")) |> Markdown.
 conjugate_tense_md(root, hmpPattern("piel"), hmpTense("perfect")) |> Markdown.parse
 ```
 
-## Pual
+### Pual
 
 ```{julia}
 #| asis: true
@@ -40,7 +53,7 @@ conjugate_tense_md(root, hmpPattern("pual"), hmpTense("perfect")) |> Markdown.pa
 
 
 
-## Hiphil
+### Hiphil
 
 ```{julia}
 #| asis: true
@@ -49,7 +62,7 @@ conjugate_tense_md(root, hmpPattern("hiphil"), hmpTense("perfect")) |> Markdown.
 ```
 
 
-## Hophal
+### Hophal
 
 ```{julia}
 #| asis: true
@@ -60,7 +73,7 @@ conjugate_tense_md(root, hmpPattern("hophal"), hmpTense("perfect")) |> Markdown.
 
 
 
-## Hithpael
+### Hithpael
 
 ```{julia}
 #| asis: true
