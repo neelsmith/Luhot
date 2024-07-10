@@ -4,6 +4,7 @@
 ```{julia}
 #| asis: true
 #| echo: false
+#| warning: false
 using Luhot, Markdown
 root = "קטל"
 

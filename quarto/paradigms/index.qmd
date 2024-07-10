@@ -1,10 +1,8 @@
 # Paradigms
 
-To be replicated from Green grammar:
-
-- sound triliteral
-- stative verbs
+- a sound triliteral root: [קטל](./sound.qmd)
 - sound triliteral with object endings
+- stative verbs
 - pe-guttural
 - ayin-waw and ayin-yodh
 - ayin-doubld
