@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 2fac28de-44b3-422e-ba04-f34538d7d92d
+      url: 'https://neelsmith.quarto.pub/luhot'

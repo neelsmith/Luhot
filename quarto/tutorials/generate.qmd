@@ -12,18 +12,18 @@ verbform = HebrewFiniteVerb(
 
 ```
 
-"קָטַל"
+Then you can generate a form from a string value for the root form of the word.
+
+```{julia}
+root = "קטל"
+generate(root, verbform)
+```
 
 
-Define a stem:
+Alternatively, if you have defined a stem, you can generate a form from that.
 
 ```{julia}
 using CitableParserBuilder
 verbstem = LuhotVerbStem(StemUrn("verbs.BDB7394"), LexemeUrn("bdb.BDB7394"), "קָטַל", "sound")
-```
-
-Generate!
-
-```{julia}
 result = generate(verbstem, verbform)
 ```
