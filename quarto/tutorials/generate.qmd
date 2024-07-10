@@ -1,6 +1,6 @@
 # Generate forms
 
-Define the form you want:
+`Luhot` offers multiple ways to generate an inflected form, but all of them require you to define the form you want.
 
 ```{julia}
 using Luhot
@@ -12,6 +12,7 @@ verbform = HebrewFiniteVerb(
 
 ```
 
+"קָטַל"
 
 
 Define a stem:

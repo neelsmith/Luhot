@@ -155,8 +155,6 @@ function hmfFiniteVerb(a::Analysis)
     hmfFiniteVerb(a.form)
 end
 
-
-
 """Compose a `FormUrn` for a `HebrewFiniteVerb`.
 
 $(SIGNATURES)
@@ -165,7 +163,79 @@ function formurn(verbform::HebrewFiniteVerb)
     FormUrn(string("$(COLLECTION_ID).", code(verbform)))
 end
 
+#=
+function finiteverbforms()
+    formsv = []
+    # Limit person/number on imperative
+    PERFECT = 1
+    IMPERFECT = 2
+    IMPERATIVE = 3
+    JUSSIVE = 4
 
+    patternkeys = keys(Luhot.codetopatterndict) |> collect |> sort
+    personkeys = keys(Luhot.codetopersondict) |> collect |> sort
+
+    SINGULAR = 1
+    PLURAL = 3
+    numberkeys  = [SINGULAR, PLURAL]
+
+    MASCULINE = 1
+    FEMININE  = 2
+    genderkeys = [MASCULINE, FEMININE]
+    for pttrn in patternkeys
+        for tns in [PERFECT, IMPERFECT, JUSSIVE]
+            for prsn in personkeys
+                for nmbr in numberkeys
+                    for gndr in genderkeys
+                        form = HebrewFiniteVerb(
+                            hmpPattern(pttrn),
+                            hmpTense(tns),
+                            hmpPerson(prsn),
+                            hmpNumber(nmbr),
+                            hmpGender(gndr)
+
+                        )
+                        push!(formsv, form)
+                       # u = string(BASE_MORPHOLOGY_URN,FINITEVERB, pttrn, tns, prsn, nmbr, gndr, padothers)
+                       # textlabel = string("verb: ", 
+                        #label(hmpPattern(pttrn))," ",
+                        #label(hmpTense(tns)), " ",
+                        #label(hmpPerson(prsn)), " ",
+                        #label(hmpNumber(nmbr))," ",
+                        #label(hmpGender(gndr))
+                        #)
+                        #push!(lines, string(u, delimiter, textlabel))
+                    end
+                end
+            end
+        end
+    end
+
+    #=
+    SECOND = 2
+    for pttrn in patternkeys
+        for tns in [IMPERATIVE]
+            for prsn in [SECOND]
+                for nmbr in numberkeys
+                    for gndr in genderkeys
+                        u = string(BASE_MORPHOLOGY_URN,FINITEVERB, pttrn, tns, prsn, nmbr, gndr, padothers)
+                        textlabel = string("verb: ", 
+                        label(hmpPattern(pttrn))," ",
+                        label(hmpTense(tns)), " ",
+                        label(hmpPerson(prsn)), " ",
+                        label(hmpNumber(nmbr))," ",
+                        label(hmpGender(gndr))
+                        )
+                        push!(lines, string(u, "|", textlabel))
+                    end
+                end
+            end
+        end
+        
+    end=#
+    formsv
+end
+=#
 
 """Compose delimited-text representation of CITE collection for morphological forms of finite verbs.
 

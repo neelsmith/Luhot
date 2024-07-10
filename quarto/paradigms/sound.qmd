@@ -1,0 +1,69 @@
+# Sound triliteral root: קטל
+
+
+## Qal
+
+```{julia}
+#| asis: true
+#| echo: false
+using Luhot, Markdown
+root = "קטל"
+
+conjugate_tense_md(root, hmpPattern("qal"), hmpTense("perfect")) |> Markdown.parse
+```
+
+
+## Niphal
+
+```{julia}
+#| asis: true
+#| echo: false
+conjugate_tense_md(root, hmpPattern("niphal"), hmpTense("perfect")) |> Markdown.parse
+```
+
+
+## Piel
+
+```{julia}
+#| asis: true
+#| echo: false
+conjugate_tense_md(root, hmpPattern("piel"), hmpTense("perfect")) |> Markdown.parse
+```
+
+## Pual
+
+```{julia}
+#| asis: true
+#| echo: false
+conjugate_tense_md(root, hmpPattern("pual"), hmpTense("perfect")) |> Markdown.parse
+```
+
+
+
+## Hiphil
+
+```{julia}
+#| asis: true
+#| echo: false
+conjugate_tense_md(root, hmpPattern("hiphil"), hmpTense("perfect")) |> Markdown.parse
+```
+
+
+## Hophal
+
+```{julia}
+#| asis: true
+#| echo: false
+conjugate_tense_md(root, hmpPattern("hophal"), hmpTense("perfect")) |> Markdown.parse
+```
+
+
+
+
+## Hithpael
+
+```{julia}
+#| asis: true
+#| echo: false
+conjugate_tense_md(root, hmpPattern("hithpael"), hmpTense("perfect")) |> Markdown.parse
+```

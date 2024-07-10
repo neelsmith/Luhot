@@ -62,6 +62,8 @@ website:
     - title: "Paradigms"
       contents: 
         - paradigms/index.qmd
+        - text: "---"
+        - paradigms/sound.qmd
         
     - title: "Home"
       contents:
