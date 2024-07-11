@@ -1,9 +1,11 @@
 # Paradigms
 
 - a sound triliteral root: [קטל](./sound.qmd)
-- sound triliteral with object endings
-- stative verbs
-- pe-guttural
-- ayin-waw and ayin-yodh
-- ayin-doubld
-- lamedh-guttural
+- sound triliteral with object endings: קטל, שׁכל
+- stative verbs: כבד  
+- pe-guttural: עמד
+- ayin-guttural: גאל
+- ayin-waw and ayin-yodh: קמ
+- ayin-doubled: סבב
+- lamedh-guttural: שׁלח
+
