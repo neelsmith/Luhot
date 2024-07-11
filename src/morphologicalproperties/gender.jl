@@ -28,8 +28,8 @@ function hmpGender(code::Int64)
 end
 
 """Find code for gender."""
-function code(tns::HMPGender)
-    tns.code
+function code(gndr::HMPGender)
+    gndr.code
 end
 
 

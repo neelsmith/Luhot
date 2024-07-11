@@ -26,6 +26,6 @@ const poslabels = Dict(
     
     NOUN => "noun",
     PRONOUN => "pronoun",
-    ADJECTIVE => "adjective"
+    ADJECTIVE => "adjective",
 
 )

@@ -54,6 +54,7 @@ export code
 export HebrewForm
 export HebrewFiniteVerb, hmfFiniteVerb
 export HebrewNoun
+export HebrewObjectPronoun
 
 export LuhotVerbStem
 
@@ -80,6 +81,7 @@ include("morphologicalproperties/state.jl")
 
 include("forms/formvalues.jl")
 include("forms/forms.jl")
+include("forms/objectpronouns.jl")
 include("forms/finiteverbs.jl")
 include("forms/nouns.jl")
 
